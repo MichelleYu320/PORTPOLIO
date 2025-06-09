@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력 및 학력 - 유정희 포트폴리오</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+        .accent-color {
+            color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">경력 및 학력</h1>
+                <p class="text-lg opacity-90">Career & Education</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">콘텐츠 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">사이드 프로젝트</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <!-- Career Section -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-briefcase mr-3"></i>주요 업무 경험
+            </h2>
+            <div class="space-y-8">
+                <div class="border-l-4 border-gray-700 pl-6">
+                    <h3 class="text-xl font-bold accent-color">Senior Product Manager</h3>
+                    <p class="text-gray-600 mb-2">(주) 비상교육 | 2023.06 ~ 현재</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>AI 디지털교과서(AIDT) 콘텐츠 플랫폼 기획 및 관리</li>
+                        <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>생성형 AI 기반 콘텐츠 자동화 시스템 설계</li>
+                        <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>배포 시스템 개선 및 데이터 정합성 관리</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-graduation-cap mr-3"></i>학력 및 자격증
+            </h2>
+            <div class="space-y-6">
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold accent-color">학력</h3>
+                    <p class="text-gray-700">대학교 졸업 (전공 관련 정보)</p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold accent-color">자격증</h3>
+                    <p class="text-gray-700">관련 자격증 보유</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Page Navigation -->
+    <section class="py-10 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <a href="2.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    <i class="fas fa-arrow-left mr-2"></i>이전: 핵심 가치관
+                </a>
+                <a href="4.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    다음: 근무 경력 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 유정희. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

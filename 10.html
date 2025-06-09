@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연락처 - 유정희 포트폴리오</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            line-height: 1.7;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+        .contact-icon:hover {
+            transform: rotate(15deg) scale(1.2);
+            color: #667eea;
+        }
+        .page-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Navigation -->
+<nav class="page-nav bg-white shadow-md py-4">
+    <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between">
+            <a href="1.html" class="text-xl font-bold text-gray-800">유정희 포트폴리오</a>
+            <div class="flex space-x-6">
+                <a href="1.html" class="text-gray-600 hover:text-blue-500">홈</a>
+                <a href="2.html" class="text-gray-600 hover:text-blue-500">내소개</a>
+                <a href="5.html" class="text-gray-600 hover:text-blue-500">프로젝트 설명</a>
+                <span class="text-blue-500 font-semibold">기타</span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Contact Section -->
+<section class="gradient-bg hero-pattern min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="fade-in text-center mb-16">
+            <h1 class="text-5xl font-bold mb-6">Contact</h1>
+            <p class="text-xl max-w-3xl mx-auto opacity-90">
+                AI와 자동화를 통해 더 나은 서비스를 만들어가고 싶으시다면 언제든 연락주세요
+            </p>
+        </div>
+        
+        <div class="fade-in max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="glass-effect p-8 rounded-xl hover-scale">
+                    <i class="fas fa-envelope contact-icon text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Email</h3>
+                    <p class="text-lg opacity-90">yjhee0320@gmail.com</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl hover-scale">
+                    <i class="fas fa-phone contact-icon text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Phone</h3>
+                    <p class="text-lg opacity-90">010-5166-6780</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl hover-scale">
+                    <i class="fab fa-linkedin contact-icon text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">LinkedIn</h3>
+                    <p class="text-lg opacity-90">연결 요청 환영</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-xl hover-scale">
+                    <i class="fas fa-blog contact-icon text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Portfolio</h3>
+                    <p class="text-lg opacity-90">상세 포트폴리오</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <h3 class="text-2xl font-bold mb-6">나와 함께 일하고 싶으시다면</h3>
+                <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+                    저는 단지 기능을 기획하는 사람이 아니라, <span class="font-bold text-yellow-300">조직이 일하는 방식을 설계하는 사람</span>으로서, 
+                    여러분의 비전과 함께 성장하고 싶습니다.
+                </p>
+                <a href="mailto:yjhee0320@gmail.com" class="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold hover-scale shadow-lg inline-flex items-center">
+                    <i class="fas fa-paper-plane mr-3"></i>
+                    지금 연락하기
+                </a>
+            </div>
+            
+            <!-- 추가 정보 섹션 -->
+            <div class="mt-24 bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
+                <h3 class="text-2xl font-bold mb-6 text-center">협업 문의</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <i class="fas fa-lightbulb text-yellow-300 mr-3"></i>
+                            자문 및 컨설팅
+                        </h4>
+                        <p class="text-lg opacity-90">
+                            AI 및 자동화 관련 시스템 구축, 프롬프트 엔지니어링, 
+                            업무 프로세스 최적화 등에 대한 자문을 제공합니다.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <i class="fas fa-chalkboard-teacher text-yellow-300 mr-3"></i>
+                            강연 및 워크숍
+                        </h4>
+                        <p class="text-lg opacity-90">
+                            AI 활용 방법, 자동화 워크플로우 구축, 프롬프트 설계 등에 
+                            대한 실무 중심의 교육을 진행합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Page Navigation -->
+<section class="py-10 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center">
+            <a href="9.html" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg">
+                <i class="fas fa-arrow-left mr-2"></i>이전: 기획 철학 & 성장 곡선
+            </a>
+            <a href="1.html" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg">
+                홈으로 돌아가기 <i class="fas fa-home ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-lg opacity-75">© 2024 유정희. AI 기반 콘텐츠 자동화 기획자</p>
+        <p class="mt-2 opacity-60">자동화를 통해 더 나은 세상을 만들어가겠습니다.</p>
+    </div>
+</footer>
+
+<script>
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>

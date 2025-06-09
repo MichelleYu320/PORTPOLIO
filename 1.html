@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유정희 포트폴리오</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+        .hover-effect {
+            transition: all 0.3s ease;
+        }
+        .hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .accent-color {
+            color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-12">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4">유정희</h1>
+                <p class="text-xl mb-6">AI 기반 자동화 및 플랫폼 기획자 </p>
+                
+                <!-- Contact Info -->
+                <div class="flex justify-center space-x-8 text-sm opacity-90">
+                    <span><i class="fas fa-envelope mr-2"></i>yjhee0320@email.com</span>
+                    <span><i class="fas fa-phone mr-2"></i>010-5166-6780</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="1.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
+                <a href="4.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-blue-50 border-b-2 border-blue-500">에듀테크 글로벌 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-purple-50 border-b-2 border-purple-500">사이드 프로젝트</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <!-- Projects Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-10 accent-color">주요 프로젝트</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Project 1: AI 콘텐츠 자동화 -->
+                    <a href="5.html" class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 hover-effect">
+                        <div class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                            <i class="fas fa-robot text-5xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 accent-color">AI 콘텐츠 자동화</h3>
+                        <p class="text-gray-600">생성형 AI 기반 학습 콘텐츠 자동 생성 시스템</p>
+                    </a>
+                    
+                    <!-- Project 2: 콘텐츠 플랫폼 -->
+                    <a href="6.html" class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 hover-effect">
+                        <div class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                            <i class="fas fa-share-alt text-5xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 accent-color">AIDT 콘텐츠 플랫폼</h3>
+                        <p class="text-gray-600">콘텐츠 배포 시스템 및 데이터 정합성 관리</p>
+                    </a>
+                    
+                    <!-- Project 3: 사이드 프로젝트 -->
+                    <a href="7.html" class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 hover-effect">
+                        <div class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center text-gray-500">
+                            <i class="fas fa-water text-5xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 accent-color">BreatheLog</h3>
+                        <p class="text-gray-600">프리다이빙 기록 관리 및 팀 매칭 서비스</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2025 유정희. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
