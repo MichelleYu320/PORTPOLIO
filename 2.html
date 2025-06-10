@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기본정보 - 유정희 포트폴리오</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lang-toggle.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
@@ -28,12 +29,18 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <!-- Header -->
     <header class="bg-gradient text-white shadow-lg">
         <div class="container mx-auto px-6 py-8">
             <div class="text-center">
-                <h1 class="text-4xl font-bold mb-2">기본정보</h1>
-                <p class="text-lg opacity-90">About Me</p>
+                <h1 class="text-4xl font-bold mb-2" data-ko="기본정보" data-en="Profile">기본정보</h1>
+                <p class="text-lg opacity-90" data-ko="About Me" data-en="About Me">About Me</p>
             </div>
         </div>
     </header>
@@ -42,12 +49,12 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-center space-x-8 py-4">
-                <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
-                <a href="2.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800">기본정보</a>
-                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500">AI 콘텐츠 자동화</a>
-                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
-                <a href="4.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-blue-50 border-b-2 border-blue-500">에듀테크 글로벌 플랫폼</a>
-                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-purple-50 border-b-2 border-purple-500">사이드 프로젝트</a>
+                <a href="index.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="홈" data-en="Home">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800" data-ko="기본정보" data-en="Profile">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500" data-ko="AI 콘텐츠 자동화" data-en="AI Content Automation">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-green-50 border-b-2 border-green-500" data-ko="콘텐츠 플랫폼" data-en="Content Platform">콘텐츠 플랫폼</a>
+                <a href="4.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-blue-50 border-b-2 border-blue-500" data-ko="에듀테크 글로벌 플랫폼" data-en="EdTech Global Platform">에듀테크 글로벌 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-purple-50 border-b-2 border-purple-500" data-ko="사이드 프로젝트" data-en="Side Projects">사이드 프로젝트</a>
             </div>
         </div>
     </nav>
@@ -56,36 +63,36 @@
     <main class="container mx-auto px-6 py-16 space-y-16">
         <!-- Personal Values Section -->
         <section class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-heart mr-3"></i>핵심 가치관
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color" data-ko="핵심 가치관" data-en="Core Values">
+                <i class="fas fa-heart mr-3"></i><span data-ko="핵심 가치관" data-en="Core Values">핵심 가치관</span>
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="space-y-6">
                     <div class="highlight-bg p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-3 accent-color">
-                            <i class="fas fa-lightbulb mr-2"></i>혁신적 사고
+                        <h3 class="text-xl font-bold mb-3 accent-color" data-ko="혁신적 사고" data-en="Innovative Thinking">
+                            <i class="fas fa-lightbulb mr-2"></i><span data-ko="혁신적 사고" data-en="Innovative Thinking">혁신적 사고</span>
                         </h3>
-                        <p class="text-gray-700">새로운 기술과 트렌드를 빠르게 이해하고, 기존의 방식에 얽매이지 않는 창의적인 솔루션을 추구합니다.</p>
+                        <p class="text-gray-700" data-ko="새로운 기술과 트렌드를 빠르게 이해하고, 기존의 방식에 얽매이지 않는 창의적인 솔루션을 추구합니다." data-en="I quickly understand new technologies and trends, and pursue creative solutions that are not bound by conventional methods.">새로운 기술과 트렌드를 빠르게 이해하고, 기존의 방식에 얽매이지 않는 창의적인 솔루션을 추구합니다.</p>
                     </div>
                     <div class="highlight-bg p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-3 accent-color">
-                            <i class="fas fa-users mr-2"></i>협업의 힘
+                        <h3 class="text-xl font-bold mb-3 accent-color" data-ko="협업의 힘" data-en="Power of Collaboration">
+                            <i class="fas fa-users mr-2"></i><span data-ko="협업의 힘" data-en="Power of Collaboration">협업의 힘</span>
                         </h3>
-                        <p class="text-gray-700">다양한 팀과의 원활한 소통을 통해 더 나은 결과를 만들어내는 것을 중요하게 생각합니다.</p>
+                        <p class="text-gray-700" data-ko="다양한 팀과의 원활한 소통을 통해 더 나은 결과를 만들어내는 것을 중요하게 생각합니다." data-en="I value creating better results through smooth communication with diverse teams.">다양한 팀과의 원활한 소통을 통해 더 나은 결과를 만들어내는 것을 중요하게 생각합니다.</p>
                     </div>
                 </div>
                 <div class="space-y-6">
                     <div class="highlight-bg p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-3 accent-color">
-                            <i class="fas fa-chart-line mr-2"></i>지속적 성장
+                        <h3 class="text-xl font-bold mb-3 accent-color" data-ko="지속적 성장" data-en="Continuous Growth">
+                            <i class="fas fa-chart-line mr-2"></i><span data-ko="지속적 성장" data-en="Continuous Growth">지속적 성장</span>
                         </h3>
-                        <p class="text-gray-700">끊임없는 학습과 개선을 통해 개인과 조직의 성장을 동시에 추구합니다.</p>
+                        <p class="text-gray-700" data-ko="끊임없는 학습과 개선을 통해 개인과 조직의 성장을 동시에 추구합니다." data-en="I pursue both personal and organizational growth through continuous learning and improvement.">끊임없는 학습과 개선을 통해 개인과 조직의 성장을 동시에 추구합니다.</p>
                     </div>
                     <div class="highlight-bg p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-3 accent-color">
-                            <i class="fas fa-target mr-2"></i>사용자 중심
+                        <h3 class="text-xl font-bold mb-3 accent-color" data-ko="사용자 중심" data-en="User-Centric">
+                            <i class="fas fa-target mr-2"></i><span data-ko="사용자 중심" data-en="User-Centric">사용자 중심</span>
                         </h3>
-                        <p class="text-gray-700">사용자의 니즈와 관점을 항상 최우선으로 고려하여 가치 있는 제품을 만들어 나갑니다.</p>
+                        <p class="text-gray-700" data-ko="사용자의 니즈와 관점을 항상 최우선으로 고려하여 가치 있는 제품을 만들어 나갑니다." data-en="I always prioritize user needs and perspectives to create valuable products.">사용자의 니즈와 관점을 항상 최우선으로 고려하여 가치 있는 제품을 만들어 나갑니다.</p>
                     </div>
                 </div>
             </div>
@@ -93,78 +100,78 @@
 
         <!-- Education and Career Section -->
         <section class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-graduation-cap mr-3"></i>경력 및 학력
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color" data-ko="경력 및 학력" data-en="Career & Education">
+                <i class="fas fa-graduation-cap mr-3"></i><span data-ko="경력 및 학력" data-en="Career & Education">경력 및 학력</span>
             </h2>
             
             <!-- Work Experience -->
             <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-6 accent-color">근무 경력</h3>
+                <h3 class="text-2xl font-bold mb-6 accent-color" data-ko="근무 경력" data-en="Work Experience">근무 경력</h3>
                 <div class="space-y-8">
                     <!-- 비상교육 -->
                     <div class="border-l-4 border-gray-700 pl-6">
                         <h4 class="text-xl font-bold accent-color">Senior Product Manager</h4>
-                        <p class="text-gray-600 mb-2">(주) 비상교육 | 2019.06 ~ 현재</p>
-                        <p class="text-gray-700 mb-4">
+                        <p class="text-gray-600 mb-2" data-ko="(주) 비상교육 | 2019.06 ~ 현재" data-en="Visang Education Inc. | 2019.06 ~ Present">(주) 비상교육 | 2019.06 ~ 현재</p>
+                        <p class="text-gray-700 mb-4" data-ko="EdTech AI 콘텐츠 플랫폼 PM으로서 AI 디지털교과서부터 글로벌 화상 플랫폼까지 다양한 프로젝트를 담당했습니다." data-en="As an EdTech AI content platform PM, I have managed various projects from AI digital textbooks to global video platforms.">
                             EdTech AI 콘텐츠 플랫폼 PM으로서 AI 디지털교과서부터 글로벌 화상 플랫폼까지 다양한 프로젝트를 담당했습니다.
                         </p>
                         
                         <!-- AI 디지털교과서 프로젝트 -->
                         <div class="mb-4">
-                            <h5 class="font-bold text-gray-800 mb-2">AI 디지털교과서 콘텐츠 플랫폼 구축 (2023.06~)</h5>
+                            <h5 class="font-bold text-gray-800 mb-2" data-ko="AI 디지털교과서 콘텐츠 플랫폼 구축 (2023.06~)" data-en="AI Digital Textbook Content Platform Development (2023.06~)">AI 디지털교과서 콘텐츠 플랫폼 구축 (2023.06~)</h5>
                             <ul class="space-y-1 text-gray-700 text-sm">
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>콘텐츠 관리 시스템(CMS) 주요 기획 및 기능 설계</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>생성형 AI 기반 힌트/해설 자동 생성 기능 설계</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>메타데이터 정의 및 문항 콘텐츠 DB 마이그레이션</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>AWS↔NCP 간 콘텐츠 배포시스템 설계 및 정책 수립</li>
+                                <li data-ko="• 콘텐츠 관리 시스템(CMS) 주요 기획 및 기능 설계" data-en="• Content Management System (CMS) core planning and feature design"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="콘텐츠 관리 시스템(CMS) 주요 기획 및 기능 설계" data-en="Content Management System (CMS) core planning and feature design">콘텐츠 관리 시스템(CMS) 주요 기획 및 기능 설계</span></li>
+                                <li data-ko="• 생성형 AI 기반 힌트/해설 자동 생성 기능 설계" data-en="• Generative AI-based automatic hint/explanation generation feature design"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="생성형 AI 기반 힌트/해설 자동 생성 기능 설계" data-en="Generative AI-based automatic hint/explanation generation feature design">생성형 AI 기반 힌트/해설 자동 생성 기능 설계</span></li>
+                                <li data-ko="• 메타데이터 정의 및 문항 콘텐츠 DB 마이그레이션" data-en="• Metadata definition and question content DB migration"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="메타데이터 정의 및 문항 콘텐츠 DB 마이그레이션" data-en="Metadata definition and question content DB migration">메타데이터 정의 및 문항 콘텐츠 DB 마이그레이션</span></li>
+                                <li data-ko="• AWS↔NCP 간 콘텐츠 배포시스템 설계 및 정책 수립" data-en="• AWS↔NCP content distribution system design and policy establishment"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="AWS↔NCP 간 콘텐츠 배포시스템 설계 및 정책 수립" data-en="AWS↔NCP content distribution system design and policy establishment">AWS↔NCP 간 콘텐츠 배포시스템 설계 및 정책 수립</span></li>
                             </ul>
                         </div>
 
                         <!-- 한국어 AI 대화 학습 서비스 -->
                         <div class="mb-4">
-                            <h5 class="font-bold text-gray-800 mb-2">한국어 AI 대화 학습 서비스 기획 (2023.01~06)</h5>
+                            <h5 class="font-bold text-gray-800 mb-2" data-ko="한국어 AI 대화 학습 서비스 기획 (2023.01~06)" data-en="Korean AI Conversation Learning Service Planning (2023.01~06)">한국어 AI 대화 학습 서비스 기획 (2023.01~06)</h5>
                             <ul class="space-y-1 text-gray-700 text-sm">
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>한국어 STT/TTS 기반 LLM 서비스 상위 구조 기획</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>외주사 커뮤니케이션 및 일정 조율 포함 전체 프로젝트 리딩</li>
+                                <li data-ko="• 한국어 STT/TTS 기반 LLM 서비스 상위 구조 기획" data-en="• Korean STT/TTS-based LLM service high-level architecture planning"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="한국어 STT/TTS 기반 LLM 서비스 상위 구조 기획" data-en="Korean STT/TTS-based LLM service high-level architecture planning">한국어 STT/TTS 기반 LLM 서비스 상위 구조 기획</span></li>
+                                <li data-ko="• 외주사 커뮤니케이션 및 일정 조율 포함 전체 프로젝트 리딩" data-en="• Overall project leadership including vendor communication and schedule coordination"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="외주사 커뮤니케이션 및 일정 조율 포함 전체 프로젝트 리딩" data-en="Overall project leadership including vendor communication and schedule coordination">외주사 커뮤니케이션 및 일정 조율 포함 전체 프로젝트 리딩</span></li>
                             </ul>
                         </div>
 
                         <!-- 글로벌 화상 플랫폼 -->
                         <div class="mb-4">
-                            <h5 class="font-bold text-gray-800 mb-2">글로벌 화상 플랫폼 구축 및 운영 (2019.06~2023.06)</h5>
+                            <h5 class="font-bold text-gray-800 mb-2" data-ko="글로벌 화상 플랫폼 구축 및 운영 (2019.06~2023.06)" data-en="Global Video Platform Development and Operations (2019.06~2023.06)">글로벌 화상 플랫폼 구축 및 운영 (2019.06~2023.06)</h5>
                             <ul class="space-y-1 text-gray-700 text-sm">
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>WebRTC 기반 교육 플랫폼 구축 및 LMS 기획 (8개국 대상)</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>VoC 기반 리뉴얼 2회 및 B2B, C2C 구조 고도화</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>API/SDK 활용한 외부 솔루션 연동 및 커스터마이징</li>
-                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>고객 KPI 기반 교육 운영 및 QA 문서화</li>
+                                <li data-ko="• WebRTC 기반 교육 플랫폼 구축 및 LMS 기획 (8개국 대상)" data-en="• WebRTC-based educational platform development and LMS planning (targeting 8 countries)"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="WebRTC 기반 교육 플랫폼 구축 및 LMS 기획 (8개국 대상)" data-en="WebRTC-based educational platform development and LMS planning (targeting 8 countries)">WebRTC 기반 교육 플랫폼 구축 및 LMS 기획 (8개국 대상)</span></li>
+                                <li data-ko="• VoC 기반 리뉴얼 2회 및 B2B, C2C 구조 고도화" data-en="• Two VoC-based renewals and B2B, C2C structure advancement"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="VoC 기반 리뉴얼 2회 및 B2B, C2C 구조 고도화" data-en="Two VoC-based renewals and B2B, C2C structure advancement">VoC 기반 리뉴얼 2회 및 B2B, C2C 구조 고도화</span></li>
+                                <li data-ko="• API/SDK 활용한 외부 솔루션 연동 및 커스터마이징" data-en="• External solution integration and customization using API/SDK"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="API/SDK 활용한 외부 솔루션 연동 및 커스터마이징" data-en="External solution integration and customization using API/SDK">API/SDK 활용한 외부 솔루션 연동 및 커스터마이징</span></li>
+                                <li data-ko="• 고객 KPI 기반 교육 운영 및 QA 문서화" data-en="• Customer KPI-based training operations and QA documentation"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="고객 KPI 기반 교육 운영 및 QA 문서화" data-en="Customer KPI-based training operations and QA documentation">고객 KPI 기반 교육 운영 및 QA 문서화</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- 더브릿지소프트 -->
                     <div class="border-l-4 border-gray-600 pl-6">
-                        <h4 class="text-xl font-bold accent-color">서비스 기획 프리랜서</h4>
-                        <p class="text-gray-600 mb-2">(주) 더브릿지소프트 | 2018.12 ~ 2019.02</p>
-                        <p class="text-gray-700 mb-4">
+                        <h4 class="text-xl font-bold accent-color" data-ko="서비스 기획 프리랜서" data-en="Service Planning Freelancer">서비스 기획 프리랜서</h4>
+                        <p class="text-gray-600 mb-2" data-ko="(주) 더브릿지소프트 | 2018.12 ~ 2019.02" data-en="The Bridge Soft Inc. | 2018.12 ~ 2019.02">(주) 더브릿지소프트 | 2018.12 ~ 2019.02</p>
+                        <p class="text-gray-700 mb-4" data-ko="전자정부 프로젝트에서 서비스 기획 및 품질관리를 담당했습니다." data-en="Responsible for service planning and quality management in e-government projects.">
                             전자정부 프로젝트에서 서비스 기획 및 품질관리를 담당했습니다.
                         </p>
                         <ul class="space-y-2 text-gray-700">
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>르완다 정부 대상 전자결재 시스템 설계 및 품질관리</li>
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>사용자 매뉴얼 작성 및 국/영문 교육 진행</li>
+                            <li data-ko="• 르완다 정부 대상 전자결재 시스템 설계 및 품질관리" data-en="• Electronic approval system design and quality management for Rwanda government"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="르완다 정부 대상 전자결재 시스템 설계 및 품질관리" data-en="Electronic approval system design and quality management for Rwanda government">르완다 정부 대상 전자결재 시스템 설계 및 품질관리</span></li>
+                            <li data-ko="• 사용자 매뉴얼 작성 및 국/영문 교육 진행" data-en="• User manual creation and Korean/English training delivery"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="사용자 매뉴얼 작성 및 국/영문 교육 진행" data-en="User manual creation and Korean/English training delivery">사용자 매뉴얼 작성 및 국/영문 교육 진행</span></li>
                         </ul>
                     </div>
 
                     <!-- 코이카 -->
                     <div class="border-l-4 border-gray-500 pl-6">
                         <h4 class="text-xl font-bold accent-color">Young Professional</h4>
-                        <p class="text-gray-600 mb-2">한국국제협력단(KOICA) | 2017.11 ~ 2018.09</p>
-                        <p class="text-gray-700 mb-4">
+                        <p class="text-gray-600 mb-2" data-ko="한국국제협력단(KOICA) | 2017.11 ~ 2018.09" data-en="Korea International Cooperation Agency (KOICA) | 2017.11 ~ 2018.09">한국국제협력단(KOICA) | 2017.11 ~ 2018.09</p>
+                        <p class="text-gray-700 mb-4" data-ko="교육 및 ICT 프로젝트 운영을 담당했습니다." data-en="Responsible for education and ICT project operations.">
                             교육 및 ICT 프로젝트 운영을 담당했습니다.
                         </p>
                         <ul class="space-y-2 text-gray-700">
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>다국가 연수 사업 운영 및 예산 집행</li>
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>UNESCO ICT 워크숍 기획 참여 및 보고서 작성</li>
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>이러닝 콘텐츠 활용 사업 성과 모니터링</li>
+                            <li data-ko="• 다국가 연수 사업 운영 및 예산 집행" data-en="• Multi-country training program operations and budget execution"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="다국가 연수 사업 운영 및 예산 집행" data-en="Multi-country training program operations and budget execution">다국가 연수 사업 운영 및 예산 집행</span></li>
+                            <li data-ko="• UNESCO ICT 워크숍 기획 참여 및 보고서 작성" data-en="• UNESCO ICT workshop planning participation and report writing"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="UNESCO ICT 워크숍 기획 참여 및 보고서 작성" data-en="UNESCO ICT workshop planning participation and report writing">UNESCO ICT 워크숍 기획 참여 및 보고서 작성</span></li>
+                            <li data-ko="• 이러닝 콘텐츠 활용 사업 성과 모니터링" data-en="• E-learning content utilization project performance monitoring"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="이러닝 콘텐츠 활용 사업 성과 모니터링" data-en="E-learning content utilization project performance monitoring">이러닝 콘텐츠 활용 사업 성과 모니터링</span></li>
                         </ul>
                     </div>
                 </div>
@@ -172,171 +179,47 @@
 
             <!-- Education -->
             <div>
-                <h3 class="text-2xl font-bold mb-6 accent-color">학력</h3>
+                <h3 class="text-2xl font-bold mb-6 accent-color" data-ko="학력" data-en="Education">학력</h3>
                 <div class="space-y-6">
                     <div class="border-l-4 border-blue-600 pl-6">
-                        <h4 class="text-xl font-bold accent-color">아동학/정치외교학 학사 (복수전공)</h4>
-                        <p class="text-gray-600 mb-2">대구가톨릭대학교 | 2011.03 ~ 2017.07</p>
-                        <p class="text-gray-700">아동학과 정치외교학 복수전공으로 졸업</p>
+                        <h4 class="text-xl font-bold accent-color" data-ko="아동학/정치외교학 학사 (복수전공)" data-en="Bachelor's in Child Studies/Political Science & Diplomacy (Double Major)">아동학/정치외교학 학사 (복수전공)</h4>
+                        <p class="text-gray-600 mb-2" data-ko="대구가톨릭대학교 | 2011.03 ~ 2017.07" data-en="Daegu Catholic University | 2011.03 ~ 2017.07">대구가톨릭대학교 | 2011.03 ~ 2017.07</p>
+                        <p class="text-gray-700" data-ko="아동학과 정치외교학 복수전공으로 졸업" data-en="Graduated with double major in Child Studies and Political Science & Diplomacy">아동학과 정치외교학 복수전공으로 졸업</p>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-6">
-                        <h4 class="text-xl font-bold accent-color">정치외교학 (학점교류)</h4>
-                        <p class="text-gray-600 mb-2">서강대학교 | 2012.03 ~ 2013.03</p>
-                        <p class="text-gray-700">학점교류 프로그램을 통한 정치외교학 심화 학습</p>
+                        <h4 class="text-xl font-bold accent-color" data-ko="정치외교학 (학점교류)" data-en="Political Science & Diplomacy (Credit Exchange)">정치외교학 (학점교류)</h4>
+                        <p class="text-gray-600 mb-2" data-ko="서강대학교 | 2012.03 ~ 2013.03" data-en="Sogang University | 2012.03 ~ 2013.03">서강대학교 | 2012.03 ~ 2013.03</p>
+                        <p class="text-gray-700" data-ko="학점교류 프로그램을 통한 정치외교학 심화 학습" data-en="Advanced Political Science & Diplomacy studies through credit exchange program">학점교류 프로그램을 통한 정치외교학 심화 학습</p>
                     </div>
                 </div>
                 
                 <!-- AI 교육 이력 -->
                 <div class="mt-8">
-                    <h4 class="text-lg font-bold mb-4 accent-color">AI 전문 교육</h4>
+                    <h4 class="text-lg font-bold mb-4 accent-color" data-ko="AI 전문 교육" data-en="AI Specialized Education">AI 전문 교육</h4>
                     <div class="border-l-4 border-green-500 pl-6">
-                        <h5 class="font-bold text-gray-800 mb-2">AI 전문가 과정 수료 (360시간)</h5>
-                        <p class="text-gray-700 mb-2">
+                        <h5 class="font-bold text-gray-800 mb-2" data-ko="AI 전문가 과정 수료 (360시간)" data-en="AI Expert Course Completion (360 hours)">AI 전문가 과정 수료 (360시간)</h5>
+                        <p class="text-gray-700 mb-2" data-ko="머신러닝/딥러닝 로직 이해를 바탕으로 Python, 통계, 데이터 전처리, 자연어처리 등 실무형 AI 기술 학습" data-en="Practical AI technology learning including Python, statistics, data preprocessing, and natural language processing based on machine learning/deep learning logic understanding">
                             머신러닝/딥러닝 로직 이해를 바탕으로 Python, 통계, 데이터 전처리, 자연어처리 등 실무형 AI 기술 학습
                         </p>
                         <ul class="space-y-1 text-gray-700 text-sm">
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>데이터 전처리 → 머신러닝/딥러닝 → 자연어처리 프로젝트 수행</li>
-                            <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>챗봇 개발 및 이미지 처리 특강 포함</li>
+                            <li data-ko="• 데이터 전처리 → 머신러닝/딥러닝 → 자연어처리 프로젝트 수행" data-en="• Data preprocessing → Machine learning/Deep learning → Natural language processing project execution"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="데이터 전처리 → 머신러닝/딥러닝 → 자연어처리 프로젝트 수행" data-en="Data preprocessing → Machine learning/Deep learning → Natural language processing project execution">데이터 전처리 → 머신러닝/딥러닝 → 자연어처리 프로젝트 수행</span></li>
+                            <li data-ko="• 챗봇 개발 및 이미지 처리 특강 포함" data-en="• Including chatbot development and image processing special lectures"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="챗봇 개발 및 이미지 처리 특강 포함" data-en="Including chatbot development and image processing special lectures">챗봇 개발 및 이미지 처리 특강 포함</span></li>
                         </ul>
-                    </div>
-                </div>
-
-                <!-- 자격증 -->
-                <div class="mt-8">
-                    <h4 class="text-lg font-bold mb-4 accent-color">자격증</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="border-l-4 border-purple-500 pl-6">
-                            <h5 class="font-bold text-gray-800">유치원 정교사 2급</h5>
-                            <p class="text-gray-600 text-sm">교육부</p>
-                        </div>
-                        <div class="border-l-4 border-purple-400 pl-6">
-                            <h5 class="font-bold text-gray-800">보육교사 2급</h5>
-                            <p class="text-gray-600 text-sm">보건복지부</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 언어 능력 -->
-                <div class="mt-8">
-                    <h4 class="text-lg font-bold mb-4 accent-color">언어 능력</h4>
-                    <div class="border-l-4 border-orange-500 pl-6">
-                        <h5 class="font-bold text-gray-800">비즈니스 영어</h5>
-                        <p class="text-gray-700">읽기/쓰기/말하기 중상급</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills and AI Experience -->
-        <section class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-rocket mr-3"></i>핵심 역량 및 AI 활용 경험
-            </h2>
-            
-            <!-- Core Skills -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="text-center">
-                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-cog text-3xl text-gray-600"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 accent-color">풀사이클 PM</h3>
-                    <p class="text-gray-700 text-sm">국내외 B2B/B2C 에듀테크 플랫폼 구축부터 운영까지</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-robot text-3xl text-gray-600"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 accent-color">AI 서비스 설계</h3>
-                    <p class="text-gray-700 text-sm">생성형 AI 기반 콘텐츠 자동화 및 학습 플랫폼 구축</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-3xl text-gray-600"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 accent-color">크로스팀 협업</h3>
-                    <p class="text-gray-700 text-sm">개발, 디자인, 외부 벤더와의 효과적인 협업 리딩</p>
-                </div>
-            </div>
-
-            <!-- AI Tools & Automation -->
-            <div class="border-t pt-8">
-                <h3 class="text-2xl font-bold mb-6 accent-color">AI 기반 자동화 및 서비스 구현 경험</h3>
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-3">
-                            <i class="fas fa-newspaper text-blue-600 mr-2"></i>자동화 도구를 활용한 뉴스레터 자동화
-                        </h4>
-                        <p class="text-gray-700 text-sm mb-2">Make, n8n을 활용한 RSS → 요약 프롬프트 → Gmail 연동까지 실시간 워크플로우 구축</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Make</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">n8n</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">GPT API</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-3">
-                            <i class="fas fa-water text-green-600 mr-2"></i>프리다이빙 기록 관리 플랫폼 직접 구현
-                        </h4>
-                        <p class="text-gray-700 text-sm mb-2">전체 UX/UI 기획부터 프론트/백엔드 연계까지 단독 수행</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Cursor AI</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Supabase</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Vercel</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Figma</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-3">
-                            <i class="fas fa-chart-line text-purple-600 mr-2"></i>AI 기반 트렌드 분석 자동화 실험
-                        </h4>
-                        <p class="text-gray-700 text-sm mb-2">웹 데이터 기반 주요 키워드 추출 및 시계열 분석 파이프라인 기획</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Claude</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Web Scraping</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">데이터 분석</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h4 class="font-bold text-gray-800 mb-3">
-                            <i class="fas fa-brain text-orange-600 mr-2"></i>프롬프트 엔지니어링 및 생성형 AI 실무 적용
-                        </h4>
-                        <p class="text-gray-700 text-sm mb-2">난이도별 힌트 생성, 사용자 맞춤 말투 적용 등 구조화된 체계 설계</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">GPT</span>
-                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Claude</span>
-                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">프롬프트 설계</span>
-                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">품질 검증</span>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Page Navigation -->
-    <section class="py-10 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center">
-                <a href="1.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
-                    <i class="fas fa-arrow-left mr-2"></i>이전: 홈
-                </a>
-                <a href="5.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
-                    다음: AI 콘텐츠 자동화 <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6">
             <div class="text-center">
-                <p class="text-gray-400">&copy; 2025 유정희. All rights reserved.</p>
+                <p class="text-gray-400" data-ko="&copy; 2024 유정희. All rights reserved." data-en="&copy; 2024 Michelle Yu. All rights reserved.">&copy; 2024 유정희. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="lang-toggle.js"></script>
 </body>
 </html>

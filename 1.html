@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>유정희 포트폴리오</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="lang-toggle.css"><script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
         body {
@@ -31,13 +31,13 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800"><!-- Language Toggle --><div class="lang-toggle"><button class="lang-btn active" data-lang="ko">한국어</button><button class="lang-btn" data-lang="en">English</button></div>
     <!-- Header -->
     <header class="bg-gradient text-white shadow-lg">
         <div class="container mx-auto px-6 py-12">
             <div class="text-center">
-                <h1 class="text-5xl font-bold mb-4">유정희</h1>
-                <p class="text-xl mb-6">AI 기반 자동화 및 플랫폼 기획자 </p>
+                <h1 class="text-5xl font-bold mb-4" data-ko="유정희" data-en="Michelle Yu">유정희</h1>
+                <p class="text-xl mb-6" data-ko="AI 기반 자동화 및 플랫폼 기획자" data-en="AI-based Automation & Platform Product Manager">AI 기반 자동화 및 플랫폼 기획자 </p>
                 
                 <!-- Contact Info -->
                 <div class="flex justify-center space-x-8 text-sm opacity-90">
@@ -52,7 +52,7 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-center space-x-8 py-4">
-                <a href="1.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800">홈</a>
+                <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800">홈</a>
                 <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
                 <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500">AI 콘텐츠 자동화</a>
                 <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
@@ -108,5 +108,5 @@
             </div>
         </div>
     </footer>
-</body>
+<script src="lang-toggle.js"></script></body>
 </html>

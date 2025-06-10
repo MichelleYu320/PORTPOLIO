@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>경력 및 학력 - 유정희 포트폴리오</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lang-toggle.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
@@ -25,12 +26,18 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <!-- Header -->
     <header class="bg-gradient text-white shadow-lg">
         <div class="container mx-auto px-6 py-8">
             <div class="text-center">
-                <h1 class="text-4xl font-bold mb-2">경력 및 학력</h1>
-                <p class="text-lg opacity-90">Career & Education</p>
+                <h1 class="text-4xl font-bold mb-2" data-ko="경력 및 학력" data-en="Career & Education">경력 및 학력</h1>
+                <p class="text-lg opacity-90" data-ko="Career & Education" data-en="Career & Education">Career & Education</p>
             </div>
         </div>
     </header>
@@ -39,11 +46,11 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-center space-x-8 py-4">
-                <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
-                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
-                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">AI 콘텐츠 자동화</a>
-                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">콘텐츠 플랫폼</a>
-                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">사이드 프로젝트</a>
+                <a href="index.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="홈" data-en="Home">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="기본정보" data-en="Profile">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="AI 콘텐츠 자동화" data-en="AI Content Automation">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="콘텐츠 플랫폼" data-en="Content Platform">콘텐츠 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="사이드 프로젝트" data-en="Side Projects">사이드 프로젝트</a>
             </div>
         </div>
     </nav>
@@ -52,17 +59,17 @@
     <main class="container mx-auto px-6 py-16">
         <!-- Career Section -->
         <section class="bg-white rounded-lg shadow-md p-8 mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-briefcase mr-3"></i>주요 업무 경험
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color" data-ko="주요 업무 경험" data-en="Key Work Experience">
+                <i class="fas fa-briefcase mr-3"></i><span data-ko="주요 업무 경험" data-en="Key Work Experience">주요 업무 경험</span>
             </h2>
             <div class="space-y-8">
                 <div class="border-l-4 border-gray-700 pl-6">
                     <h3 class="text-xl font-bold accent-color">Senior Product Manager</h3>
-                    <p class="text-gray-600 mb-2">(주) 비상교육 | 2023.06 ~ 현재</p>
+                    <p class="text-gray-600 mb-2" data-ko="(주) 비상교육 | 2023.06 ~ 현재" data-en="Visang Education Inc. | 2023.06 ~ Present">(주) 비상교육 | 2023.06 ~ 현재</p>
                     <ul class="space-y-2 text-gray-700">
-                        <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>AI 디지털교과서(AIDT) 콘텐츠 플랫폼 기획 및 관리</li>
-                        <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>생성형 AI 기반 콘텐츠 자동화 시스템 설계</li>
-                        <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>배포 시스템 개선 및 데이터 정합성 관리</li>
+                        <li data-ko="• AI 디지털교과서(AIDT) 콘텐츠 플랫폼 기획 및 관리" data-en="• AI Digital Textbook (AIDT) content platform planning and management"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="AI 디지털교과서(AIDT) 콘텐츠 플랫폼 기획 및 관리" data-en="AI Digital Textbook (AIDT) content platform planning and management">AI 디지털교과서(AIDT) 콘텐츠 플랫폼 기획 및 관리</span></li>
+                        <li data-ko="• 생성형 AI 기반 콘텐츠 자동화 시스템 설계" data-en="• Generative AI-based content automation system design"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="생성형 AI 기반 콘텐츠 자동화 시스템 설계" data-en="Generative AI-based content automation system design">생성형 AI 기반 콘텐츠 자동화 시스템 설계</span></li>
+                        <li data-ko="• 배포 시스템 개선 및 데이터 정합성 관리" data-en="• Distribution system improvement and data integrity management"><i class="fas fa-dot-circle text-gray-500 mr-2"></i><span data-ko="배포 시스템 개선 및 데이터 정합성 관리" data-en="Distribution system improvement and data integrity management">배포 시스템 개선 및 데이터 정합성 관리</span></li>
                     </ul>
                 </div>
             </div>
@@ -70,17 +77,17 @@
 
         <!-- Education Section -->
         <section class="bg-white rounded-lg shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-graduation-cap mr-3"></i>학력 및 자격증
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color" data-ko="학력 및 자격증" data-en="Education & Certifications">
+                <i class="fas fa-graduation-cap mr-3"></i><span data-ko="학력 및 자격증" data-en="Education & Certifications">학력 및 자격증</span>
             </h2>
             <div class="space-y-6">
                 <div class="border-l-4 border-gray-300 pl-6">
-                    <h3 class="text-lg font-bold accent-color">학력</h3>
-                    <p class="text-gray-700">대학교 졸업 (전공 관련 정보)</p>
+                    <h3 class="text-lg font-bold accent-color" data-ko="학력" data-en="Education">학력</h3>
+                    <p class="text-gray-700" data-ko="대구가톨릭대학교 아동학/정치외교학 복수전공 졸업" data-en="Graduated from Daegu Catholic University with double major in Child Studies and Political Science & Diplomacy">대구가톨릭대학교 아동학/정치외교학 복수전공 졸업</p>
                 </div>
                 <div class="border-l-4 border-gray-300 pl-6">
-                    <h3 class="text-lg font-bold accent-color">자격증</h3>
-                    <p class="text-gray-700">관련 자격증 보유</p>
+                    <h3 class="text-lg font-bold accent-color" data-ko="자격증" data-en="Certifications">자격증</h3>
+                    <p class="text-gray-700" data-ko="유치원 정교사 2급, 보육교사 2급 보유" data-en="Holding Kindergarten Teacher Level 2 and Childcare Teacher Level 2 certifications">유치원 정교사 2급, 보육교사 2급 보유</p>
                 </div>
             </div>
         </section>
@@ -90,11 +97,11 @@
     <section class="py-10 bg-gray-100">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
-                <a href="2.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
-                    <i class="fas fa-arrow-left mr-2"></i>이전: 핵심 가치관
+                <a href="2.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg" data-ko="이전: 핵심 가치관" data-en="Previous: Core Values">
+                    <i class="fas fa-arrow-left mr-2"></i><span data-ko="이전: 핵심 가치관" data-en="Previous: Core Values">이전: 핵심 가치관</span>
                 </a>
-                <a href="4.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
-                    다음: 근무 경력 <i class="fas fa-arrow-right ml-2"></i>
+                <a href="4.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg" data-ko="다음: 근무 경력" data-en="Next: Work Experience">
+                    <span data-ko="다음: 근무 경력" data-en="Next: Work Experience">다음: 근무 경력</span> <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
@@ -104,9 +111,11 @@
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6">
             <div class="text-center">
-                <p class="text-gray-400">&copy; 2024 유정희. All rights reserved.</p>
+                <p class="text-gray-400" data-ko="&copy; 2024 유정희. All rights reserved." data-en="&copy; 2024 Michelle Yu. All rights reserved.">&copy; 2024 유정희. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="lang-toggle.js"></script>
 </body>
 </html>

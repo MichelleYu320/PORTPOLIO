@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기타 경험 및 연락처 - 유정희 포트폴리오</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="lang-toggle.css"><script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
         body {
@@ -24,13 +24,13 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800"><!-- Language Toggle --><div class="lang-toggle"><button class="lang-btn active" data-lang="ko">한국어</button><button class="lang-btn" data-lang="en">English</button></div>
     <!-- Header -->
     <header class="bg-gradient text-white shadow-lg">
         <div class="container mx-auto px-6 py-8">
             <div class="text-center">
-                <h1 class="text-4xl font-bold mb-2">기타 경험 및 연락처</h1>
-                <p class="text-lg opacity-90">Other Experience & Contact</p>
+                <h1 class="text-4xl font-bold mb-2" data-ko="기타 경험 및 연락처" data-en="Other Experience & Contact">기타 경험 및 연락처</h1>
+                <p class="text-lg opacity-90" data-ko="Other Experience & Contact" data-en="Other Experience & Contact">Other Experience & Contact</p>
             </div>
         </div>
     </header>
@@ -39,12 +39,12 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6">
             <div class="flex justify-center space-x-8 py-4">
-                <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
-                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
-                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">AI 콘텐츠 자동화</a>
-                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">콘텐츠 플랫폼</a>
-                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">사이드 프로젝트</a>
-                <a href="8.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800">기타</a>
+                <a href="index.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="홈" data-en="Home">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="기본정보" data-en="Profile">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="AI 콘텐츠 자동화" data-en="AI Content Automation">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="콘텐츠 플랫폼" data-en="Content Platform">콘텐츠 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900" data-ko="사이드 프로젝트" data-en="Side Projects">사이드 프로젝트</a>
+                <a href="8.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 border-b-2 border-gray-800" data-ko="기타" data-en="Other">기타</a>
             </div>
         </div>
     </nav>
@@ -107,7 +107,7 @@
                 <a href="7.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
                     <i class="fas fa-arrow-left mr-2"></i>이전: 사이드 프로젝트
                 </a>
-                <a href="1.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                <a href="index.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
                     홈으로 <i class="fas fa-home ml-2"></i>
                 </a>
             </div>
@@ -122,5 +122,5 @@
             </div>
         </div>
     </footer>
-</body>
+<script src="lang-toggle.js"></script></body>
 </html>
