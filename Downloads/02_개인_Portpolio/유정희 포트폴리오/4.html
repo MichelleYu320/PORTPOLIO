@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에듀테크 글로벌 플랫폼 - 유정희 포트폴리오</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+        .accent-color {
+            color: #374151;
+        }
+        .project-global {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">에듀테크 글로벌 플랫폼</h1>
+                <p class="text-lg opacity-90">WebRTC 기반 글로벌 화상 교육 플랫폼 구축 및 운영</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
+                <a href="4.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 bg-blue-50 border-b-2 border-blue-500">에듀테크 글로벌 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-purple-50 border-b-2 border-purple-500">사이드 프로젝트</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        
+        <!-- Project Overview -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-globe mr-3"></i>프로젝트 개요
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    WebRTC 기반 교육 플랫폼을 구축하고 8개국을 대상으로 한 글로벌 화상 교육 서비스를 기획 및 운영했습니다. 
+                    VoC 기반 리뉴얼을 2회 진행하며 B2B, C2C 구조를 고도화하고, API/SDK를 활용한 외부 솔루션 연동까지 담당했습니다.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <i class="fas fa-calendar-alt text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">진행 기간</h3>
+                        <p class="text-gray-600">2019.06 ~ 2023.06</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <i class="fas fa-user text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">역할</h3>
+                        <p class="text-gray-600">Senior PM</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <i class="fas fa-globe text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">서비스 지역</h3>
+                        <p class="text-gray-600">8개국</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center accent-color">주요 구현 기능</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- WebRTC 플랫폼 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-video text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">WebRTC 기반 화상 플랫폼</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        실시간 화상 통신 기술을 활용한 안정적이고 확장 가능한 교육 플랫폼을 구축했습니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i>WebRTC 기반 실시간 화상 통신 시스템</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i>다중 참여자 지원 및 화면 공유 기능</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i>네트워크 상황에 따른 품질 자동 조절</li>
+                    </ul>
+                </div>
+
+                <!-- LMS 기획 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-green-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-graduation-cap text-3xl text-green-600 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">LMS 시스템 기획</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        학습 관리 시스템을 통해 체계적인 온라인 교육 환경을 제공했습니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>강의 일정 및 진도 관리 시스템</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>학습자 성과 추적 및 분석 도구</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>과제 제출 및 피드백 관리</li>
+                    </ul>
+                </div>
+
+                <!-- B2B/C2C 구조 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-purple-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-sitemap text-3xl text-purple-600 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">B2B/C2C 구조 고도화</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        비즈니스 요구사항에 맞는 다양한 서비스 모델을 설계하고 구현했습니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i>기업 대상 맞춤형 교육 솔루션</li>
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i>개인 학습자 대상 플랫폼 서비스</li>
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i>유연한 요금제 및 권한 관리</li>
+                    </ul>
+                </div>
+
+                <!-- API/SDK 연동 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-orange-500">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-plug text-3xl text-orange-600 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">외부 솔루션 연동</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        API/SDK를 활용하여 다양한 외부 서비스와의 연동을 구현했습니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i>API/SDK 활용 외부 솔루션 연동</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i>써드파티 교육 콘텐츠 통합</li>
+                        <li><i class="fas fa-check text-orange-500 mr-2"></i>결제 시스템 및 인증 서비스 연동</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- VoC & Improvements -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-chart-line mr-3"></i>VoC 기반 개선사항
+            </h2>
+            <div class="space-y-8">
+                <!-- 1차 리뉴얼 -->
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <h3 class="text-xl font-bold mb-4 accent-color">1차 리뉴얼 (2020년)</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">주요 개선사항</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>사용자 인터페이스 직관성 개선</li>
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>모바일 반응형 최적화</li>
+                                <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>화상 품질 안정성 강화</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">개선 효과</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>사용자 만족도 25% 증가</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>모바일 접속률 40% 향상</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>연결 오류율 30% 감소</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2차 리뉴얼 -->
+                <div class="border-l-4 border-green-500 pl-6">
+                    <h3 class="text-xl font-bold mb-4 accent-color">2차 리뉴얼 (2022년)</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">주요 개선사항</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-arrow-right text-green-500 mr-2"></i>AI 기반 학습 분석 도구 도입</li>
+                                <li><i class="fas fa-arrow-right text-green-500 mr-2"></i>실시간 협업 기능 강화</li>
+                                <li><i class="fas fa-arrow-right text-green-500 mr-2"></i>다국어 지원 확대</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-2">개선 효과</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>학습 효과 측정 정확도 60% 향상</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>글로벌 사용자 기반 50% 확대</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>강사-학생 상호작용 35% 증가</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Impact -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-globe-americas mr-3"></i>글로벌 서비스 성과
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <div class="text-center p-6 bg-blue-50 rounded-lg">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">8개국</div>
+                    <p class="text-gray-600">서비스 제공 국가</p>
+                </div>
+                <div class="text-center p-6 bg-green-50 rounded-lg">
+                    <div class="text-3xl font-bold text-green-600 mb-2">2회</div>
+                    <p class="text-gray-600">VoC 기반 리뉴얼</p>
+                </div>
+                <div class="text-center p-6 bg-purple-50 rounded-lg">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">4년</div>
+                    <p class="text-gray-600">안정적 서비스 운영</p>
+                </div>
+                <div class="text-center p-6 bg-orange-50 rounded-lg">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">100%</div>
+                    <p class="text-gray-600">고객 KPI 달성률</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold accent-color">주요 성과</h3>
+                <ul class="space-y-3 text-gray-700">
+                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>8개국 대상 안정적인 글로벌 교육 플랫폼 운영</li>
+                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>고객 KPI 기반 교육 운영 및 QA 문서화 체계 구축</li>
+                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>WebRTC 기술 기반 실시간 화상 교육 시스템 안정화</li>
+                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>B2B/C2C 다양한 비즈니스 모델 성공적 운영</li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <!-- Lessons Learned -->
+        <section class="bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-lightbulb mr-3"></i>학습한 점과 인사이트
+            </h2>
+            <div class="space-y-6">
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">글로벌 서비스 운영 노하우</h3>
+                    <p class="text-gray-700">
+                        8개국을 대상으로 한 서비스 운영을 통해 다양한 문화권과 네트워크 환경을 고려한 
+                        글로벌 플랫폼 설계 및 운영 방법론을 체득했습니다.
+                    </p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">VoC 기반 지속적 개선</h3>
+                    <p class="text-gray-700">
+                        사용자 피드백을 체계적으로 수집하고 분석하여 2회의 대규모 리뉴얼을 성공적으로 진행하며, 
+                        데이터 기반 제품 개선 프로세스의 중요성을 경험했습니다.
+                    </p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">실시간 통신 기술 이해</h3>
+                    <p class="text-gray-700">
+                        WebRTC 기반 화상 통신 시스템 구축을 통해 실시간 미디어 처리와 네트워크 최적화, 
+                        브라우저 호환성 등 복합적인 기술 이슈 해결 경험을 쌓았습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Page Navigation -->
+    <section class="py-10 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <a href="6.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    <i class="fas fa-arrow-left mr-2"></i>이전: 콘텐츠 플랫폼
+                </a>
+                <a href="7.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    다음: 사이드 프로젝트 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2025 유정희. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

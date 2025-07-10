@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheLog 프리다이빙 기록 관리 - 유정희 포트폴리오</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+        }
+        .accent-color {
+            color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">BreatheLog</h1>
+                <p class="text-lg opacity-90">프리다이빙 기록 관리 및 팀 매칭 서비스</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
+                <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
+                <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500">AI 콘텐츠 자동화</a>
+                <a href="6.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
+                <a href="4.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-blue-50 border-b-2 border-blue-500">에듀테크 글로벌 플랫폼</a>
+                <a href="7.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 bg-purple-50 border-b-2 border-purple-500">사이드 프로젝트</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        
+        <!-- Project Overview -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-water mr-3"></i>프로젝트 개요
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    개인 취미인 프리다이빙을 위한 기록 관리 및 팀 매칭 서비스입니다. 
+                    프리다이버와 코치의 권한을 분리하고, 체계적인 기록 관리와 팀 생성 프로세스를 통해 
+                    안전하고 효율적인 프리다이빙 활동을 지원합니다.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <i class="fas fa-calendar-alt text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">개발 기간</h3>
+                        <p class="text-gray-600">2024.01 ~ 진행중</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <i class="fas fa-user text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">역할</h3>
+                        <p class="text-gray-600">Full-stack 개발</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <i class="fas fa-code text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">주요 기술</h3>
+                        <p class="text-gray-600">Next.js, Supabase</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features with Images -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center accent-color">주요 기능</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-user-shield text-3xl text-gray-700 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">로그인/회원가입 및 인증 기능</h3>
+                    </div>
+                    <div class="mb-4">
+                        <img src="스크린샷 2025-06-09 142345.png" alt="로그인 화면" class="w-full rounded-lg shadow-sm border">
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Supabase Auth를 활용한 안전한 사용자 인증 시스템을 구현했습니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>이메일 기반 회원가입 및 로그인</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>사용자 프로필 관리 기능</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>보안 강화된 인증 프로세스</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-users text-3xl text-gray-700 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">프리다이버/코치 권한 분리</h3>
+                    </div>
+                    <div class="mb-4">
+                        <img src="스크린샷 2025-06-09 142456.png" alt="권한 관리 화면" class="w-full rounded-lg shadow-sm border">
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        사용자 역할에 따른 차별화된 기능과 팀 생성/승인 시스템을 구축했습니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>역할 기반 접근 제어 (RBAC)</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>팀 생성 및 멤버 승인 프로세스</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>코치 인증 및 자격 검증</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-chart-line text-3xl text-gray-700 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">기록 관리 및 대시보드</h3>
+                    </div>
+                    <div class="mb-4">
+                        <img src="스크린샷 2025-06-09 142558.png" alt="대시보드 화면" class="w-full rounded-lg shadow-sm border">
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        개인 기록 추적과 성과 분석을 위한 종합 대시보드를 제공합니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>다이빙 기록 입력 및 관리</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>개인 성과 시각화 차트</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>목표 설정 및 진행상황 추적</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-trophy text-3xl text-gray-700 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">외부 대회정보 API 연동</h3>
+                    </div>
+                    <div class="mb-4">
+                        <img src="스크린샷 2025-06-09 142615.png" alt="대회정보 화면" class="w-full rounded-lg shadow-sm border">
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        실시간 대회 정보를 제공하여 사용자들의 참여 기회를 확대합니다.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>외부 API 통합 및 데이터 동기화</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>대회 일정 및 세부정보 제공</li>
+                        <li><i class="fas fa-check text-gray-500 mr-2"></i>참가 신청 및 알림 기능</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Stack -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-laptop-code mr-3"></i>기술 스택
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 accent-color">Frontend</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Next.js 14 (App Router)</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>TypeScript</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Tailwind CSS</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Recharts (데이터 시각화)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 accent-color">Backend</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Supabase (BaaS)</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>PostgreSQL</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Supabase Auth</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Real-time subscriptions</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 accent-color">DevOps & Tools</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Vercel (배포)</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Git & GitHub</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>ESLint & Prettier</li>
+                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Figma (디자인)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Process -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-cogs mr-3"></i>개발 과정 및 도전
+            </h2>
+            <div class="space-y-6">
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">사용자 경험 설계</h3>
+                    <p class="text-gray-700">
+                        프리다이빙 특성상 안전이 최우선이므로, 직관적이고 신뢰할 수 있는 UI/UX를 설계했습니다. 
+                        특히 기록 입력과 팀 관리 기능에서 사용자의 편의성을 최대한 고려했습니다.
+                    </p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">실시간 데이터 동기화</h3>
+                    <p class="text-gray-700">
+                        Supabase의 실시간 기능을 활용하여 팀 멤버 간의 활동 상황을 실시간으로 공유할 수 있도록 구현했습니다. 
+                        이를 통해 더 나은 협업과 안전 관리가 가능해졌습니다.
+                    </p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">권한 관리 시스템</h3>
+                    <p class="text-gray-700">
+                        프리다이버와 코치의 역할을 명확히 구분하고, 각각에 적합한 기능을 제공하는 권한 시스템을 구축했습니다. 
+                        이는 서비스의 전문성과 신뢰성을 높이는 핵심 요소였습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Status & Future Plans -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-road mr-3"></i>현재 상황 및 향후 계획
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 accent-color">현재 상황</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>MVP 개발 완료</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>베타 테스트 진행 중</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>사용자 피드백 수집 및 반영</li>
+                        <li><i class="fas fa-spinner text-yellow-500 mr-2"></i>성능 최적화 진행 중</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 accent-color">향후 계획</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><i class="fas fa-clock text-blue-500 mr-2"></i>모바일 앱 개발</li>
+                        <li><i class="fas fa-clock text-blue-500 mr-2"></i>AI 기반 훈련 추천 시스템</li>
+                        <li><i class="fas fa-clock text-blue-500 mr-2"></i>소셜 기능 확장</li>
+                        <li><i class="fas fa-clock text-blue-500 mr-2"></i>다국어 지원</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Learned -->
+        <section class="bg-white rounded-lg shadow-md p-8">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-lightbulb mr-3"></i>배운 점과 성장
+            </h2>
+            <div class="space-y-6">
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">풀스택 개발 경험</h3>
+                    <p class="text-gray-700">
+                        기획부터 디자인, 개발, 배포까지 전체 프로세스를 혼자 진행하면서 
+                        제품 개발의 전반적인 이해도를 크게 향상시킬 수 있었습니다.
+                    </p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">사용자 중심 사고</h3>
+                    <p class="text-gray-700">
+                        실제 프리다이버들의 니즈를 파악하고 이를 기능으로 구현하는 과정에서 
+                        사용자 중심의 제품 개발 방법론을 체득할 수 있었습니다.
+                    </p>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-6">
+                    <h3 class="text-lg font-bold mb-2 accent-color">최신 기술 활용</h3>
+                    <p class="text-gray-700">
+                        Next.js 14와 Supabase 등 최신 기술 스택을 활용하면서 
+                        빠른 개발과 안정적인 서비스 제공 간의 균형을 찾는 방법을 배웠습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Page Navigation -->
+    <section class="py-10 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <a href="6.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    <i class="fas fa-arrow-left mr-2"></i>이전: 콘텐츠 플랫폼
+                </a>
+                <a href="8.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    다음: 기타 경험 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2024 유정희. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
