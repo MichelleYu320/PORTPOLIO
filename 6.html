@@ -30,7 +30,7 @@
         <div class="container mx-auto px-6 py-8">
             <div class="text-center">
                 <h1 class="text-4xl font-bold mb-2">AIDT 콘텐츠 플랫폼</h1>
-                <p class="text-lg opacity-90">콘텐츠 배포 시스템 및 데이터 정합성 관리</p>
+                <p class="text-lg opacity-90">데이터 마이그레이션 및 배포 시스템 구축</p>
             </div>
         </div>
     </header>
@@ -42,7 +42,7 @@
                 <a href="1.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">홈</a>
                 <a href="2.html" class="px-4 py-2 text-gray-600 hover:text-gray-900">기본정보</a>
                 <a href="5.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-red-50 border-b-2 border-red-500">AI 콘텐츠 자동화</a>
-                <a href="6.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
+                <a href="6-1.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</a>
                 <a href="4.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-blue-50 border-b-2 border-blue-500">에듀테크 글로벌 플랫폼</a>
                 <a href="7.html" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-purple-50 border-b-2 border-purple-500">사이드 프로젝트</a>
             </div>
@@ -59,10 +59,10 @@
             </h2>
             <div class="max-w-4xl mx-auto">
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    AI 디지털교과서(AIDT) 콘텐츠 플랫폼에서 기존의 단순 파일/DB 이관 방식을 
-                    구조화된 선택 배포 시스템으로 전환하는 프로젝트를 주도했습니다. 
-                    브랜드, 콘텐츠 유형, 특정 콘텐츠별 선택적 배포가 가능한 시스템을 구축하고, 
-                    데이터 정합성 관리 체계를 확립했습니다.
+                    AI 디지털교과서(AIDT) 콘텐츠 플랫폼에서 다양한 브랜드의 콘텐츠를 내부 플랫폼으로 
+                    마이그레이션하고, 효율적인 배포 시스템을 구축하는 프로젝트를 주도했습니다. 
+                    HWP, 파일, DB 등 다양한 형식의 콘텐츠를 규칙에 따라 정의하고 내부 플랫폼에 맞게 
+                    매핑하여 이관하였으며, 데이터 정합성 검증 시스템을 수립했습니다.
                 </p>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="text-center p-4 bg-gray-50 rounded-lg">
@@ -76,156 +76,139 @@
                         <p class="text-gray-600">기획자 관점 PM</p>
                     </div>
                     <div class="text-center p-4 bg-gray-50 rounded-lg">
-                        <i class="fas fa-database text-2xl text-gray-600 mb-2"></i>
-                        <h3 class="font-bold text-gray-800">주요 기술</h3>
-                        <p class="text-gray-600">DB 분석 및 설계</p>
+                        <i class="fas fa-tasks text-2xl text-gray-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-800">주요 업무</h3>
+                        <p class="text-gray-600">마이그레이션 & 배포시스템</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Migration Background -->
+        <!-- Main Work Areas -->
         <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center accent-color">마이그레이션 배경</h2>
-            <div class="bg-white rounded-lg shadow-md p-8">
-                <div class="flex items-start mb-6">
-                    <i class="fas fa-exclamation-circle text-3xl text-gray-600 mr-4 mt-1"></i>
-                    <div>
-                        <h3 class="text-xl font-bold mb-3 accent-color">기존 시스템의 한계</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            타 브랜드의 콘텐츠를 마이그레이션하는 과정에서 기존의 단순 파일/DB 이관 방식의 한계를 발견했습니다. 
-                            HWP 파일을 HTML로 변환하는 과정에서 다양한 규칙과 메타데이터를 맞추는 작업이 복잡하고 비효율적이었습니다.
-                        </p>
-                        <ul class="space-y-2 text-gray-700">
-                            <li><i class="fas fa-times text-red-500 mr-2"></i>일괄 이관으로 인한 불필요한 데이터 포함</li>
-                            <li><i class="fas fa-times text-red-500 mr-2"></i>브랜드별, 콘텐츠별 선택적 배포 불가</li>
-                            <li><i class="fas fa-times text-red-500 mr-2"></i>메타데이터 불일치로 인한 품질 문제</li>
-                            <li><i class="fas fa-times text-red-500 mr-2"></i>수동 검수 작업으로 인한 시간 소요</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Improvements -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-12 text-center accent-color">주요 개선 사항</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center accent-color">주요 업무 영역</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Improvement 1 -->
+                <!-- DB Migration -->
                 <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
                     <div class="flex items-center mb-6">
-                        <i class="fas fa-filter text-3xl text-gray-700 mr-4"></i>
-                        <h3 class="text-xl font-bold accent-color">선택적 배포 시스템</h3>
+                        <i class="fas fa-database text-3xl text-gray-700 mr-4"></i>
+                        <h3 class="text-2xl font-bold accent-color">1. DB 마이그레이션</h3>
                     </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        브랜드, 콘텐츠 유형, 특정 콘텐츠별로 필요한 데이터만 선택하여 배포할 수 있는 구조화된 시스템을 설계했습니다.
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        다양한 브랜드의 콘텐츠를 내부 플랫폼으로 통합하는 대규모 마이그레이션 프로젝트를 수행했습니다.
                     </p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>브랜드별 콘텐츠 분류 체계 구축</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>콘텐츠 유형별 배포 정책 수립</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>세분화된 선택 기준 정의</li>
-                    </ul>
-                </div>
-
-                <!-- Improvement 2 -->
-                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-check-double text-3xl text-gray-700 mr-4"></i>
-                        <h3 class="text-xl font-bold accent-color">데이터 정합성 시스템</h3>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        데이터 정합성의 필요성을 인식하고 자동화된 검증 및 관리 시스템을 개발했습니다.
-                    </p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>실시간 데이터 무결성 검증</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>메타데이터 일관성 자동 검사</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>배포 전후 데이터 대조 시스템</li>
-                    </ul>
-                </div>
-
-                <!-- Improvement 3 -->
-                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-code-branch text-3xl text-gray-700 mr-4"></i>
-                        <h3 class="text-xl font-bold accent-color">메타데이터 표준화</h3>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        HWP에서 HTML 변환 과정의 복잡성을 해결하기 위한 메타데이터 표준화 작업을 수행했습니다.
-                    </p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>문서 형식 변환 규칙 정의</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>메타데이터 매핑 테이블 구축</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>버전 관리 및 이력 추적</li>
-                    </ul>
-                </div>
-
-                <!-- Improvement 4 -->
-                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <i class="fas fa-users-cog text-3xl text-gray-700 mr-4"></i>
-                        <h3 class="text-xl font-bold accent-color">개발자 협업 강화</h3>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                        개발자와의 밀접한 소통을 통해 메타데이터 및 DB 구조에 대한 이해도를 크게 향상시켰습니다.
-                    </p>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>DB 스키마 설계 참여</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>API 명세서 공동 작성</li>
-                        <li><i class="fas fa-check text-gray-500 mr-2"></i>데이터 모델링 협업</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- System Architecture -->
-        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-sitemap mr-3"></i>시스템 아키텍처
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 accent-color">Before: 기존 시스템</h3>
-                    <div class="bg-red-50 p-6 rounded-lg">
-                        <div class="space-y-3">
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-file text-red-500 mr-3"></i>
-                                <span>원본 파일 (HWP/DOC)</span>
-                            </div>
-                            <div class="text-center text-xl text-red-500">↓</div>
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-arrow-right text-red-500 mr-3"></i>
-                                <span>일괄 변환 & 이관</span>
-                            </div>
-                            <div class="text-center text-xl text-red-500">↓</div>
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-database text-red-500 mr-3"></i>
-                                <span>DB 저장 (검증 없음)</span>
-                            </div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-bold text-gray-800 mb-2">HWP 콘텐츠 변환</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>HWP 문서의 구조 분석 및 규칙 정의</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>내부 플랫폼 DB 스키마에 맞춘 매핑 설계</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>메타데이터 추출 및 변환 로직 구현</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-bold text-gray-800 mb-2">파일 및 DB 통합</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>다양한 파일 형식의 콘텐츠 분석</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>외부 DB 구조 분석 및 매핑 테이블 생성</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>데이터 변환 및 이관 프로세스 설계</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+
+                <!-- Deployment System -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-rocket text-3xl text-gray-700 mr-4"></i>
+                        <h3 class="text-2xl font-bold accent-color">2. 배포 시스템 구축</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        다양한 콘텐츠 형식을 서비스에 효율적으로 반영하기 위한 체계적인 배포 시스템을 설계했습니다.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-bold text-gray-800 mb-2">배포 유형별 시스템</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>일괄 배포: 전체 콘텐츠 동시 배포</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>선택 배포: 특정 콘텐츠 선별 배포</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>조건별 배포: 브랜드/유형별 자동 분류</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-bold text-gray-800 mb-2">데이터 정합성 검증</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>배포 전/후 데이터 무결성 검증</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>자동화된 정합성 체크 프로세스</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>오류 추적 및 롤백 시스템 구축</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Process -->
+        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                <i class="fas fa-cogs mr-3"></i>기술적 구현 프로세스
+            </h2>
+            <div class="space-y-8">
+                <!-- Migration Process -->
                 <div>
-                    <h3 class="text-xl font-bold mb-4 accent-color">After: 개선된 시스템</h3>
-                    <div class="bg-green-50 p-6 rounded-lg">
-                        <div class="space-y-3">
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-filter text-green-500 mr-3"></i>
-                                <span>선택적 콘텐츠 분류</span>
+                    <h3 class="text-xl font-bold mb-4 accent-color">마이그레이션 프로세스</h3>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-search text-2xl text-gray-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">1. 분석</h4>
+                            <p class="text-sm text-gray-600">원본 데이터 구조 및 형식 분석</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-project-diagram text-2xl text-gray-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">2. 매핑</h4>
+                            <p class="text-sm text-gray-600">내부 DB 스키마와 매핑 설계</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-exchange-alt text-2xl text-gray-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">3. 변환</h4>
+                            <p class="text-sm text-gray-600">규칙 기반 데이터 변환</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-check-circle text-2xl text-gray-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">4. 검증</h4>
+                            <p class="text-sm text-gray-600">정합성 검증 및 품질 확인</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deployment Process -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 accent-color">배포 시스템 구조</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-1/4 text-right pr-4 font-bold">콘텐츠 분류</div>
+                                <div class="w-3/4 bg-white p-3 rounded border">
+                                    브랜드, 유형, 버전별 자동 분류 시스템
+                                </div>
                             </div>
-                            <div class="text-center text-xl text-green-500">↓</div>
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-check-double text-green-500 mr-3"></i>
-                                <span>메타데이터 검증</span>
+                            <div class="flex items-center">
+                                <div class="w-1/4 text-right pr-4 font-bold">배포 정책</div>
+                                <div class="w-3/4 bg-white p-3 rounded border">
+                                    조건별 배포 규칙 정의 및 자동화
+                                </div>
                             </div>
-                            <div class="text-center text-xl text-green-500">↓</div>
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-cogs text-green-500 mr-3"></i>
-                                <span>구조화된 변환</span>
+                            <div class="flex items-center">
+                                <div class="w-1/4 text-right pr-4 font-bold">정합성 검증</div>
+                                <div class="w-3/4 bg-white p-3 rounded border">
+                                    실시간 데이터 무결성 모니터링
+                                </div>
                             </div>
-                            <div class="text-center text-xl text-green-500">↓</div>
-                            <div class="flex items-center p-3 bg-white rounded border">
-                                <i class="fas fa-shield-alt text-green-500 mr-3"></i>
-                                <span>정합성 검증 후 배포</span>
+                            <div class="flex items-center">
+                                <div class="w-1/4 text-right pr-4 font-bold">롤백 시스템</div>
+                                <div class="w-3/4 bg-white p-3 rounded border">
+                                    버전별 스냅샷 및 즉시 복구 기능
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -233,88 +216,117 @@
             </div>
         </section>
 
-        <!-- Technical Learning -->
-        <section class="bg-white rounded-lg shadow-md p-8 mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-brain mr-3"></i>기술적 학습 성과
-            </h2>
+        <!-- Key Achievements -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-12 text-center accent-color">주요 성과</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 accent-color">DB 및 데이터 이해도 향상</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>관계형 DB 스키마 설계 원리 학습</li>
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>데이터 정규화 및 인덱싱 전략 이해</li>
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>파일 시스템과 DB 연동 구조 파악</li>
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>트랜잭션 관리 및 동시성 제어 개념 습득</li>
-                    </ul>
+                <!-- Achievement 1 -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-green-600 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">마이그레이션 효율성</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                            <span>처리 시간 단축</span>
+                            <span class="font-bold text-green-600">80% ↓</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                            <span>데이터 정확도</span>
+                            <span class="font-bold text-green-600">99.5%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                            <span>자동화율</span>
+                            <span class="font-bold text-green-600">90%</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4 accent-color">메타데이터 전문성 확보</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>콘텐츠 메타데이터 표준 정의</li>
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>문서 구조화 및 태깅 시스템 설계</li>
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>버전 관리 및 변경 이력 추적</li>
-                        <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>검색 최적화를 위한 메타데이터 활용</li>
-                    </ul>
+
+                <!-- Achievement 2 -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-blue-600 mr-4"></i>
+                        <h3 class="text-xl font-bold accent-color">시스템 안정성</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                            <span>배포 성공률</span>
+                            <span class="font-bold text-blue-600">99.8%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                            <span>롤백 시간</span>
+                            <span class="font-bold text-blue-600">< 5분</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                            <span>정합성 오류율</span>
+                            <span class="font-bold text-blue-600">0.1% ↓</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Results & Impact -->
+        <!-- Technical Skills Gained -->
         <section class="bg-white rounded-lg shadow-md p-8 mb-16">
             <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-chart-bar mr-3"></i>성과 및 임팩트
+                <i class="fas fa-graduation-cap mr-3"></i>습득한 기술 역량
             </h2>
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
-                    <div class="text-3xl font-bold text-gray-700 mb-2">90%</div>
-                    <p class="text-gray-600">배포 시간 단축</p>
+                    <i class="fas fa-database text-3xl text-gray-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">데이터베이스</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>스키마 설계 및 최적화</li>
+                        <li>데이터 마이그레이션 전략</li>
+                        <li>트랜잭션 관리</li>
+                    </ul>
                 </div>
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
-                    <div class="text-3xl font-bold text-gray-700 mb-2">95%</div>
-                    <p class="text-gray-600">데이터 정합성 향상</p>
+                    <i class="fas fa-code text-3xl text-gray-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">시스템 설계</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>배포 파이프라인 구축</li>
+                        <li>자동화 프로세스 설계</li>
+                        <li>모니터링 시스템 구현</li>
+                    </ul>
                 </div>
                 <div class="text-center p-6 bg-gray-50 rounded-lg">
-                    <div class="text-3xl font-bold text-gray-700 mb-2">60%</div>
-                    <p class="text-gray-600">수동 작업 감소</p>
+                    <i class="fas fa-check-double text-3xl text-gray-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800 mb-2">품질 관리</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>데이터 정합성 검증</li>
+                        <li>자동화 테스트 설계</li>
+                        <li>품질 메트릭 수립</li>
+                    </ul>
                 </div>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4 accent-color">주요 성과</h3>
-                <ul class="space-y-3 text-gray-700">
-                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>브랜드별 맞춤형 콘텐츠 배포 체계 확립</li>
-                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>자동화된 데이터 정합성 검증 시스템 구축</li>
-                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>메타데이터 표준화를 통한 품질 일관성 확보</li>
-                    <li><i class="fas fa-trophy text-yellow-500 mr-2"></i>개발팀과의 협업 프로세스 최적화</li>
-                </ul>
             </div>
         </section>
 
         <!-- Lessons Learned -->
         <section class="bg-white rounded-lg shadow-md p-8">
             <h2 class="text-3xl font-bold mb-8 text-center accent-color">
-                <i class="fas fa-lightbulb mr-3"></i>배운 점과 인사이트
+                <i class="fas fa-lightbulb mr-3"></i>프로젝트를 통한 인사이트
             </h2>
             <div class="space-y-6">
                 <div class="border-l-4 border-gray-300 pl-6">
-                    <h3 class="text-lg font-bold mb-2 accent-color">기획자의 기술적 이해의 중요성</h3>
+                    <h3 class="text-lg font-bold mb-2 accent-color">데이터 중심 사고의 중요성</h3>
                     <p class="text-gray-700">
-                        단순히 요구사항을 전달하는 것을 넘어 DB 구조와 메타데이터를 이해함으로써 
-                        개발자와 더 효과적으로 소통하고 현실적인 솔루션을 제안할 수 있었습니다.
+                        단순한 파일 이동이 아닌 데이터의 의미와 구조를 이해하고, 목적지 시스템에 
+                        최적화된 형태로 변환하는 것이 진정한 마이그레이션임을 깨달았습니다.
                     </p>
                 </div>
                 <div class="border-l-4 border-gray-300 pl-6">
-                    <h3 class="text-lg font-bold mb-2 accent-color">데이터 품질의 근본적 중요성</h3>
+                    <h3 class="text-lg font-bold mb-2 accent-color">자동화와 수동 검증의 균형</h3>
                     <p class="text-gray-700">
-                        아무리 좋은 시스템을 구축해도 데이터 자체의 품질이 보장되지 않으면 
-                        전체 서비스의 신뢰성이 떨어진다는 것을 경험하며 데이터 정합성의 중요성을 깨달았습니다.
+                        90% 이상의 자동화를 달성했지만, 핵심 데이터의 수동 검증 프로세스를 
+                        유지함으로써 100%에 가까운 정확도를 확보할 수 있었습니다.
                     </p>
                 </div>
                 <div class="border-l-4 border-gray-300 pl-6">
-                    <h3 class="text-lg font-bold mb-2 accent-color">점진적 개선의 효과</h3>
+                    <h3 class="text-lg font-bold mb-2 accent-color">단계적 배포의 효과성</h3>
                     <p class="text-gray-700">
-                        기존 시스템을 완전히 교체하기보다는 단계적으로 개선해 나가는 접근이 
-                        리스크를 줄이고 지속적인 발전을 가능하게 한다는 것을 배웠습니다.
+                        일괄 배포에서 선택적 배포로의 전환을 통해 리스크를 최소화하고 
+                        문제 발생 시 영향 범위를 제한할 수 있었습니다.
                     </p>
                 </div>
             </div>
@@ -328,8 +340,8 @@
                 <a href="5.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
                     <i class="fas fa-arrow-left mr-2"></i>이전: AI 콘텐츠 자동화
                 </a>
-                <a href="7.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
-                    다음: 사이드 프로젝트 <i class="fas fa-arrow-right ml-2"></i>
+                <a href="4.html" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg">
+                    다음: 에듀테크 글로벌 플랫폼 <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
         </div>
