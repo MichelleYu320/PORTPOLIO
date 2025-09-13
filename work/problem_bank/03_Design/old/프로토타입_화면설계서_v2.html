@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBS 문제은행 플랫폼 - 수정된 프로토타입</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #764ba2;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-tab {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .nav-tab:hover,
+        .nav-tab.active {
+            background: #f3f4f6;
+            color: #764ba2;
+        }
+        
+        .user-menu {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 600px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .search-section {
+            margin-bottom: 40px;
+        }
+        
+        .search-bar {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            font-size: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #5a3785;
+        }
+        
+        .filter-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .chip {
+            padding: 6px 12px;
+            background: #f3f4f6;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .chip:hover,
+        .chip.active {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .action-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-btn:hover {
+            border-color: #764ba2;
+            color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(118, 75, 162, 0.15);
+        }
+        
+        .action-btn.primary {
+            background: #764ba2;
+            color: white;
+            border-color: #764ba2;
+        }
+        
+        .action-btn.primary:hover {
+            background: #5a3785;
+            border-color: #5a3785;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* 문제풀/자료풀 구조 */
+        .pool-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+        
+        .pool-sidebar {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .pool-menu {
+            list-style: none;
+        }
+        
+        .pool-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .pool-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            color: #6b7280;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .pool-menu a:hover,
+        .pool-menu a.active {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .pool-content {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 500px;
+        }
+        
+        /* 문제/파일 리스트 */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .file-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .file-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .file-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .file-type {
+            padding: 4px 8px;
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .file-type.digitalized {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .file-status {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        
+        .status-completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-processing {
+            background: #fed7aa;
+            color: #92400e;
+        }
+        
+        .status-pending {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .file-info {
+            margin-bottom: 15px;
+        }
+        
+        .file-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #1f2937;
+        }
+        
+        .file-meta {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+        
+        .file-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .mini-btn {
+            padding: 6px 12px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #374151;
+        }
+        
+        .mini-btn:hover {
+            border-color: #764ba2;
+            color: #764ba2;
+        }
+        
+        .mini-btn.primary {
+            background: #764ba2;
+            color: white;
+            border-color: #764ba2;
+        }
+        
+        /* 문제 상세 뷰 */
+        .question-detail {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .question-content {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .question-tools {
+            display: flex;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .tool-btn {
+            padding: 10px 20px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tool-btn:hover {
+            background: #764ba2;
+            color: white;
+            border-color: #764ba2;
+        }
+        
+        /* AI 생성 결과 */
+        .ai-result {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .ai-result h4 {
+            color: #065f46;
+            margin-bottom: 15px;
+        }
+        
+        /* 디지털라이징 진행 상황 */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #10b981;
+            transition: width 0.3s ease;
+        }
+        
+        /* 통계 카드 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid #764ba2;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .stat-change {
+            color: #10b981;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                📚 CBS 문제은행
+            </div>
+            <nav class="nav-tabs">
+                <a href="#" class="nav-tab active" onclick="showTab('dashboard')">대시보드</a>
+                <a href="#" class="nav-tab" onclick="showTab('question-pool')">문제풀</a>
+                <a href="#" class="nav-tab" onclick="showTab('resource-pool')">자료풀</a>
+                <a href="#" class="nav-tab" onclick="showTab('search')">스마트검색</a>
+            </nav>
+            <div class="user-menu">
+                <button class="action-btn">알림 🔔</button>
+                <button class="action-btn">설정 ⚙️</button>
+                <button class="action-btn primary">👤 관리자</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="search-section">
+                    <h2 style="margin-bottom: 20px;">🔍 통합 검색</h2>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="자연어로 검색하세요... 예) 서울 고3 중간고사용 상위권 수학 문제 10개">
+                        <button class="search-btn">검색</button>
+                    </div>
+                    <div class="filter-chips">
+                        <span class="chip active">전체</span>
+                        <span class="chip">초등</span>
+                        <span class="chip">중등</span>
+                        <span class="chip">고등</span>
+                        <span class="chip">수학</span>
+                        <span class="chip">영어</span>
+                        <span class="chip">국어</span>
+                        <span class="chip">과학</span>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,245</div>
+                        <div class="stat-label">오늘 디지털화된 문제</div>
+                        <div class="stat-change">전일 대비 +15%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">32</div>
+                        <div class="stat-label">AI 생성된 해설</div>
+                        <div class="stat-change">이번 주 총 156개</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">156</div>
+                        <div class="stat-label">활성 사용자</div>
+                        <div class="stat-change">현재 접속 중</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">진행 중인 디지털화</div>
+                        <div class="stat-change">대기열: 23개</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 20px;">📋 최근 작업</h3>
+                <div class="file-grid">
+                    <div class="file-card">
+                        <div class="file-header">
+                            <span class="file-type digitalized">디지털화 완료</span>
+                            <span class="file-status status-completed">완료</span>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-title">2024년 3월 고3 모의고사 수학</div>
+                            <div class="file-meta">
+                                문제 수: 30개 | 정확도: 96%<br>
+                                처리일: 2024-09-11 | 240KB
+                            </div>
+                        </div>
+                        <div class="file-actions">
+                            <button class="mini-btn">문제보기</button>
+                            <button class="mini-btn">해설생성</button>
+                            <button class="mini-btn">쌍둥이생성</button>
+                        </div>
+                    </div>
+                    <div class="file-card">
+                        <div class="file-header">
+                            <span class="file-type">PDF 원본</span>
+                            <span class="file-status status-processing">처리중</span>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-title">중3 1학기 기말고사 영어</div>
+                            <div class="file-meta">
+                                진행률: 67% | OCR 처리 중<br>
+                                업로드: 2024-09-11 | 180KB
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 67%;"></div>
+                            </div>
+                        </div>
+                        <div class="file-actions">
+                            <button class="mini-btn">진행상황</button>
+                            <button class="mini-btn">일시정지</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Pool Tab -->
+            <div id="question-pool" class="tab-content">
+                <h2 style="margin-bottom: 30px;">📚 문제풀 관리</h2>
+                
+                <div class="pool-container">
+                    <div class="pool-sidebar">
+                        <h3 style="margin-bottom: 15px;">분류</h3>
+                        <ul class="pool-menu">
+                            <li><a href="#" class="active">📄 전체 문제</a></li>
+                            <li><a href="#">📝 객관식</a></li>
+                            <li><a href="#">✍️ 주관식</a></li>
+                            <li><a href="#">📊 서술형</a></li>
+                            <li><a href="#">🎯 신규 등록</a></li>
+                            <li><a href="#">🤖 AI 생성됨</a></li>
+                        </ul>
+                        
+                        <h3 style="margin: 25px 0 15px;">과목별</h3>
+                        <ul class="pool-menu">
+                            <li><a href="#">📐 수학</a></li>
+                            <li><a href="#">📚 국어</a></li>
+                            <li><a href="#">🌍 영어</a></li>
+                            <li><a href="#">🔬 과학</a></li>
+                            <li><a href="#">🏛️ 사회</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pool-content">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>전체 문제 (총 2,847개)</h3>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="action-btn">📤 일괄 업로드</button>
+                                <button class="action-btn primary">🤖 일괄 AI 생성</button>
+                            </div>
+                        </div>
+                        
+                        <div class="file-grid">
+                            <div class="file-card" onclick="showQuestionDetail('Q2024-1201')">
+                                <div class="file-header">
+                                    <span class="file-type digitalized">문제</span>
+                                    <span class="file-status status-completed">검수완료</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">Q2024-1201: 이차함수의 최솟값</div>
+                                    <div class="file-meta">
+                                        고3 수학 | 난이도: 상 | 정답률: 67%<br>
+                                        최종 수정: 2024-09-11
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn" onclick="event.stopPropagation(); generateExplanation('Q2024-1201')">해설생성</button>
+                                    <button class="mini-btn" onclick="event.stopPropagation(); generateTwin('Q2024-1201')">쌍둥이생성</button>
+                                    <button class="mini-btn" onclick="event.stopPropagation(); editQuestion('Q2024-1201')">편집</button>
+                                </div>
+                            </div>
+                            
+                            <div class="file-card">
+                                <div class="file-header">
+                                    <span class="file-type digitalized">문제</span>
+                                    <span class="file-status status-completed">AI생성포함</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">Q2024-1200: 일차함수 그래프</div>
+                                    <div class="file-meta">
+                                        중3 수학 | 난이도: 중 | 정답률: 82%<br>
+                                        해설/힌트 AI생성 완료
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn">해설보기</button>
+                                    <button class="mini-btn">쌍둥이생성</button>
+                                    <button class="mini-btn">편집</button>
+                                </div>
+                            </div>
+                            
+                            <div class="file-card">
+                                <div class="file-header">
+                                    <span class="file-type">새 문제</span>
+                                    <span class="file-status status-pending">검수필요</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">Q2024-1199: 원의 방정식</div>
+                                    <div class="file-meta">
+                                        고2 수학 | 신규 등록<br>
+                                        등록일: 2024-09-11
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn primary">검수하기</button>
+                                    <button class="mini-btn">편집</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Pool Tab -->
+            <div id="resource-pool" class="tab-content">
+                <h2 style="margin-bottom: 30px;">📂 자료풀 관리</h2>
+                
+                <div class="pool-container">
+                    <div class="pool-sidebar">
+                        <h3 style="margin-bottom: 15px;">파일 상태</h3>
+                        <ul class="pool-menu">
+                            <li><a href="#" class="active">📄 전체 파일</a></li>
+                            <li><a href="#">⏳ 대기 중</a></li>
+                            <li><a href="#">🔄 처리 중</a></li>
+                            <li><a href="#">✅ 완료</a></li>
+                            <li><a href="#">❌ 오류</a></li>
+                        </ul>
+                        
+                        <h3 style="margin: 25px 0 15px;">파일 유형</h3>
+                        <ul class="pool-menu">
+                            <li><a href="#">📕 PDF 문제집</a></li>
+                            <li><a href="#">📊 시험지</a></li>
+                            <li><a href="#">📖 교재</a></li>
+                            <li><a href="#">📋 워크시트</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pool-content">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>전체 파일 (총 156개)</h3>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="action-btn">📤 파일 업로드</button>
+                                <button class="action-btn" onclick="window.open('https://t-cbs-aitool.vsaidt.com/entry', '_blank')">🔗 디지털라이징 시스템</button>
+                            </div>
+                        </div>
+                        
+                        <div class="file-grid">
+                            <div class="file-card" onclick="startDigitalization('pdf-001')">
+                                <div class="file-header">
+                                    <span class="file-type">PDF</span>
+                                    <span class="file-status status-pending">대기중</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">2024년 6월 고3 모의고사 수학.pdf</div>
+                                    <div class="file-meta">
+                                        크기: 2.4MB | 페이지: 12<br>
+                                        업로드: 2024-09-11 09:30
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn primary" onclick="event.stopPropagation(); startDigitalization('pdf-001')">디지털화 시작</button>
+                                    <button class="mini-btn" onclick="event.stopPropagation(); previewFile('pdf-001')">미리보기</button>
+                                    <button class="mini-btn" onclick="event.stopPropagation(); downloadFile('pdf-001')">다운로드</button>
+                                </div>
+                            </div>
+                            
+                            <div class="file-card">
+                                <div class="file-header">
+                                    <span class="file-type">PDF</span>
+                                    <span class="file-status status-processing">처리중 (67%)</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">중2 1학기 중간고사 영어.pdf</div>
+                                    <div class="file-meta">
+                                        크기: 1.8MB | OCR 진행 중<br>
+                                        시작: 2024-09-11 10:15
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 67%;"></div>
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn">진행상황</button>
+                                    <button class="mini-btn">일시정지</button>
+                                    <button class="mini-btn">취소</button>
+                                </div>
+                            </div>
+                            
+                            <div class="file-card">
+                                <div class="file-header">
+                                    <span class="file-type digitalized">완료</span>
+                                    <span class="file-status status-completed">30문제 생성</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">고1 수학 연습문제.pdf</div>
+                                    <div class="file-meta">
+                                        정확도: 94% | 30개 문제 추출<br>
+                                        완료: 2024-09-11 08:45
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn primary">문제 확인</button>
+                                    <button class="mini-btn" onclick="generateBulkContent('pdf-003')">일괄 AI 생성</button>
+                                    <button class="mini-btn">수정</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Tab -->
+            <div id="search" class="tab-content">
+                <h2 style="margin-bottom: 30px;">🔍 스마트 검색</h2>
+                
+                <div style="display: grid; grid-template-columns: 250px 1fr; gap: 30px;">
+                    <div>
+                        <h3 style="margin-bottom: 15px;">검색 옵션</h3>
+                        <div style="background: #f9fafb; padding: 20px; border-radius: 8px;">
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500;">검색 대상</label>
+                                <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
+                                    <input type="checkbox" checked> 문제 내용
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
+                                    <input type="checkbox" checked> 해설/힌트
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px;">
+                                    <input type="checkbox"> 메타데이터만
+                                </label>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500;">학년</label>
+                                <select style="width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px;">
+                                    <option>전체</option>
+                                    <option>초등</option>
+                                    <option>중등</option>
+                                    <option>고등</option>
+                                </select>
+                            </div>
+                            
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500;">과목</label>
+                                <select style="width: 100%; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px;">
+                                    <option>전체</option>
+                                    <option>수학</option>
+                                    <option>국어</option>
+                                    <option>영어</option>
+                                    <option>과학</option>
+                                    <option>사회</option>
+                                </select>
+                            </div>
+                            
+                            <button class="action-btn primary" style="width: 100%;">필터 적용</button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>검색 결과 (234개)</h3>
+                            <select style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                                <option>유사도순</option>
+                                <option>최신순</option>
+                                <option>정답률순</option>
+                                <option>난이도순</option>
+                            </select>
+                        </div>
+                        
+                        <div class="file-grid">
+                            <div class="file-card">
+                                <div class="file-header">
+                                    <span class="file-type digitalized">문제</span>
+                                    <span style="color: #10b981; font-weight: 500;">유사도 95%</span>
+                                </div>
+                                <div class="file-info">
+                                    <div class="file-title">Q2024-1198: 일차함수와 그래프</div>
+                                    <div class="file-meta">
+                                        중3 수학 | 일차함수 | 난이도: 중<br>
+                                        일차함수 y = ax + b의 그래프가 점 (2, 5)와 점 (-1, -4)를 지날 때...
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <button class="mini-btn primary">선택</button>
+                                    <button class="mini-btn">미리보기</button>
+                                    <button class="mini-btn">유사문제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- 문제 상세 모달 (숨겨진 상태) -->
+    <div id="questionModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 12px; padding: 30px; max-width: 800px; width: 90%; max-height: 80%; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 id="modalTitle">문제 상세보기</h3>
+                <button onclick="closeModal()" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+            </div>
+            
+            <div class="question-detail">
+                <div id="modalContent">
+                    <div class="question-content">
+                        <strong>[문제]</strong> 함수 f(x) = x² - 4x + 3의 최솟값을 구하시오.<br><br>
+                        <strong>[선택지]</strong><br>
+                        1) -1<br>
+                        2) 0<br>
+                        3) 1<br>
+                        4) 2<br>
+                        5) 3
+                    </div>
+                    
+                    <div class="question-tools">
+                        <button class="tool-btn" onclick="generateExplanationModal()">📝 해설 생성</button>
+                        <button class="tool-btn" onclick="generateHintModal()">💡 힌트 생성</button>
+                        <button class="tool-btn" onclick="generateTwinModal()">👥 쌍둥이 문항</button>
+                        <button class="tool-btn">✏️ 편집</button>
+                    </div>
+                    
+                    <div id="aiResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update nav tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function showQuestionDetail(questionId) {
+            document.getElementById('modalTitle').textContent = `문제 상세: ${questionId}`;
+            document.getElementById('questionModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('questionModal').style.display = 'none';
+            document.getElementById('aiResults').innerHTML = '';
+        }
+
+        function generateExplanation(questionId) {
+            alert(`${questionId} 문제의 해설을 생성합니다.`);
+        }
+
+        function generateExplanationModal() {
+            const resultDiv = document.getElementById('aiResults');
+            resultDiv.innerHTML = `
+                <div class="ai-result">
+                    <h4>📝 AI 생성된 해설</h4>
+                    <p>이 문제는 이차함수의 최솟값을 구하는 문제입니다.</p>
+                    <p><strong>Step 1:</strong> 주어진 함수를 표준형으로 변환합니다.<br>
+                    f(x) = x² - 4x + 3 = (x - 2)² - 1</p>
+                    <p><strong>Step 2:</strong> 표준형에서 최솟값을 확인합니다.<br>
+                    (x - 2)² ≥ 0 이므로, f(x) ≥ -1</p>
+                    <p><strong>답:</strong> 최솟값은 -1입니다. (x = 2일 때)</p>
+                </div>
+            `;
+        }
+
+        function generateHintModal() {
+            const resultDiv = document.getElementById('aiResults');
+            resultDiv.innerHTML = `
+                <div class="ai-result">
+                    <h4>💡 AI 생성된 힌트</h4>
+                    <p><strong>힌트 1:</strong> 이차함수의 최솟값을 구하려면 표준형으로 변환해보세요.</p>
+                    <p><strong>힌트 2:</strong> f(x) = a(x - h)² + k 형태로 만들면, 최솟값은 k입니다.</p>
+                    <p><strong>힌트 3:</strong> 완전제곱식을 이용해 (x - 2)² - 1 형태로 만들어보세요.</p>
+                </div>
+            `;
+        }
+
+        function generateTwinModal() {
+            const resultDiv = document.getElementById('aiResults');
+            resultDiv.innerHTML = `
+                <div class="ai-result">
+                    <h4>👥 AI 생성된 쌍둥이 문항</h4>
+                    <p><strong>[쌍둥이 문항 1]</strong> 함수 g(x) = x² - 6x + 5의 최솟값을 구하시오.</p>
+                    <p><strong>[쌍둥이 문항 2]</strong> 함수 h(x) = x² + 2x - 3의 최솟값을 구하시오.</p>
+                    <p><strong>[쌍둥이 문항 3]</strong> 함수 f(x) = 2x² - 8x + 3의 최솟값을 구하시오.</p>
+                </div>
+            `;
+        }
+
+        function generateTwin(questionId) {
+            alert(`${questionId} 문제의 쌍둥이 문항을 생성합니다.`);
+        }
+
+        function editQuestion(questionId) {
+            alert(`${questionId} 문제를 편집합니다.`);
+        }
+
+        function startDigitalization(fileId) {
+            alert(`${fileId} 파일의 디지털라이징을 시작합니다.`);
+        }
+
+        function generateBulkContent(fileId) {
+            alert(`${fileId}에서 추출된 모든 문제에 대해 AI 해설/힌트를 일괄 생성합니다.`);
+        }
+
+        function previewFile(fileId) {
+            alert(`${fileId} 파일 미리보기`);
+        }
+
+        function downloadFile(fileId) {
+            alert(`${fileId} 파일 다운로드`);
+        }
+
+        // 실시간 업데이트 시뮬레이션
+        setInterval(() => {
+            const digitCount = document.querySelector('.stat-number');
+            if (digitCount) {
+                const current = parseInt(digitCount.textContent);
+                digitCount.textContent = current + Math.floor(Math.random() * 3);
+            }
+        }, 10000);
+    </script>
+</body>
+</html>

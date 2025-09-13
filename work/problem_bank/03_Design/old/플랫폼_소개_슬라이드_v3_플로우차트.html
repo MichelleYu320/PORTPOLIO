@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBS 문제은행 통합 플랫폼 - 서비스 플로우</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            overflow-x: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .slide {
+            display: none;
+            padding: 2rem;
+            min-height: 100vh;
+            width: 100vw;
+            position: relative;
+            animation: slideIn 0.5s ease-in-out;
+            overflow-y: auto;
+            background: #ffffff;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .slide-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .slide-subtitle {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 2rem;
+        }
+
+        /* Flow Chart Styles */
+        .flow-container {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .flow-chart {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 180px;
+            background: #ffffff;
+            border: 2px solid #cccccc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .flow-step:hover {
+            border-color: #7c4dff;
+            box-shadow: 0 4px 20px rgba(124, 77, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .flow-step.active {
+            border-color: #7c4dff;
+            background: #f8f5ff;
+            box-shadow: 0 6px 25px rgba(124, 77, 255, 0.2);
+        }
+
+        .flow-step h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-step p {
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: #cccccc;
+            margin: 0 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* AI Badge */
+        .ai-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #7c4dff;
+            color: white;
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Detail Section */
+        .detail-section {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 0;
+            margin-top: 2rem;
+            min-height: 400px;
+            display: none;
+            overflow: hidden;
+        }
+
+        .detail-section.active {
+            display: block;
+        }
+
+        .detail-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #333333;
+        }
+
+        .detail-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-subtitle {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        .detail-content {
+            padding: 2rem;
+            background: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #7c4dff;
+            box-shadow: 0 4px 20px rgba(124, 77, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #7c4dff;
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #7c4dff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .process-step {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .process-number {
+            width: 40px;
+            height: 40px;
+            background: #7c4dff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 0 auto 1rem auto;
+        }
+
+        /* Demo Screenshots */
+        .demo-screenshot {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .demo-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .demo-body {
+            padding: 2rem;
+            min-height: 300px;
+            background: white;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-color: #2196f3;
+            color: #0d47a1;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            color: #1b5e20;
+        }
+
+        .alert-warning {
+            background: #fff3e0;
+            border-color: #ff9800;
+            color: #e65100;
+        }
+
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid #1a1a1a;
+            background: white;
+            color: #1a1a1a;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Slide Indicator */
+        .slide-indicator {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Overview Section */
+        .overview-section {
+            margin: 2rem 0;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .overview-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .overview-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .overview-card h3 {
+            color: #7c4dff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .overview-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .overview-card li {
+            color: #666666;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .overview-card li::before {
+            content: "•";
+            color: #7c4dff;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mt-4 { margin-top: 1rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flow-chart {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+            
+            .slide-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- 슬라이드 지시자 -->
+        <div class="slide-indicator">
+            <span id="slide-counter">1 / 6</span>
+        </div>
+
+        <!-- 슬라이드 1: 전체 구성도 -->
+        <div class="slide active">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <h1 class="slide-title">CBS 문제은행 통합 플랫폼</h1>
+                    <p class="slide-subtitle">AI 기반 One-Stop 문제은행 서비스 전체 구성도</p>
+                </div>
+
+                <div class="flow-container">
+                    <div class="flow-chart">
+                        <div class="flow-step">
+                            <h3>전국 초/중/고<br>기출시험지 관리</h3>
+                            <p>PDF, 스캔 이미지<br>대량 수집</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step">
+                            <div class="ai-badge">AI</div>
+                            <h3>OCR 및<br>온라인 콘텐츠화</h3>
+                            <p>멀티모달 LLM<br>91-96% 정확도</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step">
+                            <div class="ai-badge">AI</div>
+                            <h3>문제은행 구축</h3>
+                            <p>AI 메타데이터 자동 태깅<br>스마트 검색</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step">
+                            <div class="ai-badge">AI</div>
+                            <h3>콘텐츠 확장</h3>
+                            <p>AI 쌍둥이문제<br>힌트, 해설생성</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step">
+                            <h3>서비스 확장</h3>
+                            <p>온라인/지류 시험지<br>브랜드별 연동</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview-section">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: #1a1a1a;">핵심 서비스 영역</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <h3>🔄 AI 디지털화 서비스</h3>
+                            <ul>
+                                <li>멀티모달 LLM 기반 OCR (91-96% 정확도)</li>
+                                <li>수식, 표, 그래프 구조 완벽 보존</li>
+                                <li>하이브리드 품질 관리 시스템</li>
+                                <li>사람 작업 대비 20-40배 속도 향상</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <h3>🏷️ 스마트 메타데이터 관리</h3>
+                            <ul>
+                                <li>교육부 표준 기준 메타체계 구축</li>
+                                <li>AI 자동 태깅 (판다 AI 활용)</li>
+                                <li>브랜드간 공유 가능한 표준화</li>
+                                <li>사용 이력 기반 지능형 메타데이터</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <h3>⚡ AI 생성 & 검색 서비스</h3>
+                            <ul>
+                                <li>쌍둥이 문항 생성 (콘다 API 연동)</li>
+                                <li>AI 해설/힌트 자동 생성</li>
+                                <li>자연어 기반 스마트 검색</li>
+                                <li>멀티모달 검색 (텍스트+이미지+수식)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>🎯 핵심 장점:</strong> 기존 시스템 70% 활용 + 신규 기능 30% 개발로 빠른 구축 가능 | 60-70% 운영비 절감 효과
+                </div>
+            </div>
+        </div>
+
+        <!-- 슬라이드 2: 전국 초/중/고 기출시험지 관리 -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <h1 class="slide-title">전국 초/중/고 기출시험지 관리</h1>
+                    <p class="slide-subtitle">전국 17개 시/도 기출시험지 체계적 수집 및 관리</p>
+                </div>
+
+                <div class="flow-container">
+                    <div class="flow-chart">
+                        <div class="flow-step" onclick="showDetail('collect')" data-step="collect">
+                            <h3>자료 수집</h3>
+                            <p>전국 17개 시/도<br>기출시험지 확보</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('categorize')" data-step="categorize">
+                            <h3>분류 체계</h3>
+                            <p>학년/과목/지역별<br>체계적 분류</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('digitize')" data-step="digitize">
+                            <h3>디지털화</h3>
+                            <p>PDF 변환<br>품질 표준화</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('metadata')" data-step="metadata">
+                            <h3>메타데이터 생성</h3>
+                            <p>출처, 연도, 지역<br>기본 정보 태깅</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('storage')" data-step="storage">
+                            <h3>체계적 보관</h3>
+                            <p>데이터베이스<br>통합 관리</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 자료 수집 상세 -->
+                <div class="detail-section" id="detail-collect">
+                    <div class="detail-header">
+                        <h2 class="detail-title">📚 전국 기출시험지 수집</h2>
+                        <p class="detail-subtitle">전국 17개 시/도별 초/중/고 기출시험지 체계적 확보</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">17</div>
+                                <div class="stat-label">시/도 교육청</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2,847</div>
+                                <div class="stat-label">수집된 시험지</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">156</div>
+                                <div class="stat-label">협력 학교</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">커버리지</div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🗺️</div>
+                                <div class="feature-title">전국 네트워크</div>
+                                <div class="feature-description">
+                                    서울, 경기, 부산, 대구, 인천 등 전국 17개 시/도<br>
+                                    체계적인 수집 네트워크 구축
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📅</div>
+                                <div class="feature-title">정기적 수집</div>
+                                <div class="feature-description">
+                                    중간고사, 기말고사, 모의고사 등<br>
+                                    시기별 체계적 수집 체계
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🔍</div>
+                                <div class="feature-title">품질 관리</div>
+                                <div class="feature-description">
+                                    수집 시점부터 품질 기준 적용<br>
+                                    중복 제거 및 완성도 검증
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-screenshot">
+                            <div class="demo-header">
+                                <span>🗺️</span> 전국 수집 현황 대시보드
+                            </div>
+                            <div class="demo-body">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+                                    <div>
+                                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">📊 지역별 수집 현황</h3>
+                                        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                                            <p><strong>서울:</strong> 2,847건 (19.2%)</p>
+                                            <p><strong>경기:</strong> 3,156건 (21.3%)</p>
+                                            <p><strong>부산:</strong> 1,234건 (8.3%)</p>
+                                            <p><strong>대구:</strong> 1,089건 (7.4%)</p>
+                                            <p><strong>기타:</strong> 6,491건 (43.8%)</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 style="color: #7c4dff; margin-bottom: 1rem;">📅 연도별 수집 현황</h3>
+                                        <div style="background: #f8f5ff; padding: 1.5rem; border-radius: 8px; border: 1px solid #7c4dff;">
+                                            <p><strong>2023년:</strong> 4,567건</p>
+                                            <p><strong>2022년:</strong> 4,234건</p>
+                                            <p><strong>2021년:</strong> 3,891건</p>
+                                            <p><strong>2020년:</strong> 2,125건</p>
+                                            <p style="margin-top: 0.75rem; color: #7c4dff;"><strong>총 수집량: 14,817건</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 분류 체계 상세 -->
+                <div class="detail-section" id="detail-categorize">
+                    <div class="detail-header">
+                        <h2 class="detail-title">📋 분류 체계 구축</h2>
+                        <p class="detail-subtitle">학년/과목/지역별 체계적 분류 및 표준화</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🎯</div>
+                                <div class="feature-title">학년별 분류</div>
+                                <div class="feature-description">
+                                    초등 1-6학년, 중등 1-3학년, 고등 1-3학년<br>
+                                    체계적 학년별 분류 체계
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📚</div>
+                                <div class="feature-title">과목별 분류</div>
+                                <div class="feature-description">
+                                    국어, 수학, 영어, 사회, 과학 등<br>
+                                    교육과정 기반 세분화된 분류
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🗺️</div>
+                                <div class="feature-title">지역별 분류</div>
+                                <div class="feature-description">
+                                    17개 시/도별 체계적 관리<br>
+                                    지역 특성 고려한 분류 체계
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📅</div>
+                                <div class="feature-title">시기별 분류</div>
+                                <div class="feature-description">
+                                    중간/기말/모의고사 등<br>
+                                    시험 유형별 체계적 관리
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="demo-screenshot">
+                            <div class="demo-header">
+                                <span>📋</span> 분류 체계 예시
+                            </div>
+                            <div class="demo-body">
+                                <div style="font-family: monospace; background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                                    <p><strong>/고등학교/</strong></p>
+                                    <p>│</p>
+                                    <p>├── <strong>/수학/</strong></p>
+                                    <p>│   ├── /서울시/2023/중간고사/</p>
+                                    <p>│   └── /경기도/2023/기말고사/</p>
+                                    <p>│</p>
+                                    <p>├── <strong>/국어/</strong></p>
+                                    <p>│   ├── /부산시/2023/모의고사/</p>
+                                    <p>└── <strong>/영어/</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OCR 인식 상세 -->
+                <div class="detail-section" id="detail-ocr">
+                    <div class="detail-header">
+                        <h2 class="detail-title">🤖 AI OCR 인식</h2>
+                        <p class="detail-subtitle">멀티모달 LLM 기반 고정확도 텍스트 및 수식 인식</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">91-96%</div>
+                                <div class="stat-label">텍스트 인식 정확도</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">수식 인식 정확도</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2-3분</div>
+                                <div class="stat-label">평균 처리 시간</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">20-40배</div>
+                                <div class="stat-label">속도 향상</div>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🔬</div>
+                                <div class="feature-title">멀티모달 LLM</div>
+                                <div class="feature-description">
+                                    GPT-4V 기반으로 텍스트, 수식, 그래프, 표를 통합 인식
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📐</div>
+                                <div class="feature-title">수식 처리</div>
+                                <div class="feature-description">
+                                    LaTeX 형식으로 수식 변환, 복잡한 수학 기호 정확 인식
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📊</div>
+                                <div class="feature-title">구조 보존</div>
+                                <div class="feature-description">
+                                    원본 문서의 레이아웃과 구조 정보 완벽 보존
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 구조 분석 상세 -->
+                <div class="detail-section" id="detail-structure">
+                    <div class="detail-header">
+                        <h2 class="detail-title">🧩 구조 분석 & 문제 분할</h2>
+                        <p class="detail-subtitle">AI 기반 문제 단위 자동 분할 및 메타데이터 생성</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">✂️</div>
+                                <div class="feature-title">문제 단위 분할</div>
+                                <div class="feature-description">
+                                    AI가 문제 번호와 구조를 분석하여 개별 문제로 자동 분할
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🏷️</div>
+                                <div class="feature-title">자동 태깅</div>
+                                <div class="feature-description">
+                                    학년, 과목, 단원, 난이도 등 메타데이터 자동 생성
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🔗</div>
+                                <div class="feature-title">관계 분석</div>
+                                <div class="feature-description">
+                                    문제-선택지, 지문-문항 등의 관계 구조 자동 파악
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 품질 검증 상세 -->
+                <div class="detail-section" id="detail-quality">
+                    <div class="detail-header">
+                        <h2 class="detail-title">✅ 품질 검증 시스템</h2>
+                        <p class="detail-subtitle">하이브리드 검증으로 높은 품질 보장</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🤖</div>
+                                <div class="feature-title">AI 1차 검증</div>
+                                <div class="feature-description">
+                                    신뢰도 점수 기반 자동 품질 평가<br>
+                                    95% 이상 신뢰도 문제는 자동 승인
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">👥</div>
+                                <div class="feature-title">사람 2차 검토</div>
+                                <div class="feature-description">
+                                    AI 신뢰도가 낮은 문제에 대한 전문가 검토<br>
+                                    복잡한 수식이나 그래프 검증
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🔄</div>
+                                <div class="feature-title">지속적 학습</div>
+                                <div class="feature-description">
+                                    검토 결과를 바탕으로 AI 모델 지속 개선<br>
+                                    정확도 점진적 향상
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <strong>품질 관리 목표:</strong> 95% 이상의 정확도 유지, 전체 처리 시간 최소화
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 슬라이드 3: AI 생성 & 활용 단계 -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="slide-header">
+                    <h1 class="slide-title">AI 생성 & 스마트 활용</h1>
+                    <p class="slide-subtitle">콘다 연동 AI 생성 + 자연어 검색 시스템</p>
+                </div>
+
+                <div class="flow-container">
+                    <div class="flow-chart">
+                        <div class="flow-step" onclick="showDetail('generation')" data-step="generation">
+                            <div class="ai-badge">AI</div>
+                            <h3>콘텐츠 생성</h3>
+                            <p>해설/힌트<br>쌍둥이 문제</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('search')" data-step="search">
+                            <div class="ai-badge">AI</div>
+                            <h3>스마트 검색</h3>
+                            <p>자연어 검색<br>유사 문제 추천</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('dashboard')" data-step="dashboard">
+                            <h3>대시보드</h3>
+                            <p>실시간 분석<br>사용 현황</p>
+                        </div>
+                        
+                        <div class="flow-arrow">→</div>
+                        
+                        <div class="flow-step" onclick="showDetail('integration')" data-step="integration">
+                            <h3>브랜드 연동</h3>
+                            <p>API 연결<br>맞춤형 서비스</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI 생성 상세 -->
+                <div class="detail-section active" id="detail-generation">
+                    <div class="detail-header">
+                        <h2 class="detail-title">⚡ AI 콘텐츠 생성 (콘다 연동)</h2>
+                        <p class="detail-subtitle">기존 문제를 기반으로 다양한 학습 콘텐츠 자동 생성</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">234개</div>
+                                <div class="stat-label">쌍둥이 문제 생성</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">156개</div>
+                                <div class="stat-label">해설 자동 생성</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">89개</div>
+                                <div class="stat-label">힌트 생성</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2.3분</div>
+                                <div class="stat-label">평균 생성 시간</div>
+                            </div>
+                        </div>
+
+                        <div class="demo-screenshot">
+                            <div class="demo-header">
+                                <span>⚡</span> AI 생성 결과 예시
+                            </div>
+                            <div class="demo-body">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                    <div>
+                                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">📝 원본 문제</h3>
+                                        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                                            <p><strong>문제:</strong> 이차함수 y = x² - 4x + 3의 그래프에서 꼭짓점의 좌표를 구하시오.</p>
+                                            <p style="margin-top: 0.5rem; color: #666666;">① (2, -1) ② (-2, 1) ③ (2, 1) ④ (-2, -1) ⑤ (0, 3)</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h3 style="color: #7c4dff; margin-bottom: 1rem;">🤖 AI 생성 콘텐츠</h3>
+                                        <div style="background: #f8f5ff; padding: 1.5rem; border-radius: 8px; border: 1px solid #7c4dff;">
+                                            <p><strong>💡 힌트:</strong> y = ax² + bx + c 형태에서 꼭짓점의 x좌표는 x = -b/2a입니다.</p>
+                                            <p style="margin-top: 0.75rem;"><strong>📖 해설:</strong> x = -(-4)/(2×1) = 2, y = 2² - 4×2 + 3 = -1</p>
+                                            <p style="margin-top: 0.75rem;"><strong>🔄 유사문제:</strong> y = 2x² - 8x + 5의 꼭짓점을 구하시오.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 스마트 검색 상세 -->
+                <div class="detail-section" id="detail-search">
+                    <div class="detail-header">
+                        <h2 class="detail-title">🔍 스마트 검색 시스템</h2>
+                        <p class="detail-subtitle">자연어로 묻고 AI가 완벽한 문제를 추천</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="demo-screenshot">
+                            <div class="demo-header">
+                                <span>🔍</span> 자연어 검색 인터페이스
+                            </div>
+                            <div class="demo-body">
+                                <div style="margin-bottom: 2rem;">
+                                    <div style="display: flex; gap: 1rem; align-items: center; background: #f8f9fa; padding: 1rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                                        <input type="text" placeholder="예: '중3 수학 이차함수 중간 난이도 문제 10개 찾아줘'" 
+                                               style="flex: 1; padding: 0.75rem; border: 1px solid #cccccc; border-radius: 6px; font-size: 1rem;">
+                                        <button style="padding: 0.75rem 1.5rem; background: #7c4dff; color: white; border: none; border-radius: 6px; font-weight: 600;">🔍 검색</button>
+                                    </div>
+                                </div>
+
+                                <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; border: 1px solid #4caf50;">
+                                    <h3 style="color: #2e7d32; margin-bottom: 0.5rem;">✅ 검색 결과: 12개 문제 발견</h3>
+                                    <p style="color: #2e7d32; margin: 0;">• 이차함수: 8개 | 중간 난이도: 10개 | 중3 수학: 12개</p>
+                                    <p style="color: #2e7d32; margin: 0.5rem 0 0 0;"><strong>평균 정확도: 94.2%</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🗣️</div>
+                                <div class="feature-title">자연어 처리</div>
+                                <div class="feature-description">
+                                    "서울 고3 중간고사용 상위권 문제 10개" 같은 자연스러운 검색 지원
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🎯</div>
+                                <div class="feature-title">정확한 매칭</div>
+                                <div class="feature-description">
+                                    Vector DB 기반 의미 검색으로 정확한 문제 추천
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📊</div>
+                                <div class="feature-title">사용 패턴 학습</div>
+                                <div class="feature-description">
+                                    실시간 사용 데이터 기반으로 추천 정확도 지속 개선
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 대시보드 상세 -->
+                <div class="detail-section" id="detail-dashboard">
+                    <div class="detail-header">
+                        <h2 class="detail-title">📊 통합 관리 대시보드</h2>
+                        <p class="detail-subtitle">실시간 사용 현황 및 성과 분석</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">28,467</div>
+                                <div class="stat-label">총 문제 수</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2,847</div>
+                                <div class="stat-label">일일 활성 사용자</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">78.4%</div>
+                                <div class="stat-label">문제 활용률</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">94.2%</div>
+                                <div class="stat-label">AI 정확도</div>
+                            </div>
+                        </div>
+
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">📈</div>
+                                <div class="feature-title">실시간 모니터링</div>
+                                <div class="feature-description">
+                                    문제별 사용 빈도, 정답률, 소요시간 등 실시간 추적
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🏢</div>
+                                <div class="feature-title">브랜드별 분석</div>
+                                <div class="feature-description">
+                                    비바샘, AI수학교과서 등 브랜드별 활용 현황 비교 분석
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🎯</div>
+                                <div class="feature-title">인사이트 제공</div>
+                                <div class="feature-description">
+                                    트렌드 분석, 수요 예측, 콘텐츠 추천 등 비즈니스 인사이트
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 브랜드 연동 상세 -->
+                <div class="detail-section" id="detail-integration">
+                    <div class="detail-header">
+                        <h2 class="detail-title">🔗 브랜드 연동 & API</h2>
+                        <p class="detail-subtitle">각 브랜드별 맞춤형 서비스 제공</p>
+                    </div>
+                    <div class="detail-content">
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">🔌</div>
+                                <div class="feature-title">REST API 제공</div>
+                                <div class="feature-description">
+                                    검색, 생성, 분석 기능을 API로 제공하여 각 브랜드 시스템과 연동
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">⚙️</div>
+                                <div class="feature-title">맞춤형 설정</div>
+                                <div class="feature-description">
+                                    브랜드별 특화 기능, 권한 관리, 사용 정책 개별 설정 가능
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📊</div>
+                                <div class="feature-title">개별 대시보드</div>
+                                <div class="feature-description">
+                                    브랜드별 전용 대시보드로 개별 성과 및 사용 현황 제공
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success">
+                            <strong>🚀 비즈니스 임팩트:</strong> 60-70% 운영비 절감, 90% 검색 시간 단축, 6개월 내 ROI 회수 달성
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 네비게이션 -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ 이전</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">다음 ▶</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide = (n + totalSlides) % totalSlides;
+            
+            slides[currentSlide].classList.add('active');
+            
+            // 슬라이드 카운터 업데이트
+            document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // 버튼 상태 업데이트
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            
+            // 각 슬라이드별 초기 상태 설정
+            if (currentSlide === 1) {
+                // AI 디지털화 슬라이드에서 첫 번째 단계 활성화
+                showDetail('upload');
+            } else if (currentSlide === 2) {
+                // AI 생성 슬라이드에서 첫 번째 단계 활성화
+                showDetail('generation');
+            }
+        }
+
+        function changeSlide(direction) {
+            if (direction === 1 && currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            } else if (direction === -1 && currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // 상세 설명 표시 함수
+        function showDetail(stepId) {
+            // 현재 슬라이드의 모든 상세 섹션 숨기기
+            const currentSlideElement = slides[currentSlide];
+            const allDetails = currentSlideElement.querySelectorAll('.detail-section');
+            allDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // 모든 플로우 스텝 비활성화
+            const allSteps = currentSlideElement.querySelectorAll('.flow-step');
+            allSteps.forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // 선택된 상세 섹션 표시
+            const targetDetail = currentSlideElement.querySelector(`#detail-${stepId}`);
+            if (targetDetail) {
+                targetDetail.classList.add('active');
+            }
+            
+            // 선택된 플로우 스텝 활성화
+            const targetStep = currentSlideElement.querySelector(`[data-step="${stepId}"]`);
+            if (targetStep) {
+                targetStep.classList.add('active');
+            }
+        }
+
+        // 키보드 이벤트 리스너
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // 초기 설정
+        showSlide(0);
+    </script>
+</body>
+</html>
