@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-09-17T15:13:34.730Z",
+  "testResults": {
+    "pageLoad": true,
+    "problemManagementMenuClick": false,
+    "pdfManagementMenuClick": false,
+    "consoleLogs": [
+      "[log] switchContent 호출됨, 메뉴명: 📊 통합 대시보드",
+      "[log] 콘텐츠 요소들 확인: {problemPoolContent: true, materialPoolContent: true, problemSearchContent: true, materialSearchContent: true}",
+      "[log] 대시보드 표시 완료",
+      "[log] 클릭된 메뉴: 📚 문항 관리",
+      "[log] switchContent 호출됨, 메뉴명: 📚 문항 관리",
+      "[log] 콘텐츠 요소들 확인: {problemPoolContent: true, materialPoolContent: true, problemSearchContent: true, materialSearchContent: true}",
+      "[log] 문항 검색 영역 표시됨",
+      "[log] 문항 테이블 영역 표시됨",
+      "[log] 문항 관리 콘텐츠 표시 완료",
+      "[log] 클릭된 메뉴: 📁 PDF 자료 관리",
+      "[log] switchContent 호출됨, 메뉴명: 📁 PDF 자료 관리",
+      "[log] 콘텐츠 요소들 확인: {problemPoolContent: true, materialPoolContent: true, problemSearchContent: true, materialSearchContent: true}",
+      "[log] PDF 검색 영역 표시됨",
+      "[log] PDF 테이블 영역 표시됨",
+      "[log] PDF 자료 관리 콘텐츠 표시 완료",
+      "[log] 클릭된 메뉴: 📊 통합 대시보드",
+      "[log] switchContent 호출됨, 메뉴명: 📊 통합 대시보드",
+      "[log] 콘텐츠 요소들 확인: {problemPoolContent: true, materialPoolContent: true, problemSearchContent: true, materialSearchContent: true}",
+      "[log] 대시보드 표시 완료",
+      "[log] switchContent 호출됨, 메뉴명: 문항 관리",
+      "[log] 콘텐츠 요소들 확인: {problemPoolContent: true, materialPoolContent: true, problemSearchContent: true, materialSearchContent: true}",
+      "[log] 문항 검색 영역 표시됨",
+      "[log] 문항 테이블 영역 표시됨",
+      "[log] 문항 관리 콘텐츠 표시 완료"
+    ],
+    "javascriptFunctionTests": {
+      "switchContent": {
+        "success": true,
+        "message": "switchContent 함수 호출 성공"
+      },
+      "availableFunctions": [
+        "switchContent"
+      ]
+    }
+  }
+}

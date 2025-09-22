@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 메뉴 테스트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .sidebar {
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .content {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-height: 500px;
+        }
+        .menu-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            background: #f5f5f5;
+        }
+        .menu-item.active {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>메뉴</h3>
+            <a href="#" class="menu-item" onclick="showSection('dashboard')">📊 대시보드</a>
+            <a href="#" class="menu-item" onclick="showSection('problem')">📚 문항 관리</a>
+            <a href="#" class="menu-item" onclick="showSection('pdf')">📁 PDF 관리</a>
+        </div>
+        <div class="content">
+            <div id="dashboard" class="content-section active">
+                <h2>📊 대시보드</h2>
+                <p>대시보드 내용입니다.</p>
+                <div style="background: #f0f0f0; padding: 20px; border-radius: 8px;">
+                    <h3>통계</h3>
+                    <p>전체 문항: 2,847개</p>
+                    <p>PDF 자료: 1,523개</p>
+                </div>
+            </div>
+
+            <div id="problem" class="content-section">
+                <h2>📚 문항 관리</h2>
+
+                <!-- AI 스마트 검색 -->
+                <div style="background: #f8fafc; border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #e2e8f0;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: #1e40af; margin: 0 0 16px 0;">🤖 AI 스마트 검색</h3>
+                    <div style="display: flex; align-items: center; background: white; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px; gap: 12px;">
+                        <input type="text" placeholder="예: '이차함수 최댓값 문제 찾아줘'" style="flex: 1; border: none; outline: none; font-size: 14px;">
+                        <button style="background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">검색</button>
+                    </div>
+                </div>
+
+                <!-- 필터 -->
+                <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <select style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option>학년: 전체</option>
+                            <option>중1</option>
+                            <option>중2</option>
+                            <option>중3</option>
+                        </select>
+                        <select style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option>과목: 전체</option>
+                            <option>수학</option>
+                            <option>국어</option>
+                            <option>영어</option>
+                        </select>
+                        <button style="background: #3b82f6; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer;">검색</button>
+                    </div>
+                </div>
+
+                <!-- 테이블 -->
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+                    <thead style="background: #f8fafc;">
+                        <tr>
+                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb;">문제번호</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb;">문제명</th>
+                            <th style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">과목</th>
+                            <th style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">학년</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">Q001</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">이차함수 최댓값 구하기</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">수학</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">중3</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">Q002</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">확률과 통계</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">수학</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">중2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="pdf" class="content-section">
+                <h2>📁 PDF 관리</h2>
+
+                <!-- AI 스마트 검색 -->
+                <div style="background: #f8fafc; border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #e2e8f0;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: #1e40af; margin: 0 0 16px 0;">🤖 AI 스마트 검색</h3>
+                    <div style="display: flex; align-items: center; background: white; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px; gap: 12px;">
+                        <input type="text" placeholder="예: '2024년 서울 중간고사 자료 찾아줘'" style="flex: 1; border: none; outline: none; font-size: 14px;">
+                        <button style="background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer;">검색</button>
+                    </div>
+                </div>
+
+                <!-- 필터 -->
+                <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <select style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option>학년: 전체</option>
+                            <option>중1</option>
+                            <option>중2</option>
+                            <option>중3</option>
+                        </select>
+                        <select style="padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option>과목: 전체</option>
+                            <option>수학</option>
+                            <option>국어</option>
+                            <option>영어</option>
+                        </select>
+                        <button style="background: #3b82f6; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer;">검색</button>
+                    </div>
+                </div>
+
+                <!-- 테이블 -->
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+                    <thead style="background: #f8fafc;">
+                        <tr>
+                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb;">자료 ID</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb;">자료명</th>
+                            <th style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">학년</th>
+                            <th style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">과목</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">PDF001</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">2024년 서울시 중3 수학 중간고사</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">중3</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">수학</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">PDF002</td>
+                            <td style="padding: 12px; border-bottom: 1px solid #f0f0f0;">고2 영어 교과서 천재교육</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">고2</td>
+                            <td style="padding: 12px; text-align: center; border-bottom: 1px solid #f0f0f0;">영어</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            console.log('Showing section:', sectionId);
+
+            // 모든 섹션 숨기기
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 모든 메뉴 아이템 비활성화
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // 선택된 섹션 표시
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                console.log('Section shown successfully');
+            } else {
+                console.error('Section not found:', sectionId);
+            }
+
+            // 클릭된 메뉴 아이템 활성화
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
