@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/yujeonghui/Downloads/02_개인_Portpolio/유정희 포트폴리오/**)",
+      "Read(//Users/yujeonghui/Downloads/02_개인_Portpolio/**)",
+      "Bash(mv:*)",
+      "Bash(rmdir:*)",
+      "Bash(tree:*)",
+      "Bash(cd:*)",
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
