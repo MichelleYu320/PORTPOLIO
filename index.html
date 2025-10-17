@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유정희 포트폴리오 | Jeong Hui Yu Portfolio</title>
+    <title>유정희 포트폴리오</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
         body {
-            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             opacity: 0;
             animation: fadeIn 1s forwards;
-        }
-        body.en {
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
         }
         @keyframes fadeIn {
             to { opacity: 1; }
@@ -52,1210 +49,1246 @@
             color: white;
             border-bottom: 3px solid #1f2937;
         }
-        .lang-ko {
-            display: block;
+        .tab-button:hover {
+            background-color: #e5e7eb;
         }
-        .lang-en {
-            display: none;
-        }
-        body.en .lang-ko {
-            display: none;
-        }
-        body.en .lang-en {
-            display: block;
-        }
-        .language-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 50;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 5px;
-            display: flex;
-            gap: 5px;
-        }
-        .language-toggle button {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background: transparent;
-            color: #374151;
-        }
-        .language-toggle button.active {
-            background: #374151;
-            color: white;
+        .tab-button.active:hover {
+            background-color: #374151;
         }
     </style>
 </head>
-<body>
-    <!-- Language Toggle -->
-    <div class="language-toggle">
-        <button id="lang-ko" class="active" onclick="setLanguage('ko')">한국어</button>
-        <button id="lang-en" onclick="setLanguage('en')">English</button>
-    </div>
-
+<body class="bg-gray-50 text-gray-800">
     <!-- Header -->
-    <header class="bg-gradient text-white p-10 text-center animate-fadeIn">
-        <h1 class="text-4xl font-bold mb-4">
-            <span class="lang-ko">유정희 | TossBank Data Product Manager</span>
-            <span class="lang-en">Jeong Hui Yu | TossBank Data Product Manager</span>
-        </h1>
-        <p class="text-xl opacity-90">
-            <span class="lang-ko">AI로 교육의 미래를 혁신하는 프로덕트 매니저</span>
-            <span class="lang-en">Product Manager Innovating the Future of Education with AI</span>
-        </p>
+    <header class="bg-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-16">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4">유정희</h1>
+                <p class="text-xl opacity-90 mb-6">8년차 PM | AI/EdTech 전문가</p>
+                <p class="text-lg opacity-80 max-w-2xl mx-auto">
+                    생성형 AI를 활용한 교육 콘텐츠 자동화부터 글로벌 플랫폼 운영까지,
+                    풀사이클 Product Management 경험을 보유한 PM입니다.
+                </p>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                        <i class="fas fa-envelope mr-2"></i>yjhee0320@gmail.com
+                    </span>
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                        <i class="fas fa-phone mr-2"></i>010-5166-6780
+                    </span>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Navigation Tabs -->
-    <nav class="bg-gray-100 shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center">
-                <button class="tab-button active px-6 py-3 hover:bg-gray-200" onclick="showTab('basic')">
-                    <i class="fas fa-user mr-2"></i>
-                    <span class="lang-ko">기본정보</span>
-                    <span class="lang-en">Profile</span>
-                </button>
-                <button class="tab-button px-6 py-3 hover:bg-gray-200" onclick="showTab('ai-platform')">
-                    <i class="fas fa-robot mr-2"></i>
-                    <span class="lang-ko">AI 문제은행 플랫폼</span>
-                    <span class="lang-en">AI Question Bank Platform</span>
-                </button>
-                <button class="tab-button px-6 py-3 hover:bg-gray-200" onclick="showTab('content-platform')">
-                    <i class="fas fa-server mr-2"></i>
-                    <span class="lang-ko">콘텐츠 플랫폼</span>
-                    <span class="lang-en">Content Platform</span>
-                </button>
-                <button class="tab-button px-6 py-3 hover:bg-gray-200" onclick="showTab('global-platform')">
-                    <i class="fas fa-globe mr-2"></i>
-                    <span class="lang-ko">글로벌 플랫폼</span>
-                    <span class="lang-en">Global Platform</span>
-                </button>
-                <button class="tab-button px-6 py-3 hover:bg-gray-200" onclick="showTab('side-project')">
-                    <i class="fas fa-code-branch mr-2"></i>
-                    <span class="lang-ko">사이드 프로젝트</span>
-                    <span class="lang-en">Side Project</span>
-                </button>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4 overflow-x-auto">
+                <button onclick="showTab('home')" class="tab-button px-4 py-2 text-gray-700 border-b-2 border-gray-800 active">홈</button>
+                <button onclick="showTab('about')" class="tab-button px-4 py-2 text-gray-600">기본정보</button>
+                <button onclick="showTab('ai-platform')" class="tab-button px-4 py-2 text-gray-600 bg-red-50 border-b-2 border-red-500">AI 문제은행 플랫폼</button>
+                <button onclick="showTab('content-platform')" class="tab-button px-4 py-2 text-gray-600 bg-green-50 border-b-2 border-green-500">콘텐츠 플랫폼</button>
+                <button onclick="showTab('global-platform')" class="tab-button px-4 py-2 text-gray-600 bg-blue-50 border-b-2 border-blue-500">에듀테크 글로벌 플랫폼</button>
+                <button onclick="showTab('side-projects')" class="tab-button px-4 py-2 text-gray-600 bg-purple-50 border-b-2 border-purple-500">사이드 프로젝트</button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-8 bg-gray-50">
-        <!-- 기본정보 / Profile Tab -->
-        <div id="basic" class="tab-content active animate-fadeIn">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-6 accent-color">
-                    <i class="fas fa-user-circle mr-3"></i>
-                    <span class="lang-ko">기본정보</span>
-                    <span class="lang-en">Profile</span>
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-6 py-16">
+
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <!-- Quick Contact -->
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-envelope mr-3"></i>연락처
                 </h2>
-
-                <!-- Contact Information -->
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-xl mb-4 text-gray-800">
-                            <i class="fas fa-address-card mr-2"></i>
-                            <span class="lang-ko">연락처</span>
-                            <span class="lang-en">Contact</span>
-                        </h3>
-                        <ul class="space-y-2 text-gray-700">
-                            <li><i class="fas fa-envelope mr-2"></i> yjhee0320@gmail.com</li>
-                            <li><i class="fas fa-phone mr-2"></i> 010-7337-7652</li>
-                            <li><i class="fab fa-linkedin mr-2"></i> linkedin.com/in/yjhee0320</li>
-                            <li><i class="fab fa-github mr-2"></i> github.com/MichelleYu320</li>
-                        </ul>
+                <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <i class="fas fa-envelope text-3xl text-gray-600 mb-4"></i>
+                        <p class="font-bold text-gray-800">Email</p>
+                        <p class="text-gray-600">yjhee0320@gmail.com</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-xl mb-4 text-gray-800">
-                            <i class="fas fa-graduation-cap mr-2"></i>
-                            <span class="lang-ko">학력</span>
-                            <span class="lang-en">Education</span>
-                        </h3>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="lang-ko">
-                                <strong>숙명여자대학교</strong><br>
-                                교육학과 졸업 (2007-2011)
-                            </li>
-                            <li class="lang-en">
-                                <strong>Sookmyung Women's University</strong><br>
-                                B.A. in Education (2007-2011)
-                            </li>
-                        </ul>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <i class="fas fa-phone text-3xl text-gray-600 mb-4"></i>
+                        <p class="font-bold text-gray-800">Phone</p>
+                        <p class="text-gray-600">010-5166-6780</p>
                     </div>
                 </div>
-
-                <!-- Career -->
-                <div class="mb-8">
-                    <h3 class="font-bold text-2xl mb-6 text-gray-800">
-                        <i class="fas fa-briefcase mr-2"></i>
-                        <span class="lang-ko">경력사항</span>
-                        <span class="lang-en">Career Experience</span>
-                    </h3>
-
-                    <div class="space-y-6">
-                        <!-- TossBank -->
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="font-bold text-lg text-gray-800">
-                                <span class="lang-ko">토스뱅크 | Data Product Manager</span>
-                                <span class="lang-en">TossBank | Data Product Manager</span>
-                            </h4>
-                            <p class="text-sm text-gray-600 mb-2">
-                                <span class="lang-ko">2024.03 ~ 현재</span>
-                                <span class="lang-en">2024.03 ~ Present</span>
-                            </p>
-                            <ul class="space-y-1 text-gray-700 text-sm">
-                                <li class="lang-ko"><i class="fas fa-circle text-xs text-gray-400 mr-2"></i>신용카드 추천 시스템 데이터 파이프라인 설계 및 추천 정확도 개선 (CTR 12% 향상)</li>
-                                <li class="lang-ko"><i class="fas fa-circle text-xs text-gray-400 mr-2"></i>실시간 데이터 대시보드 구축으로 의사결정 속도 40% 단축</li>
-                                <li class="lang-en"><i class="fas fa-circle text-xs text-gray-400 mr-2"></i>Designed credit card recommendation system data pipeline and improved accuracy (12% CTR increase)</li>
-                                <li class="lang-en"><i class="fas fa-circle text-xs text-gray-400 mr-2"></i>Built real-time data dashboard, reducing decision-making time by 40%</li>
-                            </ul>
-                        </div>
-
-                        <!-- Koda -->
-                        <div class="border-l-4 border-green-500 pl-4">
-                            <h4 class="font-bold text-lg text-gray-800">
-                                <span class="lang-ko">코다(메스프레소) | Sr.Product Manager</span>
-                                <span class="lang-en">Koda (Mathpresso) | Sr.Product Manager</span>
-                            </h4>
-                            <p class="text-sm text-gray-600 mb-2">
-                                <span class="lang-ko">2021.10 ~ 2024.02 (2년 5개월)</span>
-                                <span class="lang-en">2021.10 ~ 2024.02 (2 years 5 months)</span>
-                            </p>
-
-                            <div class="space-y-3">
-                                <!-- AI Content Bank System -->
-                                <div class="mb-4">
-                                    <h5 class="font-bold text-gray-800 mb-2">
-                                        <span class="lang-ko">🤖 AI 콘텐츠 문제은행 시스템 구축 & 모델 성능 개선 (2023.06~)</span>
-                                        <span class="lang-en">🤖 AI Content Bank System Development & Model Performance Improvement (2023.06~)</span>
-                                    </h5>
-                                    <p class="text-sm text-blue-600 font-semibold mb-2">
-                                        <span class="lang-ko">콘텐츠 제작시간 75% 단축, 월간 처리량 4배 증가 (100건→400건)</span>
-                                        <span class="lang-en">Content creation time reduced by 75%, monthly throughput increased 4x (100→400 items)</span>
-                                    </p>
-                                    <ul class="space-y-1 text-gray-700 text-sm">
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>PDF→OCR→박싱→LLM검수→메타데이터 태깅 End-to-End 자동화 파이프라인 설계</li>
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>OCR 정확도 개선 및 LLM 검수 오류 탐지 (CSAT 80%→90%)</li>
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>RAG 기반 생성형 모델 고도화 및 정확도 향상 (82%→96%)</li>
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>AI 평가 체계(Evals) 설계 및 서비스 가동률 99.2% 달성</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Designed End-to-End automation pipeline: PDF→OCR→Boxing→LLM Review→Metadata Tagging</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Improved OCR accuracy and LLM review error detection (CSAT 80%→90%)</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Enhanced RAG-based generative model and improved accuracy (82%→96%)</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Designed AI evaluation system (Evals) and achieved 99.2% service uptime</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Content Platform Migration -->
-                                <div class="mb-4">
-                                    <h5 class="font-bold text-gray-800 mb-2">
-                                        <span class="lang-ko">📚 HWP 기반 콘텐츠 플랫폼 구축 (2022.01~2023.06)</span>
-                                        <span class="lang-en">📚 HWP-Based Content Platform Development (2022.01~2023.06)</span>
-                                    </h5>
-                                    <p class="text-sm text-green-600 font-semibold mb-2">
-                                        <span class="lang-ko">처리시간 80% 단축, 데이터 정확도 99.5% 달성</span>
-                                        <span class="lang-en">Processing time reduced by 80%, data accuracy achieved 99.5%</span>
-                                    </p>
-                                    <ul class="space-y-1 text-gray-700 text-sm">
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>100만 건 이상 HWP/파일/DB 마이그레이션 시스템 설계</li>
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Docker 기반 배포 시스템 구축 (배포 시간 90% 단축)</li>
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>정합성 검증 파이프라인 도입 (오류율 0.5% 미만)</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Designed migration system for 1M+ HWP/files/DB records</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Built Docker-based deployment system (90% deployment time reduction)</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Introduced data validation pipeline (error rate under 0.5%)</li>
-                                    </ul>
-                                </div>
-
-                                <!-- Global Platform -->
-                                <div class="mb-4">
-                                    <h5 class="font-bold text-gray-800 mb-2">
-                                        <span class="lang-ko">🌍 해외사업 플랫폼 & 현지화 (2021.10~2022.12)</span>
-                                        <span class="lang-en">🌍 Global Platform & Localization (2021.10~2022.12)</span>
-                                    </h5>
-                                    <p class="text-sm text-purple-600 font-semibold mb-2">
-                                        <span class="lang-ko">8개국 서비스 확장, 계약 갱신율 10%p 향상</span>
-                                        <span class="lang-en">Expanded service to 8 countries, improved renewal rate by 10%p</span>
-                                    </p>
-                                    <ul class="space-y-1 text-gray-700 text-sm">
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>다국어 지원 시스템 구축 (영어, 중국어, 일본어, 스페인어)</li>
-                                        <li class="lang-ko"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>국가별 맞춤형 UI/UX 설계 및 문화적 현지화</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Built multi-language support system (English, Chinese, Japanese, Spanish)</li>
-                                        <li class="lang-en"><i class="fas fa-dot-circle text-gray-500 mr-2"></i>Designed country-specific UI/UX and cultural localization</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Core Values -->
-                <div class="mb-8">
-                    <h3 class="font-bold text-2xl mb-6 text-gray-800">
-                        <i class="fas fa-heart mr-2"></i>
-                        <span class="lang-ko">핵심 가치관</span>
-                        <span class="lang-en">Core Values</span>
-                    </h3>
-                    <div class="grid md:grid-cols-4 gap-6">
-                        <div class="highlight-bg p-6 rounded-lg">
-                            <h3 class="text-lg font-bold mb-3 accent-color">
-                                <i class="fas fa-lightbulb mr-2"></i>
-                                <span class="lang-ko">혁신적 사고</span>
-                                <span class="lang-en">Innovative Thinking</span>
-                            </h3>
-                            <p class="text-sm text-gray-700">
-                                <span class="lang-ko">새로운 기술과 트렌드를 빠르게 이해하고, 기존의 방식에 얽매이지 않는 창의적인 솔루션을 추구합니다.</span>
-                                <span class="lang-en">Quickly understand new technologies and trends, pursuing creative solutions unconstrained by conventional methods.</span>
-                            </p>
-                        </div>
-                        <div class="highlight-bg p-6 rounded-lg">
-                            <h3 class="text-lg font-bold mb-3 accent-color">
-                                <i class="fas fa-users mr-2"></i>
-                                <span class="lang-ko">사용자 중심</span>
-                                <span class="lang-en">User-Centric</span>
-                            </h3>
-                            <p class="text-sm text-gray-700">
-                                <span class="lang-ko">데이터와 사용자 피드백을 바탕으로 진짜 문제를 발견하고, 실질적인 가치를 전달하는 제품을 만듭니다.</span>
-                                <span class="lang-en">Discover real problems based on data and user feedback, creating products that deliver tangible value.</span>
-                            </p>
-                        </div>
-                        <div class="highlight-bg p-6 rounded-lg">
-                            <h3 class="text-lg font-bold mb-3 accent-color">
-                                <i class="fas fa-handshake mr-2"></i>
-                                <span class="lang-ko">협업과 소통</span>
-                                <span class="lang-en">Collaboration</span>
-                            </h3>
-                            <p class="text-sm text-gray-700">
-                                <span class="lang-ko">다양한 배경의 팀원들과 적극적으로 소통하며, 함께 성장하는 환경을 만들어갑니다.</span>
-                                <span class="lang-en">Actively communicate with team members from diverse backgrounds, creating an environment of mutual growth.</span>
-                            </p>
-                        </div>
-                        <div class="highlight-bg p-6 rounded-lg">
-                            <h3 class="text-lg font-bold mb-3 accent-color">
-                                <i class="fas fa-chart-line mr-2"></i>
-                                <span class="lang-ko">지속적 성장</span>
-                                <span class="lang-en">Continuous Growth</span>
-                            </h3>
-                            <p class="text-sm text-gray-700">
-                                <span class="lang-ko">끊임없이 배우고 도전하며, 어제보다 나은 오늘을 만들기 위해 노력합니다.</span>
-                                <span class="lang-en">Continuously learn and challenge myself, striving to make today better than yesterday.</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skills -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="font-bold text-xl mb-4 text-gray-800">
-                            <i class="fas fa-tools mr-2"></i>
-                            <span class="lang-ko">주요 역량</span>
-                            <span class="lang-en">Key Skills</span>
-                        </h3>
-                        <div class="space-y-2">
-                            <div>
-                                <span class="inline-block bg-gray-200 px-3 py-1 rounded text-sm mr-2">Product Management</span>
-                                <span class="inline-block bg-gray-200 px-3 py-1 rounded text-sm mr-2">Data Analysis</span>
-                            </div>
-                            <div>
-                                <span class="inline-block bg-gray-200 px-3 py-1 rounded text-sm mr-2">A/B Testing</span>
-                                <span class="inline-block bg-gray-200 px-3 py-1 rounded text-sm mr-2">SQL</span>
-                            </div>
-                            <div>
-                                <span class="inline-block bg-gray-200 px-3 py-1 rounded text-sm mr-2">Python</span>
-                                <span class="inline-block bg-gray-200 px-3 py-1 rounded text-sm">Agile</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl mb-4 text-gray-800">
-                            <i class="fas fa-certificate mr-2"></i>
-                            <span class="lang-ko">자격증</span>
-                            <span class="lang-en">Certifications</span>
-                        </h3>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="lang-ko"><i class="fas fa-check mr-2 text-green-500"></i>정보처리기사 (2023)</li>
-                            <li class="lang-ko"><i class="fas fa-check mr-2 text-green-500"></i>데이터분석 준전문가 (2022)</li>
-                            <li class="lang-ko"><i class="fas fa-check mr-2 text-green-500"></i>SQLD (2021)</li>
-                            <li class="lang-en"><i class="fas fa-check mr-2 text-green-500"></i>Information Processing Engineer (2023)</li>
-                            <li class="lang-en"><i class="fas fa-check mr-2 text-green-500"></i>Advanced Data Analytics Semi-Professional (2022)</li>
-                            <li class="lang-en"><i class="fas fa-check mr-2 text-green-500"></i>SQL Developer (2021)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
 
-        <!-- AI 문제은행 플랫폼 / AI Question Bank Platform Tab -->
-        <div id="ai-platform" class="tab-content animate-fadeIn">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-6 accent-color">
-                    <i class="fas fa-robot mr-3"></i>
-                    <span class="lang-ko">AI 문제은행 플랫폼</span>
-                    <span class="lang-en">AI Question Bank Platform</span>
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+            <!-- Personal Values Section -->
+            <section class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-heart mr-3"></i>핵심 가치관
+                </h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="highlight-bg p-6 rounded-lg">
+                        <h3 class="text-lg font-bold mb-3 accent-color">
+                            <i class="fas fa-lightbulb mr-2"></i>혁신적 사고
+                        </h3>
+                        <p class="text-sm text-gray-700">새로운 기술과 트렌드를 빠르게 이해하고, 기존의 방식에 얽매이지 않는 창의적인 솔루션을 추구합니다.</p>
+                    </div>
+                    <div class="highlight-bg p-6 rounded-lg">
+                        <h3 class="text-lg font-bold mb-3 accent-color">
+                            <i class="fas fa-users mr-2"></i>협업의 힘
+                        </h3>
+                        <p class="text-sm text-gray-700">다양한 팀과의 원활한 소통을 통해 더 나은 결과를 만들어내는 것을 중요하게 생각합니다.</p>
+                    </div>
+                    <div class="highlight-bg p-6 rounded-lg">
+                        <h3 class="text-lg font-bold mb-3 accent-color">
+                            <i class="fas fa-chart-line mr-2"></i>지속적 성장
+                        </h3>
+                        <p class="text-sm text-gray-700">끊임없는 학습과 개선을 통해 개인과 조직의 성장을 동시에 추구합니다.</p>
+                    </div>
+                    <div class="highlight-bg p-6 rounded-lg">
+                        <h3 class="text-lg font-bold mb-3 accent-color">
+                            <i class="fas fa-target mr-2"></i>사용자 중심
+                        </h3>
+                        <p class="text-sm text-gray-700">사용자의 니즈와 관점을 항상 최우선으로 고려하여 가치 있는 제품을 만들어 나갑니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Skills Section (Moved from Home) -->
+            <section class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-star mr-3"></i>핵심 역량
+                </h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center p-6 bg-gray-50 rounded-lg h-full">
+                        <i class="fas fa-brain text-3xl text-gray-600 mb-3"></i>
+                        <h3 class="font-bold text-gray-800 mb-2">AI/ML 제품화</h3>
+                        <p class="text-sm text-gray-600">LLM, OCR, STT 실제 적용 경험</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg h-full">
+                        <i class="fas fa-chart-line text-3xl text-gray-600 mb-3"></i>
+                        <h3 class="font-bold text-gray-800 mb-2">데이터 기반 의사결정</h3>
+                        <p class="text-sm text-gray-600">A/B 테스트, Metric 설계</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg h-full">
+                        <i class="fas fa-code-branch text-3xl text-gray-600 mb-3"></i>
+                        <h3 class="font-bold text-gray-800 mb-2">기술 이해도</h3>
+                        <p class="text-sm text-gray-600">개발자와 원활한 협업</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg h-full">
+                        <i class="fas fa-rocket text-3xl text-gray-600 mb-3"></i>
+                        <h3 class="font-bold text-gray-800 mb-2">불확실성 관리</h3>
+                        <p class="text-sm text-gray-600">복잡한 프로젝트 리딩</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Career Section -->
+            <section class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-graduation-cap mr-3"></i>경력 및 학력
                 </h2>
 
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-                    <p class="text-blue-700 font-semibold">
-                        <span class="lang-ko">🎯 핵심 성과: 콘텐츠 제작시간 75% 단축, 월간 처리량 4배 증가 (100건→400건)</span>
-                        <span class="lang-en">🎯 Key Achievement: Content creation time reduced by 75%, monthly throughput increased 4x (100→400 items)</span>
+                <!-- Work Experience -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6 accent-color">근무 경력</h3>
+                    <div class="space-y-8">
+                        <!-- 비상교육 -->
+                        <div class="border-l-4 border-gray-700 pl-6">
+                            <h4 class="text-xl font-bold accent-color">Senior Product Manager</h4>
+                            <p class="text-gray-600 mb-2">(주) 비상교육 | 2019.06 ~ 현재</p>
+                            <p class="text-gray-700 mb-4">
+                                EdTech AI 콘텐츠 플랫폼 PM으로서 AI 문제은행 시스템부터 글로벌 화상 플랫폼까지 다양한 프로젝트를 주도했습니다.
+                            </p>
+
+                            <!-- AI 콘텐츠 문제은행 시스템 -->
+                            <div class="mb-4">
+                                <h5 class="font-bold text-gray-800 mb-2">🤖 AI 콘텐츠 문제은행 시스템 구축 & 모델 성능 개선 (2023.06~)</h5>
+                                <p class="text-sm text-blue-600 font-semibold mb-2">콘텐츠 제작시간 75% 단축, 월간 처리량 4배 증가 (100건→400건)</p>
+                                <ul class="space-y-1 text-gray-700 text-sm">
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>PDF→OCR→박싱→LLM검수→메타데이터 태깅 End-to-End 자동화 파이프라인 설계</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>OCR 정확도 개선 및 LLM 검수 오류 탐지 (CSAT 80%→90%)</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>RAG 기반 생성형 모델 고도화 및 정확도 향상 (82%→96%)</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>AI 평가 체계(Evals) 설계 및 서비스 가동률 99.2% 달성</li>
+                                </ul>
+                            </div>
+
+                            <!-- AI 디지털교과서 콘텐츠 플랫폼 -->
+                            <div class="mb-4">
+                                <h5 class="font-bold text-gray-800 mb-2">📚 AI 디지털교과서 콘텐츠 플랫폼 구축 (2023.06~)</h5>
+                                <p class="text-sm text-green-600 font-semibold mb-2">다양한 형식의 콘텐츠 통합 마이그레이션 및 배포 자동화 달성</p>
+                                <ul class="space-y-1 text-gray-700 text-sm">
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>HWP/파일/DB 등 다양한 형식 콘텐츠의 규칙 정의 및 매핑</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>AWS↔NCP 간 콘텐츠 배포시스템 설계 및 정책 수립</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>데이터 정합성 검증 시스템 구축 (정확도 99.5%)</li>
+                                </ul>
+                            </div>
+
+                            <!-- 글로벌 화상 플랫폼 -->
+                            <div class="mb-4">
+                                <h5 class="font-bold text-gray-800 mb-2">🌐 글로벌 화상 플랫폼 구축 및 운영 (2019.06~2023.06)</h5>
+                                <p class="text-sm text-purple-600 font-semibold mb-2">8개국 서비스 제공, 계약 갱신율 10%p 개선</p>
+                                <ul class="space-y-1 text-gray-700 text-sm">
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>WebRTC 기반 교육 플랫폼 구축 및 LMS 기획 (8개국 대상)</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>VoC 기반 리뉴얼 2회 및 B2B, C2C 구조 고도화</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>API/SDK 활용한 외부 솔루션 연동 및 커스터마이징</li>
+                                    <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>고객 KPI 기반 교육 운영 및 QA 문서화</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 더브릿지소프트 -->
+                        <div class="border-l-4 border-gray-600 pl-6">
+                            <h4 class="text-xl font-bold accent-color">서비스 기획 프리랜서</h4>
+                            <p class="text-gray-600 mb-2">(주) 더브릿지소프트 | 2018.12 ~ 2019.02</p>
+                            <p class="text-gray-700 mb-4">
+                                전자정부 프로젝트에서 서비스 기획 및 품질관리를 담당했습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>르완다 정부 대상 전자결재 시스템 설계 및 품질관리</li>
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>사용자 매뉴얼 작성 및 국/영문 교육 진행</li>
+                            </ul>
+                        </div>
+
+                        <!-- 코이카 -->
+                        <div class="border-l-4 border-gray-500 pl-6">
+                            <h4 class="text-xl font-bold accent-color">Young Professional</h4>
+                            <p class="text-gray-600 mb-2">한국국제협력단(KOICA) | 2017.11 ~ 2018.09</p>
+                            <p class="text-gray-700 mb-4">
+                                교육 및 ICT 프로젝트 운영을 담당했습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>다국가 연수 사업 운영 및 예산 집행</li>
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>UNESCO ICT 워크숍 기획 참여 및 보고서 작성</li>
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>이러닝 콘텐츠 활용 사업 성과 모니터링</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 accent-color">학력</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-600 pl-6">
+                            <h4 class="text-xl font-bold accent-color">아동학/정치외교학 학사 (복수전공)</h4>
+                            <p class="text-gray-600 mb-2">대구가톨릭대학교 | 2011.03 ~ 2017.07</p>
+                            <p class="text-gray-700">아동학과 정치외교학 복수전공으로 졸업</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h4 class="text-xl font-bold accent-color">정치외교학 (학점교류)</h4>
+                            <p class="text-gray-600 mb-2">서강대학교 | 2012.03 ~ 2013.03</p>
+                            <p class="text-gray-700">학점교류 프로그램을 통한 정치외교학 심화 학습</p>
+                        </div>
+                    </div>
+
+                    <!-- AI 교육 이력 -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-bold mb-4 accent-color">AI 전문 교육</h4>
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h5 class="font-bold text-gray-800 mb-2">AI 전문가 과정 수료 (360시간)</h5>
+                            <p class="text-gray-700 mb-2">
+                                머신러닝/딥러닝 로직 이해를 바탕으로 Python, 통계, 데이터 전처리, 자연어처리 등 실무형 AI 기술 학습
+                            </p>
+                            <ul class="space-y-1 text-gray-700 text-sm">
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>데이터 전처리 → 머신러닝/딥러닝 → 자연어처리 프로젝트 수행</li>
+                                <li><i class="fas fa-dot-circle text-gray-500 mr-2"></i>챗봇 개발 및 이미지 처리 특강 포함</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 자격증 -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-bold mb-4 accent-color">자격증</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h5 class="font-bold text-gray-800">유치원 정교사 2급</h5>
+                                <p class="text-gray-600 text-sm">교육부</p>
+                            </div>
+                            <div class="border-l-4 border-purple-400 pl-6">
+                                <h5 class="font-bold text-gray-800">보육교사 2급</h5>
+                                <p class="text-gray-600 text-sm">보건복지부</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 언어 능력 -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-bold mb-4 accent-color">언어 능력</h4>
+                        <div class="border-l-4 border-orange-500 pl-6">
+                            <h5 class="font-bold text-gray-800">비즈니스 영어</h5>
+                            <p class="text-gray-700">읽기/쓰기/말하기 중상급</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- AI Platform Tab -->
+        <div id="ai-platform" class="tab-content">
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-robot mr-3"></i>AI 문제은행 플랫폼
+                </h2>
+                <div class="max-w-4xl mx-auto">
+
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        AI 디지털교과서(AIDT) 콘텐츠 플랫폼에서 생성형 AI를 활용한 교육 콘텐츠 자동화 시스템을 설계하고 구현했습니다.
+                        전국 초/중/고 기출문제 디지털화를 위한 <strong>5단계 AI 파이프라인(PDF 수집→OCR 변환→AI 태깅→문제은행→서비스 연동)</strong>을
+                        전체적으로 설계하고 구축했으며, 각 단계별 AI API 성능 평가(Evals) 체계를 구축하여 OCR 정확도 95%, 처리속도 85% 개선을 달성했습니다.
+                        디자인/퍼블리싱 없이 바이브코딩으로 직접 HTML/CSS로 사용자 화면을 구현하여 현업에 적용하는 작업도 수행했습니다.
                     </p>
-                </div>
-
-                <!-- Project Overview -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">프로젝트 개요</span>
-                        <span class="lang-en">Project Overview</span>
-                    </h3>
-                    <div class="bg-gray-50 p-6 rounded-lg mb-6">
-                        <p class="text-gray-700 mb-4">
-                            <span class="lang-ko">교육 콘텐츠 제작 과정을 AI로 자동화하여 효율성을 극대화한 프로젝트입니다. PDF 문서를 입력받아 OCR, 문항 인식, LLM 검수, 메타데이터 자동 태깅까지 End-to-End 파이프라인을 구축했습니다.</span>
-                            <span class="lang-en">A project that maximized efficiency by automating the educational content creation process with AI. Built an End-to-End pipeline from PDF input through OCR, question recognition, LLM review, to automatic metadata tagging.</span>
-                        </p>
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div class="bg-white p-4 rounded shadow">
-                                <h4 class="font-bold text-gray-700 mb-2">
-                                    <span class="lang-ko">📈 처리량 개선</span>
-                                    <span class="lang-en">📈 Throughput Improvement</span>
-                                </h4>
-                                <p class="text-2xl font-bold text-blue-600">4x ↑</p>
-                                <p class="text-sm text-gray-600">
-                                    <span class="lang-ko">월 100건 → 400건</span>
-                                    <span class="lang-en">100 → 400 items/month</span>
-                                </p>
-                            </div>
-                            <div class="bg-white p-4 rounded shadow">
-                                <h4 class="font-bold text-gray-700 mb-2">
-                                    <span class="lang-ko">⏱️ 시간 단축</span>
-                                    <span class="lang-en">⏱️ Time Reduction</span>
-                                </h4>
-                                <p class="text-2xl font-bold text-green-600">75% ↓</p>
-                                <p class="text-sm text-gray-600">
-                                    <span class="lang-ko">문항당 40분 → 10분</span>
-                                    <span class="lang-en">40 → 10 min/item</span>
-                                </p>
-                            </div>
-                            <div class="bg-white p-4 rounded shadow">
-                                <h4 class="font-bold text-gray-700 mb-2">
-                                    <span class="lang-ko">💰 비용 절감</span>
-                                    <span class="lang-en">💰 Cost Reduction</span>
-                                </h4>
-                                <p class="text-2xl font-bold text-purple-600">95% ↓</p>
-                                <p class="text-sm text-gray-600">
-                                    <span class="lang-ko">문항당 2만원 → 1천원</span>
-                                    <span class="lang-en">₩20,000 → ₩1,000/item</span>
-                                </p>
-                            </div>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <p class="text-blue-700 font-semibold">🎯 핵심 성과: 콘텐츠 제작시간 75% 단축, 월간 처리량 4배 증가 (100건→400건)</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-calendar-alt text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">진행 기간</h3>
+                            <p class="text-gray-600">2023.06 ~ 현재</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-user text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">역할</h3>
+                            <p class="text-gray-600">Senior PM</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-building text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">소속</h3>
+                            <p class="text-gray-600">(주) 비상교육</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Technical Implementation -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">기술 구현</span>
-                        <span class="lang-en">Technical Implementation</span>
-                    </h3>
+                <!-- 4개 하위 프로젝트 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">주요 구현 기능</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
 
-                    <!-- Pipeline Flow -->
-                    <div class="bg-gray-50 p-6 rounded-lg mb-6">
-                        <h4 class="font-bold text-lg mb-4 text-gray-700">
-                            <span class="lang-ko">🔄 자동화 파이프라인</span>
-                            <span class="lang-en">🔄 Automation Pipeline</span>
-                        </h4>
-                        <div class="flex flex-wrap items-center justify-center gap-2 text-center">
-                            <div class="bg-white px-4 py-2 rounded shadow">PDF</div>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <div class="bg-white px-4 py-2 rounded shadow">OCR</div>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <div class="bg-white px-4 py-2 rounded shadow">
-                                <span class="lang-ko">박싱</span>
-                                <span class="lang-en">Boxing</span>
-                            </div>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <div class="bg-white px-4 py-2 rounded shadow">
-                                <span class="lang-ko">LLM 검수</span>
-                                <span class="lang-en">LLM Review</span>
-                            </div>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <div class="bg-white px-4 py-2 rounded shadow">
-                                <span class="lang-ko">메타태깅</span>
-                                <span class="lang-en">Meta Tagging</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Key Features -->
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="font-bold text-gray-800 mb-2">
-                                <span class="lang-ko">🎯 OCR 정확도 개선</span>
-                                <span class="lang-en">🎯 OCR Accuracy Improvement</span>
-                            </h4>
-                            <ul class="space-y-1 text-sm text-gray-700">
-                                <li class="lang-ko">• 수식 인식 정확도: 85% → 98%</li>
-                                <li class="lang-ko">• 표/그래프 인식: 70% → 95%</li>
-                                <li class="lang-ko">• 다단 레이아웃 처리 최적화</li>
-                                <li class="lang-en">• Formula recognition: 85% → 98%</li>
-                                <li class="lang-en">• Table/Graph recognition: 70% → 95%</li>
-                                <li class="lang-en">• Multi-column layout optimization</li>
+                        <!-- 1. 힌트/해설 생성 -->
+                        <div class="bg-white rounded-lg shadow-md border-l-4 border-green-500 p-6">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">1. 힌트/해설 자동 생성</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                생성형 AI 기반으로 문항 콘텐츠에 대한 힌트와 해설을 자동 생성하는 기능을 설계했습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>생성형 AI 기반 힌트/해설 자동 생성 기능 설계</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>교육과정별 프롬프트 템플릿 구축</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>품질 검증 워크플로우 수립</li>
                             </ul>
                         </div>
-                        <div class="border-l-4 border-green-500 pl-4">
-                            <h4 class="font-bold text-gray-800 mb-2">
-                                <span class="lang-ko">🤖 RAG 기반 생성 모델</span>
-                                <span class="lang-en">🤖 RAG-based Generation Model</span>
-                            </h4>
-                            <ul class="space-y-1 text-sm text-gray-700">
-                                <li class="lang-ko">• 유사 문항 생성 정확도: 82% → 96%</li>
-                                <li class="lang-ko">• 해설 자동 생성 품질 향상</li>
-                                <li class="lang-ko">• 난이도 자동 분류 시스템</li>
-                                <li class="lang-en">• Similar question generation: 82% → 96%</li>
-                                <li class="lang-en">• Enhanced explanation generation quality</li>
-                                <li class="lang-en">• Automatic difficulty classification</li>
+
+                        <!-- 2. 오토태깅 -->
+                        <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500 p-6">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">2. 오토태깅</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                문항 콘텐츠에 대한 메타데이터 자동 분류 및 태깅 시스템을 기획하고 있습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-orange-500 mr-2"></i>AI 기반 자동 카테고리 분류 시스템 설계</li>
+                                <li><i class="fas fa-check text-orange-500 mr-2"></i>교육과정 연계 태깅 체계 구축</li>
+                                <li><i class="fas fa-check text-orange-500 mr-2"></i>메타데이터 표준화 및 품질 관리 가이드</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. OCR/박싱 -->
+                        <div class="bg-white rounded-lg shadow-md border-l-4 border-green-500 p-6">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">3. OCR/박싱</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                문항 이미지에서 텍스트를 추출하고 영역을 인식하는 OCR 시스템을 구축했습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>문항 영역 자동 인식 및 박싱 처리</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>텍스트 추출 및 구조화 프로세스</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>검수체계 자동화를 위한 LLM 구축 기획</li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. 쌍둥이문항 생성 -->
+                        <div class="bg-white rounded-lg shadow-md border-l-4 border-purple-500 p-6">
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">4. 쌍둥이문항 생성</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                기존 문항을 기반으로 유사한 난이도의 새로운 문항을 자동 생성하는 시스템을 기획하고 있습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>문항 패턴 분석 및 유사 문항 생성 로직</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>생성 시스템 및 검수체계 구축 기획</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>교육 전문가 검증 프로세스</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- OCR and Boxing Screen -->
+                <!-- OCR 및 박싱 화면 -->
                 <div class="mb-12">
                     <div class="bg-white rounded-lg shadow-md p-8">
                         <h3 class="text-2xl font-bold mb-6 text-center accent-color">
-                            <i class="fas fa-eye mr-3"></i>
-                            <span class="lang-ko">OCR 및 문항 인식 시스템</span>
-                            <span class="lang-en">OCR and Question Recognition System</span>
+                            <i class="fas fa-eye mr-3"></i>OCR 및 문항 인식 시스템
                         </h3>
                         <div class="mb-6">
-                            <img src="ocr.png" alt="OCR Boxing System" class="w-full rounded-lg shadow-sm border">
+                            <img src="ocr.png" alt="OCR 박싱 시스템" class="w-full rounded-lg shadow-sm border">
                         </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-blue-700 mb-2">
-                                    <span class="lang-ko">📊 주요 기능</span>
-                                    <span class="lang-en">📊 Key Features</span>
-                                </h4>
-                                <ul class="space-y-1 text-sm text-gray-700">
-                                    <li class="lang-ko">• 자동 문항 영역 탐지</li>
-                                    <li class="lang-ko">• 선택지 자동 분리</li>
-                                    <li class="lang-ko">• 수식/도형 인식</li>
-                                    <li class="lang-en">• Automatic question area detection</li>
-                                    <li class="lang-en">• Automatic choice separation</li>
-                                    <li class="lang-en">• Formula/Shape recognition</li>
-                                </ul>
-                            </div>
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <h4 class="font-bold text-green-700 mb-2">
-                                    <span class="lang-ko">✅ 성과 지표</span>
-                                    <span class="lang-en">✅ Performance Metrics</span>
-                                </h4>
-                                <ul class="space-y-1 text-sm text-gray-700">
-                                    <li class="lang-ko">• 처리 시간: 40초 → 5초</li>
-                                    <li class="lang-ko">• 인식 정확도: 98%+</li>
-                                    <li class="lang-ko">• 수동 검수 필요: 5% 미만</li>
-                                    <li class="lang-en">• Processing time: 40s → 5s</li>
-                                    <li class="lang-en">• Recognition accuracy: 98%+</li>
-                                    <li class="lang-en">• Manual review needed: <5%</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI Generation Screens -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center accent-color">
-                        <i class="fas fa-magic mr-3"></i>
-                        <span class="lang-ko">AI 콘텐츠 생성 시스템</span>
-                        <span class="lang-en">AI Content Generation System</span>
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <img src="생성1.png" alt="AI Hint/Explanation Generation" class="w-full rounded-lg shadow-sm border">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">AI 힌트/해설 생성</span>
-                                <span class="lang-en">AI Hint/Explanation Generation</span>
-                            </p>
-                        </div>
-                        <div>
-                            <img src="생성2.png" alt="AI Twin Question Generation" class="w-full rounded-lg shadow-sm border">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">AI 쌍둥이 문항 생성</span>
-                                <span class="lang-en">AI Twin Question Generation</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Evaluation System -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">평가 체계 (Evals)</span>
-                        <span class="lang-en">Evaluation System (Evals)</span>
-                    </h3>
-                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
-                        <h4 class="font-bold text-gray-800 mb-3">
-                            <span class="lang-ko">📊 모델 성능 모니터링</span>
-                            <span class="lang-en">📊 Model Performance Monitoring</span>
-                        </h4>
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div>
-                                <p class="font-semibold text-gray-700">
-                                    <span class="lang-ko">정확도</span>
-                                    <span class="lang-en">Accuracy</span>
-                                </p>
-                                <p class="text-2xl font-bold text-yellow-600">96%</p>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-700">
-                                    <span class="lang-ko">가동률</span>
-                                    <span class="lang-en">Uptime</span>
-                                </p>
-                                <p class="text-2xl font-bold text-green-600">99.2%</p>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-700">CSAT</p>
-                                <p class="text-2xl font-bold text-blue-600">90%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Technical Stack -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">기술 스택</span>
-                        <span class="lang-en">Tech Stack</span>
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Python</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">TensorFlow</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">PyTorch</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">OpenAI API</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">LangChain</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Docker</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">AWS</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">PostgreSQL</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 콘텐츠 플랫폼 / Content Platform Tab -->
-        <div id="content-platform" class="tab-content animate-fadeIn">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-6 accent-color">
-                    <i class="fas fa-server mr-3"></i>
-                    <span class="lang-ko">콘텐츠 플랫폼</span>
-                    <span class="lang-en">Content Platform</span>
-                </h2>
-
-                <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
-                    <p class="text-green-700 font-semibold">
-                        <span class="lang-ko">🎯 핵심 성과: 처리 시간 80% 단축, 데이터 정확도 99.5%, 자동화율 90% 달성</span>
-                        <span class="lang-en">🎯 Key Achievement: Processing time reduced by 80%, data accuracy 99.5%, automation rate 90%</span>
-                    </p>
-                </div>
-
-                <!-- HWP/파일/DB 마이그레이션 -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">HWP/파일/DB 마이그레이션</span>
-                        <span class="lang-en">HWP/File/DB Migration</span>
-                    </h3>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-gray-700 mb-3">
-                                    <span class="lang-ko">🔄 마이그레이션 규모</span>
-                                    <span class="lang-en">🔄 Migration Scale</span>
-                                </h4>
-                                <ul class="space-y-2 text-gray-700">
-                                    <li class="lang-ko">• 총 데이터: 100만+ 건</li>
-                                    <li class="lang-ko">• HWP 파일: 50만+ 개</li>
-                                    <li class="lang-ko">• 이미지/미디어: 200만+ 개</li>
-                                    <li class="lang-ko">• DB 레코드: 500만+ 행</li>
-                                    <li class="lang-en">• Total data: 1M+ items</li>
-                                    <li class="lang-en">• HWP files: 500K+</li>
-                                    <li class="lang-en">• Images/Media: 2M+</li>
-                                    <li class="lang-en">• DB records: 5M+ rows</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-700 mb-3">
-                                    <span class="lang-ko">⚡ 성능 개선</span>
-                                    <span class="lang-en">⚡ Performance Improvement</span>
-                                </h4>
-                                <ul class="space-y-2 text-gray-700">
-                                    <li class="lang-ko">• 처리 속도: 10배 향상</li>
-                                    <li class="lang-ko">• 오류율: 5% → 0.5%</li>
-                                    <li class="lang-ko">• 자동 복구: 99% 성공률</li>
-                                    <li class="lang-ko">• 다운타임: Zero</li>
-                                    <li class="lang-en">• Processing speed: 10x faster</li>
-                                    <li class="lang-en">• Error rate: 5% → 0.5%</li>
-                                    <li class="lang-en">• Auto recovery: 99% success</li>
-                                    <li class="lang-en">• Downtime: Zero</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 배포 시스템 구축 -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">배포 시스템 구축</span>
-                        <span class="lang-en">Deployment System Development</span>
-                    </h3>
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-blue-700 mb-2">
-                                <i class="fab fa-docker mr-2"></i>Docker
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 컨테이너 기반 배포</li>
-                                <li class="lang-ko">• 환경 일관성 보장</li>
-                                <li class="lang-ko">• 롤백 시간: 30초</li>
-                                <li class="lang-en">• Container-based deployment</li>
-                                <li class="lang-en">• Environment consistency</li>
-                                <li class="lang-en">• Rollback time: 30s</li>
-                            </ul>
-                        </div>
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-green-700 mb-2">
-                                <i class="fas fa-code-branch mr-2"></i>CI/CD
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 자동화된 테스트</li>
-                                <li class="lang-ko">• 무중단 배포</li>
-                                <li class="lang-ko">• 배포 주기: 일 2회</li>
-                                <li class="lang-en">• Automated testing</li>
-                                <li class="lang-en">• Zero-downtime deploy</li>
-                                <li class="lang-en">• Deploy cycle: 2x daily</li>
-                            </ul>
-                        </div>
-                        <div class="bg-purple-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-purple-700 mb-2">
-                                <i class="fas fa-chart-line mr-2"></i>Monitoring
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 실시간 모니터링</li>
-                                <li class="lang-ko">• 알림 시스템</li>
-                                <li class="lang-ko">• 장애 대응: 5분</li>
-                                <li class="lang-en">• Real-time monitoring</li>
-                                <li class="lang-en">• Alert system</li>
-                                <li class="lang-en">• Incident response: 5min</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 정합성 검증 -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">정합성 검증 파이프라인</span>
-                        <span class="lang-en">Data Validation Pipeline</span>
-                    </h3>
-                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-gray-700 mb-3">
-                                    <span class="lang-ko">🔍 검증 프로세스</span>
-                                    <span class="lang-en">🔍 Validation Process</span>
-                                </h4>
-                                <ol class="space-y-2 text-gray-700">
-                                    <li class="lang-ko">1. 스키마 검증</li>
-                                    <li class="lang-ko">2. 데이터 타입 확인</li>
-                                    <li class="lang-ko">3. 참조 무결성 체크</li>
-                                    <li class="lang-ko">4. 비즈니스 규칙 검증</li>
-                                    <li class="lang-en">1. Schema validation</li>
-                                    <li class="lang-en">2. Data type verification</li>
-                                    <li class="lang-en">3. Referential integrity check</li>
-                                    <li class="lang-en">4. Business rule validation</li>
-                                </ol>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-700 mb-3">
-                                    <span class="lang-ko">📊 검증 결과</span>
-                                    <span class="lang-en">📊 Validation Results</span>
-                                </h4>
-                                <ul class="space-y-2 text-gray-700">
-                                    <li class="lang-ko">• 데이터 정확도: 99.5%</li>
-                                    <li class="lang-ko">• 자동 수정률: 85%</li>
-                                    <li class="lang-ko">• 검증 시간: 10분/100만건</li>
-                                    <li class="lang-ko">• False Positive: 0.1%</li>
-                                    <li class="lang-en">• Data accuracy: 99.5%</li>
-                                    <li class="lang-en">• Auto-fix rate: 85%</li>
-                                    <li class="lang-en">• Validation time: 10min/1M</li>
-                                    <li class="lang-en">• False Positive: 0.1%</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Images -->
-                <div class="grid md:grid-cols-2 gap-6 mb-8">
-                    <div>
-                        <img src="그림1.jpg" alt="Content Platform Screenshot 1" class="w-full rounded-lg shadow-sm">
-                    </div>
-                    <div>
-                        <img src="그림2.jpg" alt="Content Platform Screenshot 2" class="w-full rounded-lg shadow-sm">
-                    </div>
-                </div>
-
-                <!-- Technical Stack -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">기술 스택</span>
-                        <span class="lang-en">Tech Stack</span>
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Python</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Django</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">PostgreSQL</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Redis</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Docker</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Kubernetes</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Jenkins</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Elasticsearch</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 글로벌 플랫폼 / Global Platform Tab -->
-        <div id="global-platform" class="tab-content animate-fadeIn">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-6 accent-color">
-                    <i class="fas fa-globe mr-3"></i>
-                    <span class="lang-ko">글로벌 플랫폼</span>
-                    <span class="lang-en">Global Platform</span>
-                </h2>
-
-                <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-6">
-                    <p class="text-purple-700 font-semibold">
-                        <span class="lang-ko">🎯 핵심 성과: 8개국 서비스 제공, 계약 갱신율 10%p 개선, CSAT 95% 달성</span>
-                        <span class="lang-en">🎯 Key Achievement: Service in 8 countries, renewal rate improved by 10%p, CSAT 95%</span>
-                    </p>
-                </div>
-
-                <!-- Global Expansion -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">글로벌 확장 전략</span>
-                        <span class="lang-en">Global Expansion Strategy</span>
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bold text-gray-700 mb-3">
-                                <span class="lang-ko">🌍 진출 국가</span>
-                                <span class="lang-en">🌍 Countries</span>
-                            </h4>
-                            <div class="grid grid-cols-2 gap-2">
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇺🇸</span>
-                                    <p class="text-sm">USA</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇯🇵</span>
-                                    <p class="text-sm">Japan</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇨🇳</span>
-                                    <p class="text-sm">China</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇻🇳</span>
-                                    <p class="text-sm">Vietnam</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇹🇭</span>
-                                    <p class="text-sm">Thailand</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇲🇽</span>
-                                    <p class="text-sm">Mexico</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇮🇩</span>
-                                    <p class="text-sm">Indonesia</p>
-                                </div>
-                                <div class="bg-white p-2 rounded text-center">
-                                    <span class="text-2xl">🇹🇼</span>
-                                    <p class="text-sm">Taiwan</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bold text-gray-700 mb-3">
-                                <span class="lang-ko">📈 성장 지표</span>
-                                <span class="lang-en">📈 Growth Metrics</span>
-                            </h4>
-                            <ul class="space-y-3">
-                                <li class="flex justify-between">
-                                    <span class="text-gray-600">
-                                        <span class="lang-ko">사용자 수</span>
-                                        <span class="lang-en">Users</span>
-                                    </span>
-                                    <span class="font-bold">500K+</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span class="text-gray-600">MAU</span>
-                                    <span class="font-bold">150K</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span class="text-gray-600">
-                                        <span class="lang-ko">갱신율</span>
-                                        <span class="lang-en">Renewal</span>
-                                    </span>
-                                    <span class="font-bold">85%</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span class="text-gray-600">CSAT</span>
-                                    <span class="font-bold">95%</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Localization -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">현지화 전략</span>
-                        <span class="lang-en">Localization Strategy</span>
-                    </h3>
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">🗣️ 언어 현지화</span>
-                                <span class="lang-en">🗣️ Language</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 4개 언어 지원</li>
-                                <li class="lang-ko">• 전문 번역팀 운영</li>
-                                <li class="lang-ko">• 실시간 번역 API</li>
-                                <li class="lang-en">• 4 languages supported</li>
-                                <li class="lang-en">• Professional translation team</li>
-                                <li class="lang-en">• Real-time translation API</li>
-                            </ul>
-                        </div>
-                        <div class="border-l-4 border-green-500 pl-4">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">🎨 UI/UX 최적화</span>
-                                <span class="lang-en">🎨 UI/UX Optimization</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 문화별 디자인 적용</li>
-                                <li class="lang-ko">• RTL 언어 지원</li>
-                                <li class="lang-ko">• 현지 결제수단 연동</li>
-                                <li class="lang-en">• Culture-specific design</li>
-                                <li class="lang-en">• RTL language support</li>
-                                <li class="lang-en">• Local payment integration</li>
-                            </ul>
-                        </div>
-                        <div class="border-l-4 border-purple-500 pl-4">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">📚 콘텐츠 현지화</span>
-                                <span class="lang-en">📚 Content</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 국가별 교육과정 반영</li>
-                                <li class="lang-ko">• 현지 파트너십 구축</li>
-                                <li class="lang-ko">• 문화 맞춤 콘텐츠</li>
-                                <li class="lang-en">• Local curriculum aligned</li>
-                                <li class="lang-en">• Local partnerships</li>
-                                <li class="lang-en">• Culturally adapted content</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Screenshots -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">플랫폼 스크린샷</span>
-                        <span class="lang-en">Platform Screenshots</span>
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <img src="그림3 (1).png" alt="Global Platform Dashboard" class="w-full rounded-lg shadow-sm">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">대시보드</span>
-                                <span class="lang-en">Dashboard</span>
-                            </p>
-                        </div>
-                        <div>
-                            <img src="그림3 (2).png" alt="Localization Settings" class="w-full rounded-lg shadow-sm">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">현지화 설정</span>
-                                <span class="lang-en">Localization Settings</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tech Stack -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">기술 스택</span>
-                        <span class="lang-en">Tech Stack</span>
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">React</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Node.js</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">i18next</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">AWS CloudFront</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">MongoDB</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Stripe API</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded text-sm">Google Cloud Translation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 사이드 프로젝트 / Side Project Tab -->
-        <div id="side-project" class="tab-content animate-fadeIn">
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-6 accent-color">
-                    <i class="fas fa-code-branch mr-3"></i>
-                    <span class="lang-ko">사이드 프로젝트 - BreatheLog</span>
-                    <span class="lang-en">Side Project - BreatheLog</span>
-                </h2>
-
-                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6">
-                    <p class="text-indigo-700 font-semibold">
-                        <span class="lang-ko">🎯 핵심 특징: Next.js + Supabase를 활용한 Full-stack 개발, 실시간 데이터 동기화 구현</span>
-                        <span class="lang-en">🎯 Key Features: Full-stack development with Next.js + Supabase, real-time data synchronization</span>
-                    </p>
-                </div>
-
-                <!-- Project Overview -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">프로젝트 개요</span>
-                        <span class="lang-en">Project Overview</span>
-                    </h3>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <p class="text-gray-700 mb-4">
-                            <span class="lang-ko">명상과 호흡 운동을 추적하고 분석하는 웰빙 플랫폼입니다. 사용자의 정신 건강 향상을 위해 다양한 호흡법과 명상 프로그램을 제공하며, 진행 상황을 시각화하여 보여줍니다.</span>
-                            <span class="lang-en">A wellness platform for tracking and analyzing meditation and breathing exercises. Provides various breathing techniques and meditation programs to improve mental health, with progress visualization.</span>
+                        <p class="text-gray-700 text-center">
+                            AI기반 자동 박싱/OCR 시스템으로 2차 박싱까지 진행하여 93%의 높은 정확도를 달성했습니다.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded text-sm">
-                                <span class="lang-ko">개인 프로젝트</span>
-                                <span class="lang-en">Personal Project</span>
-                            </span>
-                            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded text-sm">2024.01 ~ 2024.03</span>
-                            <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded text-sm">
-                                <a href="https://breathelog.vercel.app" target="_blank" class="hover:underline">
-                                    <i class="fas fa-external-link-alt mr-1"></i>Live Demo
-                                </a>
-                            </span>
+                    </div>
+                </div>
+
+                <!-- AI 생성 화면 이미지 -->
+                <div class="mb-12">
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-center accent-color">
+                            <i class="fas fa-magic mr-3"></i>AI 콘텐츠 자동 생성 시스템
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <img src="생성1.png" alt="AI 힌트/해설 생성 화면" class="w-full rounded-lg shadow-sm border">
+                                <p class="text-gray-600 text-center mt-2 text-sm">문제에 대한 힌트 자동 생성</p>
+                            </div>
+                            <div>
+                                <img src="생성2.png" alt="AI 쌍둥이 문항 생성" class="w-full rounded-lg shadow-sm border">
+                                <p class="text-gray-600 text-center mt-2 text-sm">쌍둥이 문항 생성 설정</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-center">
+                            생성형 AI를 활용하여 힌트/해설을 자동으로 생성하고 쌍둥이 문항을 만드는 시스템입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 각 프로젝트별 성과 -->
+                <div class="bg-white rounded-lg shadow-md p-8 mb-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                        <i class="fas fa-chart-line mr-3"></i>각 프로젝트별 성과
+                    </h2>
+
+                    <!-- 힌트/해설 생성 성과 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-magic mr-2 text-blue-600"></i>문제 해설/힌트 자동생성 시스템
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-300">
+                                <h4 class="font-bold text-gray-700 mb-3">Before (수동 프로세스)</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><i class="fas fa-times text-red-400 mr-2"></i>1개 문항 당 평균 10분 소요</li>
+                                    <li><i class="fas fa-times text-red-400 mr-2"></i>작가별 문장 품질 차이 발생</li>
+                                    <li><i class="fas fa-times text-red-400 mr-2"></i>문항당 제작 비용 2만원</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-bold text-gray-700 mb-3">After (AI 자동화)</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>1개 문항 당 평균 5초 소요 (95% 시간단축)</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>표준화된 고품질 콘텐츠 생성 가능</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>문항당 제작 비용 1천원 (95% 절감)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-blue-50 rounded-lg text-center">
+                            <div class="flex items-center justify-center space-x-6 text-sm">
+                                <span class="text-blue-700 font-semibold">시간 90% 단축</span>
+                                <span class="text-blue-700 font-semibold">비용 95% 절감</span>
+                                <span class="text-blue-700 font-semibold">품질 일관성 90% 향상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OCR/박싱 성과 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">
+                            <i class="fas fa-eye mr-2 text-green-600"></i>문제 디지털라이징 (자동 박싱, OCR)
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-300">
+                                <h4 class="font-bold text-gray-700 mb-3">Before (수동 프로세스)</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><i class="fas fa-times text-red-400 mr-2"></i>1개 문항 당 평균 10분 소요</li>
+                                    <li><i class="fas fa-times text-red-400 mr-2"></i>포맷 일관성 부족 및 오류 발생 높음</li>
+                                    <li><i class="fas fa-times text-red-400 mr-2"></i>수식 처리에 전문 인력 필요</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-400">
+                                <h4 class="font-bold text-gray-700 mb-3">After (AI 자동화)</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>1개 문항 당 평균 20초 소요 (90% 시간 단축)</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>표준화된 포맷 변환으로 일관성 확보</li>
+                                    <li><i class="fas fa-check text-green-500 mr-2"></i>복잡한 수식도 정확하게 LaTeX로 변환</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-green-50 rounded-lg text-center">
+                            <div class="flex items-center justify-center space-x-6 text-sm">
+                                <span class="text-green-700 font-semibold">PDF 변환 공수 70% 감소</span>
+                                <span class="text-green-700 font-semibold">OCR 정확도 95% 이상 달성</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 주요 성과 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">주요 성과</h3>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center p-6 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-gray-700">85%</div>
+                            <div class="text-sm text-gray-600">콘텐츠 제작 시간 단축</div>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-gray-700">92%</div>
+                            <div class="text-sm text-gray-600">품질 검증 통과율</div>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-gray-700">95%</div>
+                            <div class="text-sm text-gray-600">문항당 비용 절감</div>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-gray-700">10만+</div>
+                            <div class="text-sm text-gray-600">자동 생성 문제</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 핵심 인사이트 (하단으로 이동) -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center accent-color">
+                        <i class="fas fa-lightbulb mr-3"></i>프로젝트를 통한 핵심 인사이트
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">OCR 정확도 개선을 위한 LLM 검수 모듈</h4>
+                            <p class="text-gray-700">
+                                OCR 변환 후 정확도를 높이기 위해 LLM 기반 검수 모듈을 추가로 구축했습니다.
+                                특히 수학 수식과 과학 기호가 많은 과목별로 맞춤형 프롬프트를 조정하면서
+                                OCR 정확도를 85%에서 95%까지 향상시켰습니다. 과목별 특성을 반영한 프롬프트 엔지니어링이 핵심이었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">Human-in-the-loop의 중요성</h4>
+                            <p class="text-gray-700">
+                                초기에는 100% 자동화를 목표로 했으나, 교육 콘텐츠의 특성상 전문가의 검증이 필수적임을 깨달았습니다.
+                                AI가 90%의 작업을 수행하고, 인간이 10%의 핵심 검증을 담당하는 하이브리드 모델이 최적의 균형점이었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">단계적 확장 전략의 효과</h4>
+                            <p class="text-gray-700">
+                                전체 시스템을 한 번에 구축하지 않고, A/B 테스트를 통해 검증된 기능부터 점진적으로 확대했습니다.
+                                이를 통해 리스크를 최소화하고, 사용자 피드백을 빠르게 반영할 수 있었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">크로스 펑셔널 협업의 가치</h4>
+                            <p class="text-gray-700">
+                                개발팀, 콘텐츠팀, 데이터팀 간의 긴밀한 협업을 통해 기술과 도메인 지식의 시너지를 창출했습니다.
+                                특히 도메인 전문가와 ML 엔지니어 간의 지식 전달이 프로젝트 성공의 핵심 요인이었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Content Platform Tab -->
+        <div id="content-platform" class="tab-content">
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-share-alt mr-3"></i>AIDT 콘텐츠 플랫폼
+                </h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        AI 디지털교과서(AIDT) 콘텐츠 플랫폼에서 다양한 브랜드의 콘텐츠를 내부 플랫폼으로
+                        마이그레이션하고, 효율적인 배포 시스템을 구축하는 프로젝트를 주도했습니다.
+                        HWP, 파일, DB 등 다양한 형식의 콘텐츠를 규칙에 따라 정의하고 내부 플랫폼에 맞게
+                        매핑하여 이관하였으며, 데이터 정합성 검증 시스템을 수립했습니다.
+                    </p>
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <p class="text-green-700 font-semibold">🎯 핵심 성과: 처리 시간 80% 단축, 데이터 정확도 99.5%, 자동화율 90% 달성</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-calendar-alt text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">진행 기간</h3>
+                            <p class="text-gray-600">2023.06 ~ 현재</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-user-tie text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">역할</h3>
+                            <p class="text-gray-600">기획자 관점 PM</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-tasks text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">주요 업무</h3>
+                            <p class="text-gray-600">마이그레이션 & 배포시스템</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Work Areas -->
+                <div class="mt-12 mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">주요 업무 영역</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- DB Migration -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-database text-3xl text-gray-700 mr-4"></i>
+                                <h3 class="text-2xl font-bold accent-color">1. DB 마이그레이션</h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                다양한 브랜드의 콘텐츠를 내부 플랫폼으로 통합하는 대규모 마이그레이션 프로젝트를 수행했습니다.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <h4 class="font-bold text-gray-800 mb-2">HWP 콘텐츠 변환</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>HWP 문서의 구조 분석 및 규칙 정의</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>내부 플랫폼 DB 스키마에 맞춘 매핑 설계</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>메타데이터 추출 및 변환 로직 구현</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <h4 class="font-bold text-gray-800 mb-2">파일 및 DB 통합</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>다양한 파일 형식의 콘텐츠 분석</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>외부 DB 구조 분석 및 매핑 테이블 생성</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>데이터 변환 및 이관 프로세스 설계</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment System -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-rocket text-3xl text-gray-700 mr-4"></i>
+                                <h3 class="text-2xl font-bold accent-color">2. 배포 시스템 구축</h3>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                다양한 콘텐츠 형식을 서비스에 효율적으로 반영하기 위한 체계적인 배포 시스템을 설계했습니다.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <h4 class="font-bold text-gray-800 mb-2">배포 유형별 시스템</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>일괄 배포: 전체 콘텐츠 동시 배포</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>선택 배포: 특정 콘텐츠 선별 배포</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>조건별 배포: 브랜드/유형별 자동 분류</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded">
+                                    <h4 class="font-bold text-gray-800 mb-2">데이터 정합성 검증</h4>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>배포 전/후 데이터 무결성 검증</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>자동화된 정합성 체크 프로세스</li>
+                                        <li><i class="fas fa-check text-green-500 mr-2"></i>오류 추적 및 롤백 시스템 구축</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Achievements (상단으로 이동) -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">주요 성과</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-lg shadow-md p-8">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-chart-line text-3xl text-green-600 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">마이그레이션 효율성</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                    <span>처리 시간 단축</span>
+                                    <span class="font-bold text-green-600">80% ↓</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                    <span>데이터 정확도</span>
+                                    <span class="font-bold text-green-600">99.5%</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                    <span>자동화율</span>
+                                    <span class="font-bold text-green-600">90%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-md p-8">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-shield-alt text-3xl text-blue-600 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">시스템 안정성</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                    <span>배포 성공률</span>
+                                    <span class="font-bold text-blue-600">99.8%</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                    <span>롤백 시간</span>
+                                    <span class="font-bold text-blue-600">< 5분</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                    <span>정합성 오류율</span>
+                                    <span class="font-bold text-blue-600">0.1% ↓</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 핵심 인사이트 (하단으로 이동) -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center accent-color">
+                        <i class="fas fa-lightbulb mr-3"></i>프로젝트를 통한 인사이트
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-gray-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">데이터 중심 사고의 중요성</h3>
+                            <p class="text-gray-700">
+                                단순한 파일 이동이 아닌 데이터의 의미와 구조를 이해하고, 목적지 시스템에
+                                최적화된 형태로 변환하는 것이 진정한 마이그레이션임을 깨달았습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-gray-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">자동화와 수동 검증의 균형</h3>
+                            <p class="text-gray-700">
+                                90% 이상의 자동화를 달성했지만, 핵심 데이터의 수동 검증 프로세스를
+                                유지함으로써 100%에 가까운 정확도를 확보할 수 있었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-gray-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">단계적 배포의 효과성</h3>
+                            <p class="text-gray-700">
+                                일괄 배포에서 선택적 배포로의 전환을 통해 리스크를 최소화하고
+                                문제 발생 시 영향 범위를 제한할 수 있었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Global Platform Tab -->
+        <div id="global-platform" class="tab-content">
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-globe mr-3"></i>에듀테크 글로벌 플랫폼
+                </h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        WebRTC 기반 교육 플랫폼을 구축하고 8개국을 대상으로 한 B2B 화상 교육 서비스를 기획 및 운영했습니다.
+                        VoC 기반 리뉴얼을 2회 진행하며 B2B 구조를 고도화하고, API/SDK를 활용한 외부 솔루션 연동까지 담당했습니다.
+                    </p>
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mb-6">
+                        <p class="text-purple-700 font-semibold">🎯 핵심 성과: 8개국 서비스 제공, 계약 갱신율 10%p 개선, CSAT 95% 달성</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-calendar-alt text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">진행 기간</h3>
+                            <p class="text-gray-600">2019.06 ~ 2023.06</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-user text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">역할</h3>
+                            <p class="text-gray-600">Senior PM</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-globe text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">서비스 지역</h3>
+                            <p class="text-gray-600">8개국</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Key Features -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">주요 기능</span>
-                        <span class="lang-en">Key Features</span>
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="border-l-4 border-indigo-500 pl-4">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">🧘 호흡 운동 가이드</span>
-                                <span class="lang-en">🧘 Breathing Exercise Guide</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 4-7-8 호흡법</li>
-                                <li class="lang-ko">• 박스 브리딩</li>
-                                <li class="lang-ko">• 시각적 가이드 애니메이션</li>
-                                <li class="lang-ko">• 커스텀 타이머 설정</li>
-                                <li class="lang-en">• 4-7-8 breathing technique</li>
-                                <li class="lang-en">• Box breathing</li>
-                                <li class="lang-en">• Visual guide animations</li>
-                                <li class="lang-en">• Custom timer settings</li>
+                <div class="mt-12 mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">주요 구현 기능</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- WebRTC 플랫폼 -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-500">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-video text-3xl text-blue-600 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">WebRTC 기반 화상 플랫폼</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>최대 100명 동시 접속 지원</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>화면 공유, 판서 기능 구현</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>녹화 및 재생 시스템 구축</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>네트워크 최적화로 끊김 최소화</li>
                             </ul>
                         </div>
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">📊 진행 상황 추적</span>
-                                <span class="lang-en">📊 Progress Tracking</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li class="lang-ko">• 일일/주간/월간 통계</li>
-                                <li class="lang-ko">• 연속 실천 스트릭</li>
-                                <li class="lang-ko">• 성취 배지 시스템</li>
-                                <li class="lang-ko">• 데이터 시각화 차트</li>
-                                <li class="lang-en">• Daily/Weekly/Monthly stats</li>
-                                <li class="lang-en">• Practice streaks</li>
-                                <li class="lang-en">• Achievement badges</li>
-                                <li class="lang-en">• Data visualization charts</li>
+
+                        <!-- B2B 플랫폼 -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-green-500">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-handshake text-3xl text-green-600 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">B2B 운영 시스템</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>기관별 맞춤 관리 시스템</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>통합 결제 시스템 구축</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>학습 관리 시스템(LMS) 연동</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>데이터 분석 대시보드 제공</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Screenshots -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">스크린샷</span>
-                        <span class="lang-en">Screenshots</span>
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <img src="그림3 (3).png" alt="Login Screen" class="w-full rounded-lg shadow-sm">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">로그인 화면</span>
-                                <span class="lang-en">Login Screen</span>
-                            </p>
-                        </div>
-                        <div>
-                            <img src="그림3 (4).png" alt="Permission Management" class="w-full rounded-lg shadow-sm">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">권한 관리</span>
-                                <span class="lang-en">Permission Management</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <img src="그림3 (5).png" alt="Dashboard" class="w-full rounded-lg shadow-sm">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">대시보드</span>
-                                <span class="lang-en">Dashboard</span>
-                            </p>
-                        </div>
-                        <div>
-                            <img src="그림3 (6).png" alt="Competition Info" class="w-full rounded-lg shadow-sm">
-                            <p class="text-center mt-2 text-gray-600">
-                                <span class="lang-ko">대회 정보</span>
-                                <span class="lang-en">Competition Info</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Achievements (상단으로 이동) -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">주요 성과</h3>
 
-                <!-- Technical Implementation -->
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">기술적 구현</span>
-                        <span class="lang-en">Technical Implementation</span>
-                    </h3>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">프론트엔드</span>
-                                <span class="lang-en">Frontend</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>• Next.js 14 (App Router)</li>
-                                <li>• TypeScript</li>
-                                <li>• Tailwind CSS</li>
-                                <li>• Framer Motion</li>
-                                <li>• Chart.js</li>
-                            </ul>
+                    <!-- 첫 번째 줄: 서비스 규모 지표 -->
+                    <div class="grid md:grid-cols-4 gap-4 mb-4">
+                        <div class="text-center p-6 bg-blue-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-globe text-3xl text-blue-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-blue-600">8개국</div>
+                            <div class="text-sm text-gray-600">서비스 제공 국가</div>
                         </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-gray-700 mb-2">
-                                <span class="lang-ko">백엔드</span>
-                                <span class="lang-en">Backend</span>
-                            </h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>• Supabase (PostgreSQL)</li>
-                                <li>• Row Level Security</li>
-                                <li>• Realtime Subscriptions</li>
-                                <li>• Edge Functions</li>
-                                <li>• OAuth Integration</li>
-                            </ul>
+                        <div class="text-center p-6 bg-green-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-sync-alt text-3xl text-green-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-green-600">2회</div>
+                            <div class="text-sm text-gray-600">VoC 기반 리뉴얼</div>
+                        </div>
+                        <div class="text-center p-6 bg-purple-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-shield-alt text-3xl text-purple-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-purple-600">4년</div>
+                            <div class="text-sm text-gray-600">안정적 서비스 운영</div>
+                        </div>
+                        <div class="text-center p-6 bg-orange-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-trophy text-3xl text-orange-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-orange-600">100%</div>
+                            <div class="text-sm text-gray-600">고객 KPI 달성률</div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Lessons Learned -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
-                        <span class="lang-ko">배운 점</span>
-                        <span class="lang-en">Lessons Learned</span>
-                    </h3>
-                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6">
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="lang-ko">• Full-stack 개발 경험을 통한 프론트/백엔드 통합 이해</li>
-                            <li class="lang-ko">• 실시간 데이터 동기화 구현으로 WebSocket 활용 능력 향상</li>
-                            <li class="lang-ko">• 사용자 피드백 반영을 통한 반복적 개선 프로세스 체득</li>
-                            <li class="lang-ko">• 성능 최적화 (Lighthouse 점수 95+)</li>
-                            <li class="lang-en">• Understanding of front/backend integration through full-stack development</li>
-                            <li class="lang-en">• Improved WebSocket skills through real-time data synchronization</li>
-                            <li class="lang-en">• Learned iterative improvement process through user feedback</li>
-                            <li class="lang-en">• Performance optimization (Lighthouse score 95+)</li>
+                    <!-- 두 번째 줄: B2B 성과 지표 -->
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center p-6 bg-cyan-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-smile text-3xl text-cyan-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-cyan-600">95%</div>
+                            <div class="text-sm text-gray-600">고객 만족도(CSAT)</div>
+                        </div>
+                        <div class="text-center p-6 bg-emerald-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-check-circle text-3xl text-emerald-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-emerald-600">88%</div>
+                            <div class="text-sm text-gray-600">문제 해결률</div>
+                        </div>
+                        <div class="text-center p-6 bg-rose-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-user-minus text-3xl text-rose-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-rose-600">35% ↓</div>
+                            <div class="text-sm text-gray-600">이탈률 감소</div>
+                        </div>
+                        <div class="text-center p-6 bg-amber-50 rounded-lg h-32 flex flex-col justify-center">
+                            <i class="fas fa-server text-3xl text-amber-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-amber-600">99.9%</div>
+                            <div class="text-sm text-gray-600">서비스 가용성</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <ul class="space-y-3 text-gray-700">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>8개국 대상 안정적인 글로벌 교육 플랫폼 운영 및 95% 고객 만족도 달성</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>고객 KPI 기반 교육 운영 및 QA 문서화 체계 구축으로 100% 목표 달성</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>WebRTC 기술 기반 실시간 화상 교육 시스템 99.9% 가용성 확보</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>B2B/C2C 다양한 비즈니스 모델 운영으로 35% 이탈률 감소 달성</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+
+                <!-- 핵심 인사이트 (하단으로 이동) -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center accent-color">
+                        <i class="fas fa-lightbulb mr-3"></i>프로젝트를 통한 인사이트
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">글로벌 네트워크 최적화 리딩</h3>
+                            <p class="text-gray-700">
+                                8개국 서비스 제공 과정에서 발생한 네트워크 품질 이슈를 해결하기 위해 AWS 팀과 직접 협업했습니다.
+                                여러 리전의 서버 구성과 CDN 최적화, 네트워크 라우팅 테스트를 주도하며 각 국가별 최적의 인프라
+                                아키텍처를 설계했고, 이를 통해 전체 서비스 지연시간을 평균 40% 단축시켰습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">기술팀과의 협업 리더십</h3>
+                            <p class="text-gray-700">
+                                AWS 엔지니어들과 함께 서버 성능 테스트를 진행하고, WebRTC 프로토콜 최적화를 위한
+                                기술적 의사결정을 리딩했습니다. PM으로서 비즈니스 요구사항과 기술적 제약 사이에서
+                                균형점을 찾고, 글로벌 서비스 안정성을 확보하는 방법을 체득했습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">VoC 기반 지속적 개선</h3>
+                            <p class="text-gray-700">
+                                사용자 피드백을 체계적으로 수집하고 분석하여 2회의 대규모 리뉴얼을 성공적으로 진행했습니다.
+                                데이터 기반 의사결정과 빠른 실험을 통해 제품을 지속적으로 개선하는 프로세스를 구축했습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-6">
+                            <h3 class="text-lg font-bold mb-2 accent-color">확장 가능한 아키텍처</h3>
+                            <p class="text-gray-700">
+                                초기부터 확장성을 고려한 시스템 설계로 사용자 증가에 유연하게 대응할 수 있었고,
+                                마이크로서비스 아키텍처를 통해 각 서비스를 독립적으로 개선할 수 있었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </main>
+
+        <!-- Side Projects Tab -->
+        <div id="side-projects" class="tab-content">
+            <!-- BreatheLog 프로젝트 -->
+            <section class="bg-white rounded-lg shadow-md p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-water mr-3"></i>BreatheLog
+                </h2>
+                <p class="text-lg opacity-90 text-center mb-8">프리다이빙 기록 관리 및 팀 매칭 서비스</p>
+
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        개인 취미인 프리다이빙을 위한 기록 관리 및 팀 매칭 서비스입니다.
+                        프리다이버와 코치의 권한을 분리하고, 체계적인 기록 관리와 팀 생성 프로세스를 통해
+                        안전하고 효율적인 프리다이빙 활동을 지원합니다.
+                    </p>
+                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6">
+                        <p class="text-indigo-700 font-semibold">🎯 핵심 특징: Next.js + Supabase를 활용한 Full-stack 개발, 실시간 데이터 동기화 구현</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-calendar-alt text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">개발 기간</h3>
+                            <p class="text-gray-600">2024.01 ~ 진행중</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-user text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">역할</h3>
+                            <p class="text-gray-600">Full-stack 개발</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-code text-2xl text-gray-600 mb-2"></i>
+                            <h3 class="font-bold text-gray-800">주요 기술</h3>
+                            <p class="text-gray-600">Next.js, Supabase</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Features with Images -->
+                <section class="mb-16">
+                    <h3 class="text-2xl font-bold mb-12 text-center accent-color">주요 기능</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-user-shield text-3xl text-gray-700 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">로그인/회원가입 및 인증 기능</h3>
+                            </div>
+                            <div class="mb-4">
+                                <img src="그림3 (3).png" alt="로그인 화면" class="w-full rounded-lg shadow-sm border">
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                Supabase Auth를 활용한 안전한 사용자 인증 시스템을 구현했습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>이메일 기반 회원가입 및 로그인</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>사용자 프로필 관리 기능</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>보안 강화된 인증 프로세스</li>
+                            </ul>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-users text-3xl text-gray-700 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">프리다이버/코치 권한 분리</h3>
+                            </div>
+                            <div class="mb-4">
+                                <img src="그림3 (4).png" alt="권한 관리 화면" class="w-full rounded-lg shadow-sm border">
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                사용자 역할에 따른 차별화된 기능과 팀 생성/승인 시스템을 구축했습니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>역할 기반 접근 제어 (RBAC)</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>팀 생성 및 멤버 승인 프로세스</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>코치 인증 및 자격 검증</li>
+                            </ul>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-chart-line text-3xl text-gray-700 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">기록 관리 및 대시보드</h3>
+                            </div>
+                            <div class="mb-4">
+                                <img src="그림3 (5).png" alt="대시보드 화면" class="w-full rounded-lg shadow-sm border">
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                개인 기록 추적과 성과 분석을 위한 종합 대시보드를 제공합니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>다이빙 기록 입력 및 관리</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>개인 성과 시각화 차트</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>목표 설정 및 진행상황 추적</li>
+                            </ul>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-gray-700">
+                            <div class="flex items-center mb-6">
+                                <i class="fas fa-trophy text-3xl text-gray-700 mr-4"></i>
+                                <h3 class="text-xl font-bold accent-color">외부 대회정보 API 연동</h3>
+                            </div>
+                            <div class="mb-4">
+                                <img src="그림3 (6).png" alt="대회정보 화면" class="w-full rounded-lg shadow-sm border">
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                실시간 대회 정보를 제공하여 사용자들의 참여 기회를 확대합니다.
+                            </p>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>외부 API 통합 및 데이터 동기화</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>대회 일정 및 세부정보 제공</li>
+                                <li><i class="fas fa-check text-gray-500 mr-2"></i>참가 신청 및 알림 기능</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Stack -->
+                <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">
+                        <i class="fas fa-laptop-code mr-3"></i>기술 스택
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 accent-color">Frontend</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Next.js 14 (App Router)</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>TypeScript</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Tailwind CSS</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Recharts (데이터 시각화)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 accent-color">Backend</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Supabase (BaaS)</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>PostgreSQL</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Supabase Auth</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Real-time subscriptions</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 accent-color">DevOps & Tools</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Vercel (배포)</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Git & GitHub</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>ESLint & Prettier</li>
+                                <li><i class="fas fa-arrow-right text-gray-500 mr-2"></i>Figma (디자인)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Development Process -->
+                <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">
+                        <i class="fas fa-cogs mr-3"></i>개발 과정 및 도전
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-gray-300 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">사용자 경험 설계</h4>
+                            <p class="text-gray-700">
+                                프리다이빙 특성상 안전이 최우선이므로, 직관적이고 신뢰할 수 있는 UI/UX를 설계했습니다.
+                                특히 기록 입력과 팀 관리 기능에서 사용자의 편의성을 최대한 고려했습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-gray-300 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">실시간 데이터 동기화</h4>
+                            <p class="text-gray-700">
+                                Supabase의 실시간 기능을 활용하여 팀 멤버 간의 활동 상황을 실시간으로 공유할 수 있도록 구현했습니다.
+                                이를 통해 더 나은 협업과 안전 관리가 가능해졌습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-gray-300 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">권한 관리 시스템</h4>
+                            <p class="text-gray-700">
+                                프리다이버와 코치의 역할을 명확히 구분하고, 각각에 적합한 기능을 제공하는 권한 시스템을 구축했습니다.
+                                이는 서비스의 전문성과 신뢰성을 높이는 핵심 요소였습니다.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Current Status & Future Plans -->
+                <section class="bg-white rounded-lg shadow-md p-8 mb-16">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">
+                        <i class="fas fa-road mr-3"></i>현재 상황 및 향후 계획
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 accent-color">현재 상황</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>MVP 개발 완료</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>베타 테스트 진행 중</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>사용자 피드백 수집 및 반영</li>
+                                <li><i class="fas fa-spinner text-yellow-500 mr-2"></i>성능 최적화 진행 중</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 accent-color">향후 계획</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li><i class="fas fa-clock text-blue-500 mr-2"></i>모바일 앱 개발</li>
+                                <li><i class="fas fa-clock text-blue-500 mr-2"></i>AI 기반 훈련 추천 시스템</li>
+                                <li><i class="fas fa-clock text-blue-500 mr-2"></i>소셜 기능 확장</li>
+                                <li><i class="fas fa-clock text-blue-500 mr-2"></i>다국어 지원</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lessons Learned -->
+                <section class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-bold mb-8 text-center accent-color">
+                        <i class="fas fa-lightbulb mr-3"></i>배운 점과 성장
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-gray-300 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">풀스택 개발 경험</h4>
+                            <p class="text-gray-700">
+                                기획부터 디자인, 개발, 배포까지 전체 프로세스를 혼자 진행하면서
+                                제품 개발의 전반적인 이해도를 크게 향상시킬 수 있었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-gray-300 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">사용자 중심 사고</h4>
+                            <p class="text-gray-700">
+                                실제 프리다이버들의 니즈를 파악하고 이를 기능으로 구현하는 과정에서
+                                사용자 중심의 제품 개발 방법론을 체득할 수 있었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-gray-300 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">최신 기술 활용</h4>
+                            <p class="text-gray-700">
+                                Next.js 14와 Supabase 등 최신 기술 스택을 활용하면서
+                                빠른 개발과 안정적인 서비스 제공 간의 균형을 찾는 방법을 배웠습니다.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- AI 자동화 경험 -->
+            <section class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold mb-8 text-center accent-color">
+                    <i class="fas fa-robot mr-3"></i>AI 기반 자동화 및 서비스 구현 경험
+                </h2>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-gray-800 mb-3">
+                            <i class="fas fa-newspaper text-blue-600 mr-2"></i>자동화 도구를 활용한 뉴스레터 자동화
+                        </h4>
+                        <p class="text-gray-700 text-sm mb-2">Make, n8n을 활용한 RSS → 요약 프롬프트 → Gmail 연동까지 실시간 워크플로우 구축</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Make</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">n8n</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">GPT API</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-gray-800 mb-3">
+                            <i class="fas fa-chart-line text-purple-600 mr-2"></i>AI 기반 트렌드 분석 자동화 실험
+                        </h4>
+                        <p class="text-gray-700 text-sm mb-2">웹 데이터 기반 주요 키워드 추출 및 시계열 분석 파이프라인 기획</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Claude</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Web Scraping</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">데이터 분석</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-gray-800 mb-3">
+                            <i class="fas fa-brain text-orange-600 mr-2"></i>프롬프트 엔지니어링 및 생성형 AI 실무 적용
+                        </h4>
+                        <p class="text-gray-700 text-sm mb-2">난이도별 힌트 생성, 사용자 맞춤 말투 적용 등 구조화된 체계 설계</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">GPT</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Claude</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">프롬프트 설계</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">품질 검증</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 핵심 인사이트 -->
+                <div class="bg-gray-50 rounded-lg p-8 mt-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center accent-color">
+                        <i class="fas fa-lightbulb mr-3"></i>사이드 프로젝트를 통한 인사이트
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-indigo-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">빠른 프로토타이핑의 가치</h4>
+                            <p class="text-gray-700">
+                                AI 도구를 활용한 빠른 프로토타입 개발로 아이디어 검증 시간을 90% 단축했습니다.
+                                특히 Cursor AI를 활용해 코딩 속도를 크게 향상시킬 수 있었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">No-code/Low-code 도구의 활용</h4>
+                            <p class="text-gray-700">
+                                Make, n8n 같은 자동화 도구로 복잡한 워크플로우를 시각적으로 구현하여
+                                개발 리소스 없이도 실무 문제를 해결할 수 있었습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-6">
+                            <h4 class="text-lg font-bold mb-2 accent-color">도메인 지식과 기술의 융합</h4>
+                            <p class="text-gray-700">
+                                PM으로서의 도메인 지식과 개발 역량을 결합하여,
+                                사용자 니즈를 정확히 파악하고 직접 구현까지 연결할 수 있었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-8 text-center">
-        <p>© 2024
-            <span class="lang-ko">유정희. 모든 권리 보유.</span>
-            <span class="lang-en">Jeong Hui Yu. All rights reserved.</span>
-        </p>
-        <div class="mt-4 flex justify-center space-x-4">
-            <a href="mailto:yjhee0320@gmail.com" class="hover:text-blue-400"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/MichelleYu320" target="_blank" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/yjhee0320" target="_blank" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2025 유정희. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Tab Functionality -->
     <script>
-        // Language toggle functionality
-        function setLanguage(lang) {
-            const body = document.body;
-            const koBtn = document.getElementById('lang-ko');
-            const enBtn = document.getElementById('lang-en');
-
-            if (lang === 'en') {
-                body.classList.add('en');
-                koBtn.classList.remove('active');
-                enBtn.classList.add('active');
-                localStorage.setItem('preferredLanguage', 'en');
-            } else {
-                body.classList.remove('en');
-                koBtn.classList.add('active');
-                enBtn.classList.remove('active');
-                localStorage.setItem('preferredLanguage', 'ko');
-            }
-        }
-
-        // Load saved language preference
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'ko';
-            setLanguage(savedLang);
-        });
-
-        // Tab switching functionality
         function showTab(tabName) {
             // Hide all tabs
             const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
 
             // Show selected tab
             document.getElementById(tabName).classList.add('active');
 
-            // Update button states
+            // Update button styles
             const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-            event.target.classList.add('active');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                // Reset border colors
+                btn.style.borderBottomColor = '';
+            });
 
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Set active button
+            event.target.classList.add('active');
         }
     </script>
 </body>
